@@ -1,0 +1,112 @@
+.filters {
+  margin: 100px 0 50px 0;
+}
+.filters__title {
+  margin-bottom: 30px;
+}
+.filters__row {
+  display: flex;
+  justify-content: space-between;
+}
+.filters-left__item {
+  margin-right: 10px;
+  font-size: 14px;
+}
+.filters-right__item {
+  margin-left: 10px;
+}
+
+.filters-brand {
+  width: 200px;
+}
+.ant-btn {
+  &:hover {
+    border-color: #eb971a !important;
+  }
+}
+
+.filters-price {
+  display: inline-block;
+}
+.filters-left__item {
+  margin-right: 10px;
+  font-size: 14px;
+}
+.filters-price {
+  display: inline-block;
+}
+/* reset */
+.filters-price__button,
+.filters-price-fieldset,
+.filters-price-fieldset__input,
+.filters-price-popover__close {
+  all: unset;
+}
+.filters-price__button {
+  cursor: pointer;
+  height: 30px;
+  width: 80px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  font-weight: 500;
+  border: 1px solid #d9d9d9;
+  transition: border-color 0.2s ease;
+  &:hover {
+    border-color: #eb971a;
+  }
+}
+.filters-price__popover {
+  border-radius: 4px;
+  padding: 25px 15px 15px 15px;
+  width: 220px;
+  background-color: white;
+  will-change: transform, opacity;
+  box-shadow: 0px 7px 16px rgba(0, 0, 0, 0.16), 0px 2px 0px rgba(0, 0, 0, 0);
+}
+.filters-price-fieldset__row {
+  display: flex;
+  justify-content: space-around;
+}
+.filters-price-fieldset {
+  display: flex;
+  align-items: center;
+}
+.filters-price-fieldset__label {
+  font-size: 13px;
+  margin-right: 8px;
+}
+.filters-price-fieldset__input {
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--violet-11);
+  box-shadow: 0 0 0 1px #cfcfcf;
+  height: 25px;
+  max-width: 50px;
+  &:focus {
+    box-shadow: 0 0 0 2px #cfcfcf;
+  }
+}
+.filters-price-popover__close {
+  cursor: pointer;
+  border-radius: 100%;
+  height: 23px;
+  width: 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #696969;
+  position: absolute;
+  top: 0;
+  right: 0;
+  &:hover {
+    background-color: #ededed;
+  }
+}
+.filters-price-popover__arrow {
+  fill: white;
+}

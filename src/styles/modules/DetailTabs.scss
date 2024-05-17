@@ -1,0 +1,179 @@
+.detail-tabs {
+  margin-top: 170px;
+  border-radius: 10px;
+  background: linear-gradient(#eb911a75, #e0e0e0);
+  color: #222;
+}
+.detail-tabs-nav {
+  display: flex;
+  padding: 0px 4px;
+  position: relative;
+}
+.detail-tabs-nav-item {
+  border-radius: 10px 10px 0px 0px;
+  margin: 12px 1px;
+  margin-bottom: 0.5px;
+  width: 18%;
+  border-bottom: 0.5pt solid #1d1e22;
+  border-right: 1px solid #61451841;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16), 0px 2px 0px rgba(0, 0, 0, 0);
+  color: #282828f2;
+  background: #c6bfb8;
+}
+.detail-tabs-nav-title {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 13px;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+.detail-tabs-nav-title:hover {
+  color: #777;
+}
+.detail-tab-nav-item_active .detail-tabs-nav-title {
+  color: #eb971a;
+}
+.detail-tabs-nav-bg {
+  display: none;
+  border-radius: 1px 4px 1px 4px;
+}
+
+.detail-tabs-nav-item_active .detail-tabs-nav-bg {
+  display: block;
+  background: linear-gradient(90deg, #faffcc 0%, #f5eea3 10%, #ffe48a 40%, #ffb54d 65%, #ff974d 85%, #ff8052 100%);
+  box-shadow: 0px 0px 8px 0px hsl(17.72deg 100% 70% / 70%);
+  height: 5px;
+}
+.detail-tabs-content {
+  border-top: 1px solid #71471068;
+  padding: 1.25rem;
+  border-radius: 10px;
+  background: #f9f9f9f5;
+}
+.detail-tabs-content-item {
+  padding: 10px 15px;
+  display: none;
+  transition: all 0.3s;
+}
+.detail-tabs-content-item_act {
+  display: block;
+}
+
+.detai-tabs-content-item__title {
+  display: inline-flex;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -ms-text-fill-color: transparent;
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(50deg, #edc37b, #f97c47);
+}
+.detail-tabs-content-item__content {
+  letter-spacing: 0.75px;
+  font-size: 18px;
+  line-height: 30px;
+  margin-top: 10px;
+  text-align: justify;
+}
+
+.detail-tabs-content-item__list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 110px;
+}
+.detail-tabs-content-item-property {
+  font-size: 22px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: calc(50% - 110px);
+  &:nth-child(3) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 0.2s;
+    }
+  }
+  &:nth-child(5) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 0.5s;
+    }
+  }
+  &:nth-child(7) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 0.8s;
+    }
+  }
+  &:nth-child(9) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 1.1s;
+    }
+  }
+  &:nth-child(11) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 1.4s;
+    }
+  }
+  &:nth-child(2) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 0s;
+    }
+  }
+  &:nth-child(4) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 0.2s;
+    }
+  }
+  &:nth-child(6) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 0.5s;
+    }
+  }
+  &:nth-child(8) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 0.8s;
+    }
+  }
+  &:nth-child(10) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 1.1s;
+    }
+  }
+  &:nth-child(12) .detail-tabs-content-item-property__value {
+    &::after {
+      animation-delay: 1.4s;
+    }
+  }
+}
+.detail-tabs-content-item-property__name {
+  font-weight: 500;
+  flex: 0 0 55%;
+}
+.detail-tabs-content-item-property__value {
+  position: relative;
+  flex: 0 0 50%;
+  text-align: center;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 3px;
+    background: #fb973b;
+    opacity: 0.5;
+    animation: showLine 300ms forwards;
+    animation-delay: 0s;
+  }
+}
+
+@keyframes showLine {
+  from {
+    width: 0;
+    left: -50%;
+  }
+  to {
+    width: 100%;
+    left: 0;
+  }
+}
