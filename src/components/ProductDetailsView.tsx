@@ -2,6 +2,7 @@ import useGetProductDetails from "../hooks/useGetProductDetails"
 import Slider from "react-slick"
 import DetailTabs from "./DetailTabs"
 import { SvgPriceUnderline } from "../svg/svg"
+import { NavLink } from "react-router-dom"
 
 function ProductDetailsView(props: { productId: number }) {
   const { productDetails, isLoading } = useGetProductDetails(props.productId)
@@ -32,10 +33,10 @@ function ProductDetailsView(props: { productId: number }) {
     <div className="detail">
       <div className="detail-bg">
         <div className="container">
-          <div className="detail-gift">
+          <NavLink to="/gifts" target="_blank" className="detail-gift">
             <img src={"/giftbox.png"} alt="" />
             <span>При заказе этого инструмента Вы получите аксессуар в подарок!</span>
-          </div>
+          </NavLink>
           <div className="detail-card__row">
             <div className="detail-slider slider-container">
               <Slider {...settings}>

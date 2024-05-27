@@ -33,16 +33,14 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
   }
   return (
     <>
-      <div className="container">
-        <div className="products__row">
-          {productsPage.productsOnPage.length != 0 ? (
-            productsPage.productsOnPage.map((el) => <Product key={el.id} item={el} />)
-          ) : (
-            <div className="no-products">
-              <p>Нет товаров по такому фильтру</p>
-            </div>
-          )}
-        </div>
+      <div className="products__row">
+        {productsPage.productsOnPage.length != 0 ? (
+          productsPage.productsOnPage.map((el) => <Product key={el.id} item={el} />)
+        ) : (
+          <div className="no-products">
+            <p>Нет товаров по такому фильтру</p>
+          </div>
+        )}
       </div>
 
       <ConfigProvider

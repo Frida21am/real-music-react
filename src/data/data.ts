@@ -30,37 +30,37 @@ export const categories = [
     img: "/categories/domra.png",
   },
   {
-    id: 8,
+    id: 7,
     title: "Балалайки",
     img: "/categories/balalaika.jpg",
   },
   {
-    id: 9,
+    id: 8,
     title: "Глюкофоны",
     img: "/categories/glucophone.jpg",
   },
   {
-    id: 10,
+    id: 9,
     title: "Комбоусилители",
     img: "/categories/amplifier.jpg",
   },
   {
-    id: 11,
+    id: 10,
     title: "Банджо",
     img: "/categories/banjo.jpg",
   },
   {
-    id: 12,
+    id: 11,
     title: "Ударные установки",
     img: "/categories/drum.png",
   },
   {
-    id: 13,
+    id: 12,
     title: "Аксессуары",
     img: "/categories/accessories.jpg",
   },
   {
-    id: 14,
+    id: 13,
     title: "Разное",
     img: "/categories/other.jpg",
   },
@@ -177,6 +177,7 @@ export const products = [
         value: "12",
       },
     ],
+    categoryId: 2,
   },
   {
     id: 3,
@@ -232,6 +233,7 @@ export const products = [
         value: "12",
       },
     ],
+    categoryId: 2,
   },
   {
     id: 4,
@@ -287,6 +289,7 @@ export const products = [
         value: "12",
       },
     ],
+    categoryId: 2,
   },
   {
     id: 5,
@@ -342,6 +345,7 @@ export const products = [
         value: "15",
       },
     ],
+    categoryId: 2,
   },
   {
     id: 6,
@@ -397,6 +401,7 @@ export const products = [
         value: "15",
       },
     ],
+    categoryId: 2,
   },
   {
     id: 7,
@@ -451,6 +456,7 @@ export const products = [
         value: "18",
       },
     ],
+    categoryId: 2,
   },
   {
     id: 8,
@@ -498,6 +504,7 @@ export const products = [
         value: "19",
       },
     ],
+    categoryId: 1,
   },
   {
     id: 9,
@@ -545,6 +552,7 @@ export const products = [
         value: "18",
       },
     ],
+    categoryId: 1,
   },
   {
     id: 10,
@@ -592,6 +600,7 @@ export const products = [
         value: "22",
       },
     ],
+    categoryId: 1,
   },
   {
     id: 11,
@@ -639,6 +648,7 @@ export const products = [
         value: "Липа",
       },
     ],
+    categoryId: 5,
   },
 ]
 
