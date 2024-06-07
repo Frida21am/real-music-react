@@ -71,3 +71,43 @@
   background: rgb(248, 248, 248) linear-gradient(rgb(248, 248, 248), rgb(234, 234, 234));
   box-shadow: -1px 2px 5px rgba(39, 39, 39, 0.1) inset;
 }
+
+@media screen and (max-width: 1200px) {
+  .categories__row {
+    grid-gap: 20px 0px;
+  }
+  .categories-item {
+    width: 115px;
+  }
+  .categories-item__image {
+    img {
+      height: 85px;
+    }
+  }
+  .categories-item__caption {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .categories {
+    padding: 25px 0px 20px 0px;
+  }
+  .categories__row {
+    margin: 25px 10px 0 10px;
+  }
+  .categories__title {
+    font-size: 20px;
+  }
+  .categories-item {
+    width: 88px;
+  }
+  .categories-item__image {
+    img {
+      height: 50px;
+    }
+  }
+  .categories-item__caption {
+    font-size: 10px;
+  }
+}

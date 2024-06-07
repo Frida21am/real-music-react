@@ -1,3 +1,6 @@
+.catalog {
+  padding-bottom: 50px;
+}
 .fullscreen {
   color: #fff;
   background: url("/bg.jpg") no-repeat;
@@ -27,7 +30,6 @@
     cursor: pointer;
     border: none;
     display: inline-block;
-    padding: 10px 55px;
     color: #fff;
     background-color: #eb971a;
     font-size: 28px;
@@ -40,5 +42,46 @@
       background: darken(#eb971a, 5%);
       box-shadow: none;
     }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .fullscreen {
+    height: 600px;
+  }
+  .fulscreen-caption {
+    padding: 245px 0px 0px 40px;
+  }
+  .fulscreen-caption__title {
+    font-size: 44px;
+  }
+  .fulscreen-caption__subtitle {
+    font-size: 18px;
+    margin: 7px 0 28px 0;
+  }
+  .fulscreen-caption__btn a {
+    font-size: 23px;
+    padding: 12px 50px;
+    border-radius: 13px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .fullscreen {
+    height: 500px;
+  }
+  .fulscreen-caption {
+    padding: 215px 0px 0px 30px;
+  }
+  .fulscreen-caption__title {
+    font-size: 40px;
+  }
+  .fulscreen-caption__subtitle {
+    font-size: 15px;
+    margin: 6px 0 24px 0;
+  }
+  .fulscreen-caption__btn a {
+    font-size: 20px;
+    padding: 11px 46px;
   }
 }

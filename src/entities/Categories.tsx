@@ -24,7 +24,7 @@ function Categories(props: {
           item={{
             id: undefined,
             title: "Все",
-            img: "/categories/present.png",
+            img: "/musical-instruments.png",
           }}
         />
         {categoriesList.map((el) => (

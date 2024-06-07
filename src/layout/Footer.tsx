@@ -26,7 +26,7 @@ function Footer() {
             <div className="footer-adress">
               <span className="footer-adress__title">Адрес</span>
               <span className="footer-adress__text">
-                Москва, Можайское шоссе 30, вход со двора возле 2 подъезда, вместе со входом в Ozon Метро Славянский
+                Москва, Можайское шоссе, 30. Вход со двора возле 2 подъезда, вместе со входом в Ozon. Метро Славянский
                 бульвар
               </span>
             </div>

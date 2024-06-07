@@ -110,3 +110,9 @@
 .filters-price-popover__arrow {
   fill: white;
 }
+
+@media screen and (max-width: 991px) {
+  .filters {
+    margin: 60px 0 40px 0;
+  }
+}

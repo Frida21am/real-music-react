@@ -4,7 +4,7 @@ import Product from "./Product"
 import { Pagination, ConfigProvider } from "antd"
 import Filtration, { SelectedFilters } from "../components/Filtration"
 
-const pageSize = 4
+const pageSize = 12
 
 function Products() {
   const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({ sorting: "ByListingTimeDesc" })
@@ -33,9 +33,13 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
   }
   return (
     <>
-      <div className="products__row">
+      <div>
         {productsPage.productsOnPage.length != 0 ? (
-          productsPage.productsOnPage.map((el) => <Product key={el.id} item={el} />)
+          <div className="products__row">
+            {productsPage.productsOnPage.map((el) => (
+              <Product key={el.id} item={el} />
+            ))}
+          </div>
         ) : (
           <div className="no-products">
             <p>Нет товаров по такому фильтру</p>

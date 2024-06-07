@@ -40,20 +40,6 @@ body {
   margin: 0 auto;
 }
 
-.no-products {
-  border: 1px solid #222;
-  border: 2px solid #919191c5;
-  width: 1200px;
-  height: 552px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  p {
-    font-size: 25px;
-    font-family: "EB Garamond";
-  }
-}
-
 .up-arrow-btn {
   position: fixed;
   bottom: 40px;
@@ -65,4 +51,33 @@ body {
   cursor: pointer;
   opacity: 0.9;
   border-radius: 10%;
+  z-index: 1000;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 0px 30px;
+  }
+  .up-arrow-btn {
+    bottom: 30px;
+    right: 30px;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .up-arrow-btn {
+    bottom: 25px;
+    right: 25px;
+    height: 35px;
+    width: 35px;
+    img {
+      width: 13px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+}
+@media screen and (max-width: 575px) {
 }

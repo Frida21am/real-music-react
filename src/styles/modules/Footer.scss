@@ -59,3 +59,71 @@
 .footer-adress__text {
   display: inline-block;
 }
+
+@media screen and (max-width: 1200px) {
+  .footer-text {
+    font-size: 18px;
+  }
+  .footer-phones {
+    padding-bottom: 30px;
+  }
+  .footer-phones__title {
+    font-size: 21px;
+  }
+  .footer-adress__title {
+    font-size: 21px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .footer-text {
+    font-size: 16px;
+  }
+  .footer-phones {
+    padding-bottom: 30px;
+  }
+  .footer-phones__title {
+    font-size: 19px;
+    padding-bottom: 5px;
+  }
+  .footer-adress__title {
+    font-size: 19px;
+    padding-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer__row {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5fr 1fr;
+    row-gap: 25px;
+  }
+  .footer-text {
+    font-size: 15px;
+    margin: 0 15px;
+  }
+  .footer-phones {
+    padding-bottom: 20px;
+  }
+  .footer-phones__title {
+    font-size: 17px;
+  }
+  .footer-adress__title {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .footer__row {
+    grid-template-rows: 1fr 1fr;
+  }
+  .footer-text {
+    font-size: 13px;
+  }
+  .footer-phones__title {
+    font-size: 15px;
+  }
+  .footer-adress__title {
+    font-size: 15px;
+  }
+}
