@@ -61,10 +61,11 @@
 .filters-price__popover {
   border-radius: 4px;
   padding: 25px 15px 15px 15px;
-  width: 220px;
+  width: 250px;
   background-color: white;
   will-change: transform, opacity;
   box-shadow: 0px 7px 16px rgba(0, 0, 0, 0.16), 0px 2px 0px rgba(0, 0, 0, 0);
+  z-index: 1000;
 }
 .filters-price-fieldset__row {
   display: flex;
@@ -75,8 +76,12 @@
   align-items: center;
 }
 .filters-price-fieldset__label {
-  font-size: 13px;
+  font-size: 14px;
   margin-right: 8px;
+}
+.filters-price-fieldset__label_currency {
+  margin: 8px 0 8px 5px;
+  font-size: 14px;
 }
 .filters-price-fieldset__input {
   border-radius: 4px;
@@ -88,7 +93,7 @@
   height: 25px;
   max-width: 50px;
   &:focus {
-    box-shadow: 0 0 0 2px #cfcfcf;
+    box-shadow: 0px 0px 1px 2px rgba(238, 149, 16, 0.6);
   }
 }
 .filters-price-popover__close {
@@ -104,6 +109,7 @@
   top: 0;
   right: 0;
   &:hover {
+    color: #eb971a;
     background-color: #ededed;
   }
 }

@@ -33,7 +33,8 @@ function FilterPrice(props: {
                       min: priceNumber,
                     })
                   }}
-                />
+                />{" "}
+                <label className="filters-price-fieldset__label_currency">₽</label>
               </fieldset>
               <fieldset className="filters-price-fieldset">
                 <label className="filters-price-fieldset__label" htmlFor="maxWidth">
@@ -54,6 +55,7 @@ function FilterPrice(props: {
                     })
                   }}
                 />
+                <label className="filters-price-fieldset__label_currency">₽</label>
               </fieldset>
             </div>
             <Popover.Close className="filters-price-popover__close" aria-label="Close">
