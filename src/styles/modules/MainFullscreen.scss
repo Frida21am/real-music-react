@@ -70,23 +70,30 @@
     height: 500px;
   }
   .fulscreen-caption {
-    padding: 215px 0px 0px 30px;
+    padding: 225px 0px 0px 40px;
   }
   .fulscreen-caption__title {
-    font-size: 40px;
+    font-size: 36px;
   }
   .fulscreen-caption__subtitle {
-    font-size: 15px;
-    margin: 6px 0 24px 0;
+    font-size: 12px;
+    margin: 3px 0 20px 0;
   }
   .fulscreen-caption__btn a {
-    font-size: 17px;
-    padding: 15px 25px;
+    font-size: 13px;
+    padding: 12px 20px;
   }
 }
 
 @media screen and (max-width: 767px) {
+  .fulscreen-caption {
+    padding: 235px 0px 0px 20px;
+  }
 }
 
 @media screen and (max-width: 575px) {
+  .fullscreen {
+    background-position: -300px center;
+    background-color: #bdbdbd;
+  }
 }
