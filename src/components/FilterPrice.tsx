@@ -7,7 +7,7 @@ function FilterPrice(props: {
   onPriceFilterChanged: (newPriceFilter: SelectedFiltersPrice | undefined) => void
 }) {
   return (
-    <div className="filters-left__item filters-price">
+    <div className="filters-item filters-price">
       <Popover.Root>
         <Popover.Trigger asChild>
           <button className="filters-price__button">Цена</button>

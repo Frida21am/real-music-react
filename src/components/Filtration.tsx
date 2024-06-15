@@ -6,7 +6,6 @@ import Categories from "../entities/Categories"
 
 export type SelectedFilters = {
   name?: string
-  brand?: string[]
   priceRange?: SelectedFiltersPrice
   sorting: SortingType
   category?: number
@@ -70,66 +69,41 @@ function Filtration(props: {
           }}
         >
           <div className="filters__row">
-            <div>
-              <div>
-                <Select
-                  className="filters-left__item filters-brand"
-                  placeholder={<span style={{ color: "#222" }}>Бренд</span>}
-                  mode="multiple"
-                  allowClear
-                  onChange={(selectedOptions) => {
-                    props.onFiltersChanged({
-                      ...props.selectedFilters,
-                      brand: selectedOptions.length != 0 ? selectedOptions : undefined,
-                    })
-                  }}
-                  disabled={filters?.optionsBrand?.length == 0}
-                  options={filters?.optionsBrand}
-                  defaultValue={props.selectedFilters?.brand}
-                />
+            <FilterPrice
+              priceFilter={props.selectedFilters?.priceRange}
+              onPriceFilterChanged={(newPriceFilter) => {
+                props.onFiltersChanged({
+                  ...props.selectedFilters,
+                  priceRange: newPriceFilter,
+                })
+              }}
+            />
+            <Search
+              className="filters-item"
+              placeholder="Поиск"
+              allowClear
+              style={{ width: 200 }}
+              onChange={(e) => {
+                props.onFiltersChanged({
+                  ...props.selectedFilters,
+                  name: e.target.value != "" ? e.target.value : undefined,
+                })
+              }}
+              defaultValue={props.selectedFilters?.name}
+            />
 
-                <FilterPrice
-                  priceFilter={props.selectedFilters?.priceRange}
-                  onPriceFilterChanged={(newPriceFilter) => {
-                    props.onFiltersChanged({
-                      ...props.selectedFilters,
-                      priceRange: newPriceFilter,
-                    })
-                  }}
-                />
-              </div>
-            </div>
-
-            <div>
-              <div>
-                <Search
-                  className="filter-right__item"
-                  placeholder="Поиск"
-                  allowClear
-                  style={{ width: 200 }}
-                  onChange={(e) => {
-                    props.onFiltersChanged({
-                      ...props.selectedFilters,
-                      name: e.target.value != "" ? e.target.value : undefined,
-                    })
-                  }}
-                  defaultValue={props.selectedFilters?.name}
-                />
-
-                <Select
-                  className="filters-right__item"
-                  defaultValue={props.selectedFilters.sorting}
-                  disabled={filters?.optionsOrder?.length == 0}
-                  options={filters?.optionsOrder}
-                  onChange={(newSortingType) => {
-                    props.onFiltersChanged({
-                      ...props.selectedFilters,
-                      sorting: newSortingType,
-                    })
-                  }}
-                />
-              </div>
-            </div>
+            <Select
+              className="filters-item"
+              defaultValue={props.selectedFilters.sorting}
+              disabled={filters?.optionsOrder?.length == 0}
+              options={filters?.optionsOrder}
+              onChange={(newSortingType) => {
+                props.onFiltersChanged({
+                  ...props.selectedFilters,
+                  sorting: newSortingType,
+                })
+              }}
+            />
           </div>
         </ConfigProvider>
       </div>

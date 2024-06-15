@@ -8,7 +8,6 @@ export type Product = {
   frontImg: string
   backImg: string
   price: number
-  brand: string
   listingTime: Date
   bestseller: boolean
   categoryId: number
@@ -20,11 +19,6 @@ function filterProducts(product: Product, selectedFilters: SelectedFilters) {
   }
   if (selectedFilters.name != null) {
     if (!product.title.includes(selectedFilters.name)) {
-      return false
-    }
-  }
-  if (selectedFilters.brand != null) {
-    if (!selectedFilters.brand.some((filterValue) => filterValue == product.brand)) {
       return false
     }
   }
