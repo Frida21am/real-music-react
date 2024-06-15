@@ -1,7 +1,15 @@
+import { useState } from "react"
 import { NavLink } from "react-router-dom"
 function Header() {
+  const [sideBarIsOpen, setSideBarIsOpen] = useState(false)
+  function closeSideBar() {
+    if (sideBarIsOpen) {
+      setSideBarIsOpen(!sideBarIsOpen)
+    }
+  }
   return (
     <header className="header">
+      <div className="header-blur"></div>
       <div className="container">
         <div className="header-row">
           <div className="header__logo">
@@ -19,25 +27,35 @@ function Header() {
               <a href="tel:89680556655">8-994-333-66-88</a>
             </div>
           </div>
-          <div className="header__nav">
+          <nav className={sideBarIsOpen ? "header__nav active" : "header__nav"}>
             <ul className="header__nav_list">
               <li>
-                <NavLink to="/">Каталог</NavLink>
+                <NavLink to="/" onClick={() => closeSideBar()}>
+                  Каталог
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/about">О нас</NavLink>
+                <NavLink to="/about" onClick={() => closeSideBar()}>
+                  О нас
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/blog">Наш блог</NavLink>
+                <NavLink to="/blog" onClick={() => closeSideBar()}>
+                  Наш блог
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/delivery">Доставка</NavLink>
+                <NavLink to="/delivery" onClick={() => closeSideBar()}>
+                  Доставка
+                </NavLink>
               </li>
               <li>
-                <a href="#contacts">Контакты</a>
+                <a href="#contacts" onClick={() => closeSideBar()}>
+                  Контакты
+                </a>
               </li>
             </ul>
-          </div>
+          </nav>
           <div className="header__addprod">
             <div className="header__addprod_likes">
               <img src="/like.png" alt="" />
@@ -47,6 +65,14 @@ function Header() {
               <img src="/basket.png" alt="" />
               <span>0</span>
             </div>
+          </div>
+          <div
+            className={sideBarIsOpen ? "icon-menu active" : "icon-menu"}
+            onClick={() => setSideBarIsOpen(!sideBarIsOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </div>
