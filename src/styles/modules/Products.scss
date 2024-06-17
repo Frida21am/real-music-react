@@ -266,3 +266,23 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .no-products {
+    width: 500px;
+    height: 300px;
+    p {
+      font-size: 16px;
+    }
+  }
+}
+@media screen and (max-width: 575px) {
+  .no-products {
+    border: 1px solid #464646c5;
+    width: 300px;
+    height: 150px;
+    p {
+      font-size: 14px;
+    }
+  }
+}

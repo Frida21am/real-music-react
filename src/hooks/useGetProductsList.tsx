@@ -18,7 +18,7 @@ function filterProducts(product: Product, selectedFilters: SelectedFilters) {
     return true
   }
   if (selectedFilters.name != null) {
-    if (!product.title.includes(selectedFilters.name)) {
+    if (!product.title.toLowerCase().includes(selectedFilters.name.toLowerCase())) {
       return false
     }
   }

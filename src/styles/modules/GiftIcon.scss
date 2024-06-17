@@ -210,7 +210,28 @@
     height: 10px;
   }
 }
-@media screen and (max-width: 768px) {
-}
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
+  .gift-icon__box-body {
+    height: 30px;
+    width: 40px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
+    &::after {
+      width: 8px;
+    }
+  }
+  .gift-icon__box-lid {
+    height: 7px;
+    width: 43px;
+    &::after {
+      width: 9px;
+    }
+  }
+  .gift-icon__img {
+    width: 55px;
+  }
+  .gift-icon__box-bowtie::before,
+  .gift-icon__box-bowtie::after {
+    width: 8px;
+    height: 8px;
+  }
 }

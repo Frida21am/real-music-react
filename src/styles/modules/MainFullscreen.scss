@@ -96,4 +96,9 @@
     background-position: -300px center;
     background-color: #bdbdbd;
   }
+  .fullscreen .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

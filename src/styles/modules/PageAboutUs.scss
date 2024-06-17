@@ -63,7 +63,6 @@
 .about-gallery__slider .slick-next:before,
 .about-gallery__slider .slick-prev:before {
   font-size: 29px;
-  color: #fff;
   opacity: 0.75;
   color: #eb971a;
 }
@@ -172,7 +171,7 @@
     width: 100%;
   }
   .about-gallery__title {
-    font-size: 35px;
+    font-size: 34px;
   }
   .about-gallery__text {
     margin: 20px 0 30px 0;
@@ -183,5 +182,94 @@
       font-size: 13px;
       padding: 13px 30px;
     }
+  }
+  .about-advantages__title {
+    font-size: 34px;
+  }
+  .about-advantages__item-text span {
+    font-size: 16px;
+  }
+  .about-faq__title {
+    font-size: 34px;
+    margin-bottom: 50px;
+  }
+  .about-faq__accordion {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-gallery__slider-image {
+    height: 330px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .about-container {
+    padding: 0 40px;
+    margin: 30px auto;
+  }
+  .about-gallery__title {
+    font-size: 32px;
+  }
+  .about-gallery__text {
+    font-size: 16px;
+  }
+  .about-gallery__btn a {
+    font-size: 12px;
+    padding: 15px 19px;
+  }
+  .about-gallery__slider-image {
+    height: 300px;
+    border-radius: 5px;
+  }
+  .about-gallery__slider .slick-next:before,
+  .about-gallery__slider .slick-prev:before {
+    font-size: 22px;
+  }
+  .about-gallery__slider .slick-prev {
+    left: -30px;
+  }
+  .about-gallery__slider .slick-next {
+    right: -25px;
+  }
+  .about-advantages__title {
+    font-size: 30px;
+  }
+  .about-advantages__row {
+    margin: 40px 0;
+  }
+  .about-advantages__item {
+    width: 160px;
+    height: 180px;
+  }
+  .about-faq__title {
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+  .about-faq__accordion {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .about-gallery__slider-image {
+    height: 200px;
+  }
+  .about-advantages__row {
+    justify-content: center;
+  }
+  .about-advantages__item {
+    width: 220px;
+    height: 140px;
+  }
+  .about-advantages__item-text {
+    margin-top: 5px;
+  }
+  .about-advantages__item-icon img {
+    text-align: center;
+    width: 56px;
+  }
+  .about-advantages__item-text span {
+    font-size: 14px;
   }
 }

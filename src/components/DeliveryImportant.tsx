@@ -3,7 +3,7 @@ function DeliveryImportant() {
     <div className="delivery-important">
       <h3 className="delivery-important__title">Важно:</h3>
       <hr className="delivery-important-line" />
-      <ul className="delivery-stages-list">
+      <ul className="delivery-important-list">
         <li>
           <span>При получении заказа необходимо проверить внешний вид и комплектность товара,</span> а также
           комплектность всего заказа. После получения заказа претензии к внешним дефектам товара, его количеству,
