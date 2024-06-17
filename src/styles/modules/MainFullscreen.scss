@@ -23,7 +23,7 @@
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 }
 .fulscreen-caption__btn {
-  a {
+  span {
     text-align: center;
     cursor: pointer;
     border: none;
@@ -58,7 +58,7 @@
     font-size: 18px;
     margin: 7px 0 28px 0;
   }
-  .fulscreen-caption__btn a {
+  .fulscreen-caption__btn span {
     font-size: 18px;
     padding: 15px 27px;
     border-radius: 13px;
@@ -79,7 +79,7 @@
     font-size: 12px;
     margin: 3px 0 20px 0;
   }
-  .fulscreen-caption__btn a {
+  .fulscreen-caption__btn span {
     font-size: 13px;
     padding: 12px 20px;
   }

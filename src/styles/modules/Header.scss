@@ -224,11 +224,11 @@
   }
   .header__nav {
     position: fixed;
-    width: 100%;
+    width: 50%;
     height: 100%;
     top: 0;
     right: 0;
-    background-color: #4d4959;
+    background-color: #d38717;
     padding: 100px 0 0 0;
     margin: 0;
     overflow: auto;
@@ -244,7 +244,7 @@
     align-items: center;
     li {
       margin: 0 0 25px 0;
-      font-size: 28px;
+      font-size: 25px;
     }
   }
 }
