@@ -5,11 +5,9 @@ function Footer() {
         <div className="footer__row">
           <div className="footer-map">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2250.60376395997!2d37.20313360000001!3d55.661100399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b5509726a2e7a3%3A0x62872f9da995a37f!2z0YguINCc0L7QttCw0LnRgdC60L7QtSwgMzAsINCU0YPQsdC60LggKNCz0L8g0JvQtdGB0L0uINCT0L7RgNC-0LTQvtC6KSwg0JzQvtGB0LrQvtCy0YHQutCw0Y8g0L7QsdC7LiwgMTQzMDg2!5e0!3m2!1sru!2sru!4v1716801684260!5m2!1sru!2sru"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Responsive Google Map"
+              src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=147311093683"
+              width="500"
+              height="400"
             ></iframe>
           </div>
 
