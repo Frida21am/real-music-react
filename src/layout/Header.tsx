@@ -54,6 +54,16 @@ function Header() {
                   Контакты
                 </a>
               </li>
+              <li>
+                <img src="/delivery/avito.png" alt="" />
+                <a
+                  href="https://www.avito.ru/brands/i224952978/all/muzykalnye_instrumenty?gdlkerfdnwq=101&page_from=from_item_header&iid=3183987440&sellerId=4a2d802f13e360fb2496b6d7bcccca0e"
+                  onClick={() => closeSideBar()}
+                  target="_blank"
+                >
+                  Мы на Авито
+                </a>
+              </li>
             </ul>
           </nav>
           <div className="header__addprod">
