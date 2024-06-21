@@ -3,6 +3,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 import GiftIcon from "../components/GiftIcon"
 import BackToTopButton from "../components/BackToTopButton"
+import WhatsAppIcon from "../components/WhatsAppIcon"
 
 function Layout() {
   return (
@@ -11,6 +12,7 @@ function Layout() {
       <main>
         <Outlet />
         <GiftIcon />
+        <WhatsAppIcon />
         <BackToTopButton />
       </main>
       <Footer />

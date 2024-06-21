@@ -18,6 +18,7 @@
 @import "./modules/PageAboutUs.scss";
 @import "./modules/PageDelivery.scss";
 @import "./modules/FeedbackFormPopup.scss";
+@import "./modules/WhatsAppIcon.scss";
 
 * {
   margin: 0;
@@ -44,7 +45,7 @@ body {
 .up-arrow-btn {
   position: fixed;
   bottom: 40px;
-  right: 40px;
+  right: 130px;
   height: 50px;
   width: 50px;
   border: none;
@@ -60,10 +61,8 @@ body {
     padding: 0px 30px;
   }
   .up-arrow-btn {
-    bottom: 30px;
-    right: 30px;
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
   }
 }
 
@@ -72,16 +71,14 @@ body {
     padding: 0px 20px;
   }
   .up-arrow-btn {
-    bottom: 25px;
-    right: 25px;
-    height: 35px;
-    width: 35px;
-    img {
-      width: 13px;
-    }
+    bottom: 130px;
+    right: 45px;
   }
 }
 @media screen and (max-width: 767px) {
 }
 @media screen and (max-width: 575px) {
+  .up-arrow-btn {
+    bottom: 120px;
+  }
 }

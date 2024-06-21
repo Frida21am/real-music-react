@@ -24,7 +24,7 @@ function Header() {
             </div>
             <div>
               <img src="/phone-call.png" alt="" />
-              <a href="tel:89680556655">8-994-333-66-88</a>
+              <a href="tel:89680556655">8-968-055-66-55</a>
             </div>
           </div>
           <nav className={sideBarIsOpen ? "header__nav active" : "header__nav"}>
