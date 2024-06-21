@@ -55,6 +55,7 @@ function Filtration(props: {
                 controlOutline: "rgba(252, 168, 73, 0.279)",
                 colorPrimary: "#eb971a",
                 colorPrimaryHover: "#eb971a",
+                fontSize: 15,
               },
               Input: {
                 activeBorderColor: "#eb971a",
@@ -64,6 +65,8 @@ function Filtration(props: {
                 colorPrimaryActive: "#eb971a",
                 colorPrimaryHover: "#eb971a",
                 colorSplit: "#eb971a",
+                inputFontSize: 16,
+                fontSizeIcon: 14,
               },
             },
           }}
