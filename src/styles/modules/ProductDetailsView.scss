@@ -263,3 +263,29 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 575px) {
+  .detail-slider .slick-prev {
+    left: -25px;
+  }
+  .detail-slider .slick-next {
+    right: -15px;
+  }
+  .detail-card__title {
+    font-size: 30px;
+  }
+  .detail-card__desc {
+    padding: 15px 0 25px 0;
+    font-size: 19px;
+  }
+  .detail-card-purchase-info {
+    margin-bottom: 25px;
+  }
+  .detail-card-purchase-buttons {
+    font-size: 17px;
+    width: 50%;
+    a {
+      padding: 13px 20px;
+    }
+  }
+}

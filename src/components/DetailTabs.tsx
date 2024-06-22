@@ -88,7 +88,7 @@ function TabsNavItem(props: { name: string; changeTab(): void; active: boolean }
 function TabsContentItem(props: { title: string; content: string | ReactElement }) {
   return (
     <div className="detail-tabs-content-item detail-tabs-content-item_act">
-      <div className="detai-tabs-content-item__title">{props.title}</div>
+      <div className="detail-tabs-content-item__title">{props.title}</div>
       <div className="detail-tabs-content-item__content">{props.content}</div>
     </div>
   )
