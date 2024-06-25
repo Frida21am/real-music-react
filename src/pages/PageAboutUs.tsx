@@ -1,7 +1,7 @@
 import AboutUsAdvantages from "../components/AboutUsAdvantages"
 import AboutUsFaq from "../components/AboutUsFaq"
 import AboutUsGallery from "../components/AboutUsGallery"
-import MainFullScreen from "../components/MainFullScreen"
+import MainFullScreen from "../fullscreens/MainFullScreen"
 
 function PageAboutUs() {
   return (

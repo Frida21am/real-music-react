@@ -19,6 +19,7 @@
 @import "./modules/PageDelivery.scss";
 @import "./modules/FeedbackFormPopup.scss";
 @import "./modules/WhatsAppIcon.scss";
+@import "./modules/PageNotFound.scss";
 
 * {
   margin: 0;
@@ -34,7 +35,10 @@ body {
   color: #222;
   font-family: "Montserrat", sans-serif;
 }
-
+a {
+  color: #222;
+  text-decoration: none;
+}
 //.wrapper {}
 
 .container {

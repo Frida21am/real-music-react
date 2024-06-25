@@ -3,7 +3,7 @@ function GiftsFulscreen() {
     <div className="gifts-fullscreen">
       <div className="container">
         <div className="gifts-fullscreen-caption">
-          <h2 className="gifts-fullscreen-caption-title">Подарки каждому!</h2>
+          <h2 className="gifts-fullscreen-caption-title">При покупке инструмента — подарок на Ваш выбор!</h2>
           <h3 className="gifts-fullscreen-caption-subtitle">
             При покупке любого инструмента в нашем магазине вы получите в подарок:
           </h3>

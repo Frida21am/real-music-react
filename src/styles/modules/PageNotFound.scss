@@ -1,0 +1,139 @@
+//.notfound {}
+.notfound-banner {
+  padding-top: 145px;
+  background: url("/public/404/404-banner-1600x2.jpg") no-repeat;
+  color: #fff;
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+}
+.notfound-banner-text {
+  text-align: center;
+  max-width: 550px;
+  margin: 0px auto;
+}
+.notfound-banner-text__title {
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  font-size: 39px;
+  margin-bottom: 10px;
+}
+.notfound-banner-text__caption {
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.notfound-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 20px;
+}
+.notfound-link {
+  height: 620px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 49%;
+  a {
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-position: center center;
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.notfound-link__tocatalog {
+  a {
+    background: url("/public/404/404-catalog-1600x.jpg") no-repeat;
+  }
+}
+.notfound-link__tofaq {
+  a {
+    background: url("/public/404//404-faq-1600x.jpg") no-repeat;
+  }
+}
+
+.notfound-link-caption {
+  font-size: 29px;
+  font-weight: 600;
+  text-align: center;
+}
+//.notfound-link-caption__tocatalog {}
+//.notfound-link-caption__tofaq {}
+
+@media screen and (max-width: 1700px) {
+  .notfound-link__tocatalog {
+    a {
+      background: 25% 0 url("/public/404/404-catalog-1600x.jpg") no-repeat;
+    }
+  }
+  .notfound-link__tofaq {
+    a {
+      background: 25% 0 url("/public/404//404-faq-1600x.jpg") no-repeat;
+    }
+  }
+}
+@media screen and (max-width: 1500px) {
+  .notfound-link__tocatalog {
+    a {
+      background: 40% 0 url("/public/404/404-catalog-1600x.jpg") no-repeat;
+    }
+  }
+  .notfound-link__tofaq {
+    a {
+      background: 40% 0 url("/public/404//404-faq-1600x.jpg") no-repeat;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .notfound-banner-text__title {
+    font-size: 35px;
+  }
+  .notfound-banner-text__caption {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .notfound-links {
+    flex-direction: column;
+    padding: 0px;
+  }
+  .notfound-link {
+    flex: auto;
+    a {
+      border-radius: 0px;
+    }
+  }
+  .notfound-link-caption {
+    font-size: 27px;
+    font-weight: 600;
+  }
+}
+@media screen and (max-width: 575px) {
+  .notfound-banner {
+    height: 250px;
+    padding-top: 110px;
+  }
+  .notfound-banner-text__title {
+    font-size: 28px;
+    backdrop-filter: blur(0px);
+  }
+  .notfound-banner-text__caption {
+    font-size: 13px;
+    backdrop-filter: blur(0px);
+  }
+  .notfound-link-caption {
+    font-size: 26px;
+  }
+  .notfound-link {
+    height: 600px;
+  }
+}

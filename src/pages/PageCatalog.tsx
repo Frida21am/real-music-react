@@ -1,4 +1,4 @@
-import MainFullScreen from "../components/MainFullScreen.tsx"
+import MainFullScreen from "../fullscreens/MainFullScreen.tsx"
 import Products from "../entities/Products.tsx"
 
 function PageCatalog() {

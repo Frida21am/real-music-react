@@ -1,7 +1,6 @@
-.gifts {
-}
+//.gifts {}
 .gifts-fullscreen {
-  padding: 190px 0 120px 0;
+  padding: 180px 0 115px 0;
   background-color: #222222;
   margin-top: -10px;
   position: relative;
@@ -15,22 +14,22 @@
 }
 .gifts-fullscreen-caption-title {
   color: #eb971a;
-  font-size: 100px;
+  font-size: 69px;
   font-weight: 400;
 }
 .gifts-fullscreen-caption-subtitle {
-  font-size: 24px;
+  font-size: 23px;
   margin: 30px 0;
   font-weight: 400;
 }
 .gifts-fullscreen-presents {
   display: flex;
   flex-direction: column;
+  max-width: 810px;
+  margin: 0 auto;
 }
-.gifts-fullscreen-presents__row_1 {
-}
+//.gifts-fullscreen-presents__row_1 {}
 .gifts-fullscreen-presents__row_2 {
-  margin-top: -20px;
   display: flex;
   justify-content: space-around;
 }
@@ -48,8 +47,7 @@
     transform: rotate(20deg);
   }
 }
-.gifts-fullscreen-present_2 {
-}
+//.gifts-fullscreen-present_2 {}
 .gifts-fullscreen-present_3 {
   img {
     transform: rotate(45deg);
@@ -105,8 +103,8 @@
 }
 .gifts-accessories-title {
   text-align: center;
-  font-size: 80px;
-  margin-bottom: 20px;
+  font-size: 70px;
+  margin-bottom: 30px;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
   -webkit-background-clip: text !important;
@@ -129,8 +127,7 @@
     float: left;
   }
 }
-.gifts-accessories-table_2 {
-}
+//.gifts-accessories-table_2 {}
 .gifts-accessories-table_3 {
   padding: 25px 15px;
   .gifts-accessories-table__title {
@@ -150,15 +147,14 @@
     list-style-position: inside;
   }
 }
-.gifts-accessories__right-column {
-}
+//.gifts-accessories__right-column {}
 
 .gifts-guarantee {
   padding-bottom: 50px;
 }
 .gifts-guarantee__title {
   text-align: center;
-  font-size: 60px;
+  font-size: 59px;
   margin-bottom: 40px;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -181,7 +177,7 @@
   display: block;
 }
 .gifts-guarantee__item-type {
-  font-size: 28px;
+  font-size: 27px;
   font-weight: 500;
   margin-bottom: 10px;
   span {
@@ -190,10 +186,11 @@
 }
 .gifts-guarantee__item-period {
   color: #eb971a;
+  font-size: 19px;
 }
 .gifts-guarantee__item-return {
   color: #eb971a;
-  font-size: 21px;
+  font-size: 20px;
 }
 
 .gifts-cutaway {
@@ -255,8 +252,7 @@
     box-shadow: none;
   }
 }
-.gifts-cutaway__column {
-}
+//.gifts-cutaway__column {}
 .gifts-cutaway__column-card {
   position: relative;
 }
@@ -266,7 +262,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 450px;
+  width: 420px;
 }
 .gifts-cutaway-card_active {
   animation: business-card 1.9s linear forwards;

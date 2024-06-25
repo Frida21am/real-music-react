@@ -2,7 +2,7 @@ import DeliveryAdvantages from "../components/DeliveryAdvantages"
 import DeliveryImportant from "../components/DeliveryImportant"
 import DeliveryStages from "../components/DeliveryStages"
 import DeliveryTransportCompanies from "../components/DeliveryTransportCompanies"
-import MainFullScreen from "../components/MainFullScreen"
+import MainFullScreen from "../fullscreens/MainFullScreen"
 
 function PageDelivery() {
   return (

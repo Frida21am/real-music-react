@@ -1,9 +1,9 @@
-import MainFullScreen from "../components/MainFullScreen"
+import OurBlogFullscreen from "../fullscreens/OurBlogFullscreen"
 
 function PageOurBlog() {
   return (
     <div className="blog">
-      <MainFullScreen />
+      <OurBlogFullscreen />
 
       <div className="container">
         <h2 className="blog__title">Наш блог</h2>

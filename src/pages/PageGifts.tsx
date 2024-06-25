@@ -1,15 +1,17 @@
 import GiftsAccessories from "../components/GiftsAccessories"
 import GiftsCutaway from "../components/GiftsCutaway"
-import GiftsFulscreen from "../components/GiftsFulscreen"
+import GiftsFulscreen from "../fullscreens/GiftsFulscreen"
 import GiftsGuarantee from "../components/GiftsGuarantee"
 
 function PageGifts() {
   return (
     <div className="gifts">
       <GiftsFulscreen />
-      <GiftsAccessories />
-      <GiftsGuarantee />
-      <GiftsCutaway />
+      <div className="container">
+        <GiftsAccessories />
+        <GiftsGuarantee />
+        <GiftsCutaway />
+      </div>
     </div>
   )
 }
