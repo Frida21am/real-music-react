@@ -652,6 +652,33 @@ export const products = [
   },
 ]
 
+export const articles = [
+  {
+    id: 1,
+    title: "Формы гитар 1",
+    img: "/articles/guitar-shapes.jpg",
+    desc: "В этой статье мы разберемся в формах корпусов гитар, научимся их различать и узнаем о них всё!",
+  },
+  {
+    id: 2,
+    title: "Формы гитар 2",
+    img: "/articles/guitar-shapes.jpg",
+    desc: "В этой статье мы разберемся в формах корпусов гитар, научимся их различать и узнаем о них всё!",
+  },
+  {
+    id: 3,
+    title: "Формы гитар 3",
+    img: "/articles/guitar-shapes.jpg",
+    desc: "В этой статье мы разберемся в формах корпусов гитар, научимся их различать и узнаем о них всё!",
+  },
+  {
+    id: 4,
+    title: "Формы гитар 4",
+    img: "/articles/guitar-shapes.jpg",
+    desc: "В этой статье мы разберемся в формах корпусов гитар, научимся их различать и узнаем о них всё!",
+  },
+]
+
 const optionsBrand = [
   {
     value: "antonioLavazza",

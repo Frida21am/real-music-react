@@ -1,9 +1,11 @@
 @import url("https://use.typekit.net/ovt6ynt.css");
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 @import "./modules/ProductDetailsView.scss";
 @import "./modules/Filtration.scss";
@@ -20,6 +22,8 @@
 @import "./modules/FeedbackFormPopup.scss";
 @import "./modules/WhatsAppIcon.scss";
 @import "./modules/PageNotFound.scss";
+@import "./modules/OurBlogFullscreen.scss";
+@import "./modules/Articles.scss";
 
 * {
   margin: 0;

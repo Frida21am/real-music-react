@@ -1,3 +1,4 @@
+import Articles from "../entities/Articles"
 import OurBlogFullscreen from "../fullscreens/OurBlogFullscreen"
 
 function PageOurBlog() {
@@ -6,7 +7,7 @@ function PageOurBlog() {
       <OurBlogFullscreen />
 
       <div className="container">
-        <h2 className="blog__title">Наш блог</h2>
+        <Articles />
       </div>
     </div>
   )

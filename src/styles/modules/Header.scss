@@ -127,6 +127,9 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .header-blur {
+    height: 85px;
+  }
   .header__logo {
     margin-right: 10px;
   }
