@@ -3,10 +3,6 @@
   font-family: "Playfair Display", serif;
 }
 .article-detail-banner {
-  background-color: #7c7c7c;
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: multiply;
   width: 95%;
   border-radius: 15px;
   height: 700px;
@@ -38,7 +34,7 @@
 }
 .article-detail-text__preface {
   margin: 85px 0 15px 0;
-  font-size: 29px;
+  font-size: 28px;
   line-height: 1.6;
   letter-spacing: 1px;
 }
@@ -59,7 +55,7 @@
     font-weight: 600;
   }
   p {
-    margin-bottom: 70px;
+    margin: 0 auto 70px auto;
     text-align: left;
     font-size: 25px;
     font-family: "Arial";
@@ -82,3 +78,118 @@
   }
 }
 //.article-detail-text-paragraph__other {}
+
+@media screen and (max-width: 1200px) {
+  .article-detail-banner__caption-title {
+    font-size: 49px;
+    margin-bottom: 25px;
+  }
+  .article-detail-banner__caption-desc {
+    font-size: 21px;
+  }
+  .article-detail-text__preface {
+    margin: 55px 0 15px 0;
+    font-size: 25px;
+    padding: 0 20px;
+  }
+  .article-detail-text-paragraph {
+    padding: 0 20px;
+    h3 {
+      font-size: 34px;
+    }
+    p {
+      margin-bottom: 60px;
+      font-size: 23px;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .article-detail-banner__caption-title {
+    font-size: 46px;
+    margin-bottom: 20px;
+  }
+  .article-detail-banner__caption-desc {
+    font-size: 19px;
+  }
+  .article-detail-text__preface {
+    margin: 50px 0 0 0;
+    font-size: 23px;
+  }
+  .article-detail-text-paragraph {
+    margin: 50px 0 65px 0;
+    span {
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 31px;
+      margin: 15px 0px 25px 0;
+    }
+    p {
+      margin-bottom: 50px;
+      font-size: 21px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .article-detail-banner {
+    background-position: 30% !important;
+  }
+  .article-detail-banner__caption {
+    padding: 0 30px;
+  }
+  .article-detail-banner__caption-title {
+    font-size: 43px;
+    margin-bottom: 15px;
+  }
+  .article-detail-banner__caption-desc {
+    font-size: 18px;
+  }
+  .article-detail-text__preface {
+    margin: 40px 0 0 0;
+    font-size: 22px;
+  }
+  .article-detail-text-paragraph {
+    p {
+      margin-bottom: 40px;
+      font-size: 21px;
+    }
+    img {
+      width: 530px;
+      height: 340px;
+    }
+  }
+}
+@media screen and (max-width: 575px) {
+  .article-detail {
+    padding: 100px 0 30px 0;
+  }
+  .article-detail-banner {
+    height: 550px;
+  }
+  .article-detail-banner__caption-title {
+    font-size: 36px;
+  }
+  .article-detail-banner__caption-desc {
+    font-size: 16px;
+  }
+  .article-detail-text__preface {
+    font-size: 19px;
+    text-align: justify;
+  }
+  .article-detail-text-paragraph {
+    margin: 50px 0 55px 0;
+    h3 {
+      margin: 10px 0px 20px 0;
+      font-size: 26px;
+    }
+    p {
+      font-size: 17px;
+      text-align: justify;
+    }
+    img {
+      width: 336px;
+      height: 216px;
+    }
+  }
+}
