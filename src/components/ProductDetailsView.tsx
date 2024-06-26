@@ -35,7 +35,7 @@ function ProductDetailsView(props: { productId: number }) {
         <div className="container">
           <NavLink to="/gifts" target="_blank" className="detail-gift">
             <img src={"/giftbox.png"} alt="" />
-            <span>При заказе этого инструмента Вы получите аксессуар в подарок!</span>
+            <span>При заказе этого инструмента Вы получите аксессуар на Ваш выбор в подарок!</span>
           </NavLink>
           <div className="detail-card__row">
             <div className="detail-slider slider-container">

@@ -19,7 +19,7 @@ function GiftsFulscreen() {
                 <img src="/gift.png" alt="" draggable="false" />
               </div>
               <div className="gifts-fullscreen-present gifts-fullscreen-present_3">
-                <p>Гарантию на инструмент</p>
+                <p>Бессрочная скидочная визитка</p>
                 <img src="/gift.png" alt="" draggable="false" />
               </div>
             </div>

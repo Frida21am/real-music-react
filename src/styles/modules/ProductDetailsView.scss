@@ -18,7 +18,7 @@
   left: 110px;
   z-index: 100;
   padding: 15px 10px;
-  max-width: 350px;
+  max-width: 420px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.16), 0px 2px 0px rgba(0, 0, 0, 0);
@@ -144,14 +144,14 @@
 @media screen and (max-width: 1200px) {
   .detail-gift {
     left: 30px;
-    max-width: 330px;
+    max-width: 370px;
     padding: 13px 10px;
     img {
       width: 30px;
       height: 30px;
     }
     span {
-      font-size: 15px;
+      font-size: 14px;
     }
   }
   .detail-slider {
@@ -224,7 +224,14 @@
   }
   .detail-gift {
     left: 15px;
-    max-width: 320px;
+    max-width: 340px;
+    img {
+      width: 25px;
+      height: 25px;
+    }
+    span {
+      font-size: 13px;
+    }
   }
   .detail-slider .slick-prev {
     left: -30px;
