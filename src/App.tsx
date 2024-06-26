@@ -7,6 +7,7 @@ import PageCatalog from "./pages/PageCatalog"
 import PageNotFound from "./pages/PageNotFound"
 import PageProductDetails from "./pages/PageProductDetails"
 import PageGifts from "./pages/PageGifts"
+import PageArticleDetails from "./pages/PageArticleDetails"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="gifts" element={<PageGifts />} />
           <Route path="about" element={<PageAboutUs />} />
           <Route path="blog" element={<PageOurBlog />} />
+          <Route index path="article/:id" element={<PageArticleDetails />} />
           <Route path="delivery" element={<PageDelivery />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>

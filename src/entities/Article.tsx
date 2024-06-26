@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 export interface IArticleDto {
   id: number | undefined
   title: string
@@ -7,11 +9,11 @@ export interface IArticleDto {
 
 function Article(props: { item: IArticleDto }) {
   return (
-    <a href="/" className="blog-articles__item">
+    <NavLink to={`/article/${props.item.id}`} className="blog-articles__item">
       <img src={props.item.img} alt="guitar shapes" className="blog-articles__item-image" />
       <h3 className="blog-articles__item-title">{props.item.title}</h3>
-      <p className="blog-articles__item-text">{props.item.desc}</p>
-    </a>
+      <p className="blog-articles__item-desc">{props.item.desc}</p>
+    </NavLink>
   )
 }
 

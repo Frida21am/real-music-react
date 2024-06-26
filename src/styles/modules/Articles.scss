@@ -4,7 +4,6 @@
 }
 .blog-articles__row {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 .blog-articles__item {
@@ -26,7 +25,7 @@
   font-size: 26px;
   line-height: 1.23;
 }
-.blog-articles__item-text {
+.blog-articles__item-desc {
   color: #eb971a;
   font-size: 16px;
   font-weight: 500;
@@ -49,7 +48,7 @@
     padding: 0 10px;
     font-size: 25px;
   }
-  .blog-articles__item-text {
+  .blog-articles__item-desc {
     padding: 0 10px;
     font-size: 14px;
     font-weight: 500;
