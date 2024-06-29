@@ -22,7 +22,14 @@ function AboutUsGallery() {
             гарантия и аксессуар в подарок.
           </p>
           <div className="about-gallery__btn">
-            <a href="/">Напишите нам в WhatsApp</a>
+            <a
+              href="https://api.whatsapp.com/send?phone=79943336688"
+              target="_blank"
+              title="Написать в Whatsapp"
+              rel="noopener noreferrer"
+            >
+              Напишите нам в WhatsApp
+            </a>
           </div>
         </div>
 

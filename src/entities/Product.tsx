@@ -51,7 +51,12 @@ function Product(props: { item: IItemDto }) {
           </NavLink>
           <div className="products-item-bottom__price">{props.item.price} р.</div>
           <div className="products-item-bottom__buttons">
-            <div className="products-item-bottom__button products-item-bottom__button_more">Подробнее</div>
+            <NavLink
+              to={`/product/${props.item.id}`}
+              className="products-item-bottom__button products-item-bottom__button_more"
+            >
+              Подробнее
+            </NavLink>
             <div className="products-item-bottom__button products-item-bottom__button_add">В корзину</div>
           </div>
         </div>
