@@ -1,5 +1,5 @@
-import { StaticImage } from "gatsby-plugin-image"
-import React from "react"
+import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
 
 function WhatsAppIcon() {
   return (
@@ -13,7 +13,7 @@ function WhatsAppIcon() {
         <StaticImage src="../images/whatsappIcon.png" alt="WhatsApp" />
       </div>
     </a>
-  )
+  );
 }
 
-export default WhatsAppIcon
+export default WhatsAppIcon;

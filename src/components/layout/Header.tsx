@@ -1,12 +1,12 @@
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import React from "react"
-import { useState } from "react"
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
+import { useState } from "react";
 function Header() {
-  const [sideBarIsOpen, setSideBarIsOpen] = useState(false)
+  const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
   function closeSideBar() {
     if (sideBarIsOpen) {
-      setSideBarIsOpen(!sideBarIsOpen)
+      setSideBarIsOpen(!sideBarIsOpen);
     }
   }
   return (
@@ -20,11 +20,11 @@ function Header() {
             </a>
           </div>
           <div className="header__phone">
-            <div>
+            <div className="header__phone-item">
               <StaticImage src="../../images/phone-call.png" alt="" />
               <a href="tel:89943336688">8-994-333-66-88</a>
             </div>
-            <div>
+            <div className="header__phone-item">
               <StaticImage src="../../images/phone-call.png" alt="" />
               <a href="tel:89680556655">8-968-055-66-55</a>
             </div>
@@ -89,7 +89,7 @@ function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

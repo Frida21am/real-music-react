@@ -12,9 +12,9 @@
   line-height: 53px;
   font-size: 35px;
   z-index: 9999;
-}
-.whatsapp-button a {
-  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .whatsapp-button:before,
 .whatsapp-button:after {
