@@ -1,3 +1,4 @@
+import React from "react"
 import useGetCategoriesList from "../hooks/useGetCategoriesList"
 import Category from "./Category"
 
@@ -5,12 +6,9 @@ function Categories(props: {
   selectedCategory: number | undefined
   onSelectedCategoryChanged: (newSelectedCategory: number | undefined) => void
 }) {
-  const { categoriesList, isLoading } = useGetCategoriesList()
+  const categoriesList = useGetCategoriesList()
   if (categoriesList == null) {
     return <span>Нет категорий</span>
-  }
-  if (isLoading) {
-    return <span>Загрузка...</span>
   }
   return (
     <div className="categories">

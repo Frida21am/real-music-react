@@ -1,23 +1,25 @@
-import useGetProductDetails from "../hooks/useGetProductDetails"
+import useGetProductDetails, { ProductDetails } from "../hooks/useGetProductDetails"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick"
 import DetailTabs from "./DetailTabs"
 import { SvgPriceUnderline } from "../svg/svg"
-import { NavLink } from "react-router-dom"
+import React from "react"
+import { Link } from "gatsby"
 
-function ProductDetailsView(props: { productId: number }) {
-  const { productDetails, isLoading } = useGetProductDetails(props.productId)
+function ProductDetailsView(props: { product: ProductDetails }) {
+  const productDetails = props.product;
 
   if (productDetails == null) {
     return <span>Нет такого товара</span>
   }
-  if (isLoading) {
-    return <span>Загрузка...</span>
-  }
+
   const settings = {
     customPaging: function (i: number) {
       return (
         <a>
-          <img src={`/product${productDetails.id}/sliderImage${i + 1}.jpg`} />
+          <img alt=""
+           src={productDetails.images[i]} />
         </a>
       )
     },
@@ -33,10 +35,10 @@ function ProductDetailsView(props: { productId: number }) {
     <div className="detail">
       <div className="detail-bg">
         <div className="container">
-          <NavLink to="/gifts" target="_blank" className="detail-gift">
+          <Link to="/gifts" target="_blank" className="detail-gift">
             <img src={"/giftbox.png"} alt="" />
-            <span>При заказе этого инструмента Вы получите аксессуар на Ваш выбор в подарок!</span>
-          </NavLink>
+            <span>При заказе этого инструмента Вы получите аксессуар в подарок!</span>
+          </Link>
           <div className="detail-card__row">
             <div className="detail-slider slider-container">
               <Slider {...settings}>
@@ -68,7 +70,7 @@ function DetailCard(props: {
           <span className="detail-card-purchase-info__stock">
             {props.productDetails.isInStock ? "В наличии" : "Нет в наличии"}
           </span>
-          <span className="detail-card-purchase-info__price">{props.productDetails.price} р.</span>
+          <span className="detail-card-purchase-info__price">{props.productDetails.price}</span>
           <SvgPriceUnderline />
         </div>
         <div className="detail-card-purchase-buttons">
