@@ -1,16 +1,19 @@
-import React from "react"
-import MainFullScreen from "../components/MainFullScreen"
+import React from "react";
+import MainFullScreen from "../components/MainFullScreen";
+import Layout from "../components/layout/Layout";
 
 function PageOurBlog() {
   return (
-    <div className="blog">
-      <MainFullScreen />
+    <Layout>
+      <div className="blog">
+        <MainFullScreen />
 
-      <div className="container">
-        <h2 className="blog__title">Наш блог</h2>
+        <div className="container">
+          <h2 className="blog__title">Наш блог</h2>
+        </div>
       </div>
-    </div>
-  )
+    </Layout>
+  );
 }
 
-export default PageOurBlog
+export default PageOurBlog;

@@ -30,13 +30,10 @@
 .header__phone {
   display: flex;
   flex-direction: column;
-  div {
+  .header__phone-item {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    &:last-child {
-      margin-bottom: 0px;
-    }
     img {
       width: 17px;
       margin-right: 10px;

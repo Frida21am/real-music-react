@@ -1,12 +1,15 @@
-import { Link } from "gatsby"
-import React from "react"
+import { Link } from "gatsby";
+import React from "react";
+import Layout from "../components/layout/Layout";
 
 function PageNotFound() {
   return (
-    <div>
-      This page doesn't exist. Go <Link to="/">home</Link>
-    </div>
-  )
+    <Layout>
+      <div>
+        This page doesn't exist. Go <Link to="/">home</Link>
+      </div>
+    </Layout>
+  );
 }
 
-export default PageNotFound
+export default PageNotFound;
