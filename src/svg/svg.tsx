@@ -1,3 +1,5 @@
+import React from "react"
+
 export const SvgPriceUnderline = () => {
   return (
     <svg viewBox="6025 5136 211.87548828125 38.666015625">

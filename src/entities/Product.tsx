@@ -1,12 +1,14 @@
+import { Link } from "gatsby"
+import React from "react"
 import { useState } from "react"
-import { NavLink } from "react-router-dom"
 
 export interface IItemDto {
-  id: number
+  id: string
+  slug: string
   title: string
-  frontImg: string
-  backImg: string
-  price: number
+  frontImg?: string
+  backImg?: string
+  price: string
   bestseller: boolean
 }
 
@@ -17,14 +19,14 @@ function Product(props: { item: IItemDto }) {
   return (
     <div className="products-gradient-box">
       <div className="products-item">
-        <NavLink to={`/product/${props.item.id}`} style={{ textDecoration: "none" }} className="products-item__image">
+        <Link to={`/catalog/${props.item.slug}`} style={{ textDecoration: "none" }} className="products-item__image">
           <img
             src={isHovered ? props.item.backImg : props.item.frontImg}
             alt=""
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           />
-        </NavLink>
+        </Link>
         <div className={!props.item.bestseller ? "products-is-bestseller" : "products-is-bestseller_yes"}>хит!</div>
 
         <a
@@ -42,21 +44,16 @@ function Product(props: { item: IItemDto }) {
         </a>
 
         <div className="products-item-bottom">
-          <NavLink
-            to={`/product/${props.item.id}`}
+          <Link
+            to={`/catalog/${props.item.slug}`}
             style={{ textDecoration: "none" }}
             className="products-item-bottom__title"
           >
             {props.item.title}
-          </NavLink>
-          <div className="products-item-bottom__price">{props.item.price} р.</div>
+          </Link>
+          <div className="products-item-bottom__price">{props.item.price}</div>
           <div className="products-item-bottom__buttons">
-            <NavLink
-              to={`/product/${props.item.id}`}
-              className="products-item-bottom__button products-item-bottom__button_more"
-            >
-              Подробнее
-            </NavLink>
+            <div className="products-item-bottom__button products-item-bottom__button_more">Подробнее</div>
             <div className="products-item-bottom__button products-item-bottom__button_add">В корзину</div>
           </div>
         </div>

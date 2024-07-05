@@ -3,6 +3,7 @@ import { Input } from "antd"
 import FilterPrice from "./FilterPrice"
 import useGetFiltersData from "../hooks/useGetFiltersData"
 import Categories from "../entities/Categories"
+import React from "react"
 
 export type SelectedFilters = {
   name?: string
@@ -30,10 +31,8 @@ function Filtration(props: {
   selectedFilters: SelectedFilters
   onFiltersChanged: (newFilters: SelectedFilters) => void
 }) {
-  const { filters, isLoading } = useGetFiltersData()
-  if (isLoading) {
-    return <span>Загрузка...</span>
-  }
+  const filters = useGetFiltersData()
+  
   return (
     <>
       <Categories

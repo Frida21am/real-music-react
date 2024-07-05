@@ -1,3 +1,4 @@
+import React from "react"
 import { SelectedFiltersPrice } from "./Filtration"
 
 function FilterPrice(props: {
