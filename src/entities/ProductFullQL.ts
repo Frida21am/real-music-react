@@ -27,6 +27,9 @@ export type ProductCatalogItemQl = {
   image: {
     sourceUrl: string;
   };
+  productCategories: {
+    nodes: { id: string }[];
+  };
   onSale: boolean;
   stockStatus: string;
   price: string;
@@ -34,4 +37,13 @@ export type ProductCatalogItemQl = {
   regularPrice: string;
   salePrice?: string;
   stockQuantity?: null;
+  modified: string;
+  attributes: {
+    nodes: {
+      id: string;
+      name: string;
+      options: string[];
+      variation: false;
+    };
+  };
 };

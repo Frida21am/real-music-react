@@ -3,8 +3,8 @@ import useGetCategoriesList from "../hooks/useGetCategoriesList"
 import Category from "./Category"
 
 function Categories(props: {
-  selectedCategory: number | undefined
-  onSelectedCategoryChanged: (newSelectedCategory: number | undefined) => void
+  selectedCategory: string | undefined
+  onSelectedCategoryChanged: (newSelectedCategory: string | undefined) => void
 }) {
   const categoriesList = useGetCategoriesList()
   if (categoriesList == null) {
@@ -14,17 +14,6 @@ function Categories(props: {
     <div className="categories">
       <h2 className="categories__title">Категории</h2>
       <div className="categories__row">
-        <Category
-          isActive={props.selectedCategory == null}
-          onSelect={() => {
-            props.onSelectedCategoryChanged(undefined)
-          }}
-          item={{
-            id: undefined,
-            title: "Все",
-            img: "/musical-instruments.png",
-          }}
-        />
         {categoriesList.map((el) => (
           <Category
             key={el.id}

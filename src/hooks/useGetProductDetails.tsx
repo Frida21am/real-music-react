@@ -1,4 +1,4 @@
-import { products } from "../data/data"
+/* import { products } from "../data/data"
 
 export type ProductDetails = {
   id: string
@@ -20,4 +20,4 @@ function useGetProductDetails(productId: number) {
       return details
     }
 
-export default useGetProductDetails
+export default useGetProductDetails */
