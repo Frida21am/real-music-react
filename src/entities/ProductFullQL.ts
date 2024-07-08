@@ -1,29 +1,15 @@
-export type ProductFullQl = {
+export type ProductQl = {
+  slug: string;
   id: string;
   name: string;
   description: string;
   shortDescription: string;
-
   galleryImages: {
     nodes: {
       sourceUrl: string;
       altText: string;
     }[];
   };
-  onSale: boolean;
-  stockStatus: string;
-  price: string;
-  rawPrice: number;
-  regularPrice: string;
-  salePrice?: string;
-  stockQuantity?: null;
-};
-
-export type ProductCatalogItemQl = {
-  slug: string;
-  id: string;
-  name: string;
-  shortDescription: string;
   image: {
     sourceUrl: string;
   };
@@ -44,6 +30,6 @@ export type ProductCatalogItemQl = {
       name: string;
       options: string[];
       variation: false;
-    };
+    }[];
   };
 };

@@ -1,4 +1,3 @@
-import useGetProductDetails, { ProductDetails } from "../hooks/useGetProductDetails"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick"
@@ -6,8 +5,9 @@ import DetailTabs from "./DetailTabs"
 import { SvgPriceUnderline } from "../svg/svg"
 import React from "react"
 import { Link } from "gatsby"
+import { Product } from "../hooks/useGetProducts";
 
-function ProductDetailsView(props: { product: ProductDetails }) {
+function ProductDetailsView(props: { product: Product }) {
   const productDetails = props.product;
 
   if (productDetails == null) {
@@ -51,7 +51,7 @@ function ProductDetailsView(props: { product: ProductDetails }) {
             </div>
             <DetailCard productDetails={productDetails} />
           </div>
-          <DetailTabs description={productDetails.descriptionFull} characteristics={productDetails.characteristics} />
+          <DetailTabs description={productDetails.description} characteristics={productDetails.characteristics} />
         </div>
       </div>
     </div>
