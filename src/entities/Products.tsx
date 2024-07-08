@@ -1,9 +1,10 @@
 import { useState } from "react";
-import useGetProductsList from "../hooks/useGetProductsList";
+import useGetProducts from "../hooks/useGetProducts";
 import Product from "./Product";
 import { Pagination, ConfigProvider } from "antd";
 import Filtration, { SelectedFilters } from "../components/Filtration";
 import React from "react";
+import useGetFilteredProducts from "../hooks/useGetFilteredProducts";
 const pageSize = 12;
 
 function Products() {
@@ -24,7 +25,7 @@ function Products() {
 
 function ProductsList(props: { selectedFilters: SelectedFilters}) {
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPage = useGetProductsList(currentPage, pageSize, props.selectedFilters)
+  const productsPage = useGetFilteredProducts(currentPage, pageSize, props.selectedFilters)
   if (productsPage == null) {
     return (
       <div className="no-products">
