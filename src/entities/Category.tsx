@@ -1,9 +1,9 @@
 import React from "react";
 
 export interface ICategoryDto {
-  id: number | undefined
+  id: string | undefined
   title: string
-  img: string
+  img?: string
 }
 
 function Category(props: { item: ICategoryDto; isActive: boolean; onSelect: () => void }) {

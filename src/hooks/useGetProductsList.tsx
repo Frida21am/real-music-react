@@ -1,15 +1,28 @@
-import { products } from "../data/data";
 import { SelectedFilters, SortingType } from "../components/Filtration";
+import { ProductCatalogItemQl } from "../entities/ProductFullQL";
+import { graphql, useStaticQuery } from "gatsby";
+
+type productsQuery = {
+  wpgraphql: {
+    products: {
+      edges: {
+        node: ProductCatalogItemQl;
+      }[];
+    };
+  };
+};
 
 export type Product = {
-  id: number;
+  id: string;
   title: string;
   frontImg: string;
   backImg: string;
-  price: number;
+  price: string;
+  priceRaw: number;
   listingTime: Date;
   bestseller: boolean;
-  categoryId: number;
+  categoryIds: string[];
+  slug: string
 };
 
 function filterProducts(product: Product, selectedFilters: SelectedFilters) {
@@ -25,19 +38,19 @@ function filterProducts(product: Product, selectedFilters: SelectedFilters) {
   }
   if (selectedFilters.priceRange != null) {
     if (selectedFilters.priceRange.min != null) {
-      if (product.price < selectedFilters.priceRange.min) {
+      if (product.priceRaw < selectedFilters.priceRange.min) {
         return false;
       }
     }
     if (selectedFilters.priceRange.max != null) {
-      if (product.price > selectedFilters.priceRange.max) {
+      if (product.priceRaw > selectedFilters.priceRange.max) {
         return false;
       }
     }
   }
 
   if (selectedFilters.category != null) {
-    if (selectedFilters.category != product.categoryId) {
+    if ( !product.categoryIds.some(id=> id == selectedFilters.category)) {
       return false;
     }
   }
@@ -81,8 +94,116 @@ function useGetProductsList(
 ) {
   const firstProductIndex = (currentPage - 1) * pageSize;
   const lastProductIndex = firstProductIndex + pageSize;
+  const products: Product[] = useStaticQuery<productsQuery>(graphql`
+fragment ProductContentShort on WPGraphQL_Product {
+  id
+  databaseId
+  slug
+  name
+  shortDescription(format: RAW)
+  image {
+    id
+    sourceUrl
+    altText
+  }
+  productCategories{
+    nodes{
+      id
+    }
+  }
+  productTags(first: 20) {
+    nodes {
+      id
+      slug
+      name
+    }
+  }
+  attributes {
+    nodes {
+      id
+      ... on WPGraphQL_LocalProductAttribute {
+        name
+        options
+        variation
+      }
+      ... on WPGraphQL_GlobalProductAttribute {
+        name
+        options
+        variation
+      }
+    }
+  }
+  ... on WPGraphQL_SimpleProduct {
+    onSale
+    stockStatus
+    price
+    rawPrice: price(format: RAW)
+    regularPrice
+    salePrice
+    stockStatus
+    modified
+    stockQuantity
+    soldIndividually
+  }
+  ... on WPGraphQL_VariableProduct {
+    onSale
+    price
+    rawPrice: price(format: RAW)
+    regularPrice
+    salePrice
+    stockStatus
+    stockQuantity
+    soldIndividually
+    variations(first: 50) {
+      nodes {
+        id
+        databaseId
+        name
+        price
+        rawPrice: price(format: RAW)
+        regularPrice
+        salePrice
+        onSale
+        attributes {
+          nodes {
+            name
+            label
+            value
+          }
+        }
+      }
+    }
+  }
+}
+
+{
+  wpgraphql {
+    products {
+      edges {
+        node {
+          ...ProductContentShort
+        }
+      }
+    }
+  }
+}
+  `)
+    .wpgraphql.products.edges.map((e) => e.node)
+    .map((pql) => {
+      return {
+        id: pql.id,
+        title: pql.name,
+        frontImg: pql.image?.sourceUrl,
+        backImg: pql.image?.sourceUrl,
+        price: decodeURI(pql.price),
+        bestseller: false,
+        slug: pql.slug,
+        priceRaw: pql.rawPrice,
+        listingTime: new Date(pql.modified),   
+        categoryIds: pql.productCategories.nodes.map(category => category.id)
+      };
+    });
   const allProducts: Product[] = products
-    .filter((product) => product.isInStock == true)
     .filter((product) => filterProducts(product, selectedFilters))
     .sort((firstProduct, secondProduct) =>
       sortProducts(firstProduct, secondProduct, selectedFilters.sorting)

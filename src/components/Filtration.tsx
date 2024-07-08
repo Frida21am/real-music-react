@@ -9,7 +9,7 @@ export type SelectedFilters = {
   name?: string
   priceRange?: SelectedFiltersPrice
   sorting: SortingType
-  category?: number
+  category?: string
 }
 
 export type SelectedFiltersPrice = {
