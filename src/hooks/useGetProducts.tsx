@@ -2,109 +2,108 @@ import { SelectedFilters, SortingType } from "../components/Filtration";
 import { ProductQl } from "../entities/ProductFullQL";
 import { graphql, useStaticQuery } from "gatsby";
 
-
 const GET_PRODUCTS = graphql`
-   fragment ProductContentShort on WPGraphQL_Product {
+  fragment ProductContentShort on WPGraphQL_Product {
+    id
+    databaseId
+    slug
+    name
+    description
+    shortDescription(format: RAW)
+    image {
       id
-      databaseId
-      slug
-      name
-      description
-      shortDescription(format: RAW)
-      image {
+      sourceUrl
+      altText
+    }
+    galleryImages {
+      nodes {
         id
         sourceUrl
         altText
       }
-      galleryImages {
-        nodes {
-          id
-          sourceUrl
-          altText
+    }
+    productCategories {
+      nodes {
+        id
+      }
+    }
+    productTags(first: 20) {
+      nodes {
+        id
+        slug
+        name
+      }
+    }
+    attributes {
+      nodes {
+        id
+        ... on WPGraphQL_LocalProductAttribute {
+          label
+          options
+          variation
+        }
+        ... on WPGraphQL_GlobalProductAttribute {
+          label
+          options
+          variation
         }
       }
-      productCategories {
+    }
+    ... on WPGraphQL_SimpleProduct {
+      onSale
+      stockStatus
+      price
+      rawPrice: price(format: RAW)
+      regularPrice
+      salePrice
+      stockStatus
+      modified
+      stockQuantity
+      soldIndividually
+    }
+    ... on WPGraphQL_VariableProduct {
+      onSale
+      price
+      rawPrice: price(format: RAW)
+      regularPrice
+      salePrice
+      stockStatus
+      stockQuantity
+      soldIndividually
+      variations(first: 50) {
         nodes {
           id
-        }
-      }
-      productTags(first: 20) {
-        nodes {
-          id
-          slug
+          databaseId
           name
-        }
-      }
-      attributes {
-        nodes {
-          id
-          ... on WPGraphQL_LocalProductAttribute {
-            name
-            options
-            variation
-          }
-          ... on WPGraphQL_GlobalProductAttribute {
-            name
-            options
-            variation
-          }
-        }
-      }
-      ... on WPGraphQL_SimpleProduct {
-        onSale
-        stockStatus
-        price
-        rawPrice: price(format: RAW)
-        regularPrice
-        salePrice
-        stockStatus
-        modified
-        stockQuantity
-        soldIndividually
-      }
-      ... on WPGraphQL_VariableProduct {
-        onSale
-        price
-        rawPrice: price(format: RAW)
-        regularPrice
-        salePrice
-        stockStatus
-        stockQuantity
-        soldIndividually
-        variations(first: 50) {
-          nodes {
-            id
-            databaseId
-            name
-            price
-            rawPrice: price(format: RAW)
-            regularPrice
-            salePrice
-            onSale
-            attributes {
-              nodes {
-                name
-                label
-                value
-              }
+          price
+          rawPrice: price(format: RAW)
+          regularPrice
+          salePrice
+          onSale
+          attributes {
+            nodes {
+              name
+              label
+              value
             }
           }
         }
       }
     }
+  }
 
-    {
-      wpgraphql {
-        products {
-          edges {
-            node {
-              ...ProductContentShort
-            }
+  {
+    wpgraphql {
+      products {
+        edges {
+          node {
+            ...ProductContentShort
           }
         }
       }
     }
-`
+  }
+`;
 
 type productsQuery = {
   wpgraphql: {
@@ -120,7 +119,7 @@ export type Product = {
   id: string;
   description: string;
   descriptionShort: string;
-  images: string[]
+  images: string[];
   title: string;
   frontImg: string;
   backImg: string;
@@ -130,13 +129,11 @@ export type Product = {
   bestseller: boolean;
   categoryIds: string[];
   slug: string;
-  isInStock: boolean,
-  characteristics: {name: string, value: string}[]
-
+  isInStock: boolean;
+  characteristics: { name: string; value: string }[];
 };
 
-function useGetProducts(
-) {
+function useGetProducts() {
   const products: Product[] = useStaticQuery<productsQuery>(GET_PRODUCTS)
     .wpgraphql.products.edges.map((e) => e.node)
     .map((pql) => {
@@ -153,12 +150,13 @@ function useGetProducts(
         priceRaw: pql.rawPrice,
         listingTime: new Date(pql.modified),
         categoryIds: pql.productCategories.nodes.map((category) => category.id),
-        characteristics: pql.attributes?.nodes.map((attr) => {
-          return {
-            name: attr.name,
-            value: attr.options[0],
-          };
-        }),
+        characteristics:
+          pql.attributes?.nodes.map((attr) => {
+            return {
+              name: attr.label,
+              value: attr.options[0],
+            };
+          }) ?? [],
         images: pql.galleryImages.nodes.map((img) => img.sourceUrl),
         isInStock: pql.stockStatus == "IN_STOCK",
       };
