@@ -10,7 +10,7 @@ export type Category = {
 const GET_CATEGORIES = graphql`
   {
     wpgraphql {
-      productCategories {
+      productCategories(first: 20) {
         edges {
           node {
             id

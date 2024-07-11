@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 
 function AboutUsAdvantages() {
   return (
@@ -7,7 +8,10 @@ function AboutUsAdvantages() {
       <div className="about-advantages__row">
         <div className="about-advantages__item">
           <div className="about-advantages__item-icon">
-            <img src="/advantagesIcons/repair&rental.png" alt="repair&rental" />
+            <StaticImage
+              src="../images/advantagesIcons/repair&rental.png"
+              alt="repair&rental"
+            />
           </div>
           <div className="about-advantages__item-text">
             <span>Ремонт и Аренда музыкальных инструментов</span>
@@ -15,7 +19,10 @@ function AboutUsAdvantages() {
         </div>
         <div className="about-advantages__item">
           <div className="about-advantages__item-icon">
-            <img src="/advantagesIcons/service.png" alt="service" />
+            <StaticImage
+              src="../images/advantagesIcons/service.png"
+              alt="service"
+            />
           </div>
           <div className="about-advantages__item-text">
             <span>Высокий уровень сервиса</span>
@@ -23,7 +30,10 @@ function AboutUsAdvantages() {
         </div>
         <div className="about-advantages__item">
           <div className="about-advantages__item-icon">
-            <img src="/advantagesIcons/gifts&discounts.png" alt="gifts&discounts" />
+            <StaticImage
+              src="../images/advantagesIcons/gifts&discounts.png"
+              alt="gifts&discounts"
+            />
           </div>
           <div className="about-advantages__item-text">
             <span>Дарим подарки и делаем скидки!</span>
@@ -31,7 +41,10 @@ function AboutUsAdvantages() {
         </div>
         <div className="about-advantages__item">
           <div className="about-advantages__item-icon">
-            <img src="/advantagesIcons/location.png" alt="location" />
+            <StaticImage
+              src="../images/advantagesIcons/location.png"
+              alt="location"
+            />
           </div>
           <div className="about-advantages__item-text">
             <span>Магазин в Москве недалеко от метро</span>
@@ -39,7 +52,10 @@ function AboutUsAdvantages() {
         </div>
         <div className="about-advantages__item">
           <div className="about-advantages__item-icon">
-            <img src="/advantagesIcons/delivery.png" alt="delivery" />
+            <StaticImage
+              src="../images/advantagesIcons/delivery.png"
+              alt="delivery"
+            />
           </div>
           <div className="about-advantages__item-text">
             <span>Доставка день в день</span>
@@ -47,7 +63,10 @@ function AboutUsAdvantages() {
         </div>
         <div className="about-advantages__item">
           <div className="about-advantages__item-icon">
-            <img src="/advantagesIcons/guarantee.png" alt="guarantee" />
+            <StaticImage
+              src="../images/advantagesIcons/guarantee.png"
+              alt="guarantee"
+            />
           </div>
           <div className="about-advantages__item-text">
             <span>Гарантия на каждый инструмент</span>
@@ -55,7 +74,7 @@ function AboutUsAdvantages() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default AboutUsAdvantages
+export default AboutUsAdvantages;
