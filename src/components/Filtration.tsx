@@ -1,21 +1,20 @@
-import { ConfigProvider, Select } from "antd"
-import { Input } from "antd"
-import FilterPrice from "./FilterPrice"
-import useGetFiltersData from "../hooks/useGetFiltersData"
-import Categories from "../entities/Categories"
-import React from "react"
+import { ConfigProvider, Select } from "antd";
+import { Input } from "antd";
+import FilterPrice from "./FilterPrice";
+import Categories from "../entities/Categories";
+import React from "react";
 
 export type SelectedFilters = {
-  name?: string
-  priceRange?: SelectedFiltersPrice
-  sorting: SortingType
-  category?: string
-}
+  name?: string;
+  priceRange?: SelectedFiltersPrice;
+  sorting: SortingType;
+  category?: string;
+};
 
 export type SelectedFiltersPrice = {
-  min?: number
-  max?: number
-}
+  min?: number;
+  max?: number;
+};
 
 export type SortingType =
   | "ByPriceAsk"
@@ -23,16 +22,41 @@ export type SortingType =
   | "ByNameAsc"
   | "ByNameDesc"
   | "ByListingTimeAsc"
-  | "ByListingTimeDesc"
+  | "ByListingTimeDesc";
 
-const { Search } = Input
+const { Search } = Input;
+
+const optionsOrder = [
+  {
+    value: "ByListingTimeDesc",
+    label: "Порядок: сперва новые",
+  },
+  {
+    value: "ByListingTimeAsc",
+    label: "Порядок: сперва старые",
+  },
+  {
+    value: "ByPriceAsk",
+    label: "Цена: по возрастанию",
+  },
+  {
+    value: "ByPriceDesc",
+    label: "Цена: по убыванию",
+  },
+  {
+    value: "ByNameAsc",
+    label: "Название: А—Я",
+  },
+  {
+    value: "ByNameDesc",
+    label: "Название: Я—А",
+  },
+];
 
 function Filtration(props: {
-  selectedFilters: SelectedFilters
-  onFiltersChanged: (newFilters: SelectedFilters) => void
+  selectedFilters: SelectedFilters;
+  onFiltersChanged: (newFilters: SelectedFilters) => void;
 }) {
-  const filters = useGetFiltersData()
-  
   return (
     <>
       <Categories
@@ -41,7 +65,7 @@ function Filtration(props: {
           props.onFiltersChanged({
             ...props.selectedFilters,
             category: newSelectedCategory,
-          })
+          });
         }}
       />
       <div className="filters">
@@ -77,7 +101,7 @@ function Filtration(props: {
                 props.onFiltersChanged({
                   ...props.selectedFilters,
                   priceRange: newPriceFilter,
-                })
+                });
               }}
             />
             <Search
@@ -89,7 +113,7 @@ function Filtration(props: {
                 props.onFiltersChanged({
                   ...props.selectedFilters,
                   name: e.target.value != "" ? e.target.value : undefined,
-                })
+                });
               }}
               defaultValue={props.selectedFilters?.name}
             />
@@ -97,20 +121,20 @@ function Filtration(props: {
             <Select
               className="filters-item"
               defaultValue={props.selectedFilters.sorting}
-              disabled={filters?.optionsOrder?.length == 0}
-              options={filters?.optionsOrder}
+              disabled={optionsOrder?.length == 0}
+              options={optionsOrder}
               onChange={(newSortingType) => {
                 props.onFiltersChanged({
                   ...props.selectedFilters,
                   sorting: newSortingType,
-                })
+                });
               }}
             />
           </div>
         </ConfigProvider>
       </div>
     </>
-  )
+  );
 }
 
-export default Filtration
+export default Filtration;

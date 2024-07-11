@@ -27,7 +27,7 @@ export type ProductQl = {
   attributes: {
     nodes: {
       id: string;
-      name: string;
+      label: string;
       options: string[];
       variation: false;
     }[];

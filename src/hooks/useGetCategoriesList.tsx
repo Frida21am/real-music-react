@@ -8,27 +8,27 @@ export type Category = {
 };
 
 const GET_CATEGORIES = graphql`
-{
-  wpgraphql {
-    productCategories {
-      edges {
-        node {
-          id
-          name
-          parent {
-            node {
-              id
+  {
+    wpgraphql {
+      productCategories {
+        edges {
+          node {
+            id
+            name
+            parent {
+              node {
+                id
+              }
             }
-          }
-          image {
-            sourceUrl
+            image {
+              sourceUrl
+            }
           }
         }
       }
     }
   }
-}
-`
+`;
 
 type categoriesQuery = {
   wpgraphql: {
@@ -41,14 +41,16 @@ type categoriesQuery = {
 };
 
 function useGetCategoriesList() {
-  const list: Category[] = useStaticQuery<categoriesQuery>(GET_CATEGORIES).wpgraphql.productCategories.edges.map(ql => ql.node).map(categoryQl => {
-    return {
-       id: categoryQl.id,
-       title: categoryQl.name,
-       parentId: categoryQl.parent?.node.id,
-       img: categoryQl.image?.sourceSrc
-    }
-  });
+  const list: Category[] = useStaticQuery<categoriesQuery>(GET_CATEGORIES)
+    .wpgraphql.productCategories.edges.map((ql) => ql.node)
+    .map((categoryQl) => {
+      return {
+        id: categoryQl.id,
+        title: categoryQl.name,
+        parentId: categoryQl.parent?.node.id,
+        img: categoryQl.image?.sourceUrl,
+      };
+    });
   if (list == null) {
     throw new Error("Data not found!");
   }

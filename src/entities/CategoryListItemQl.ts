@@ -7,6 +7,6 @@ export type CategoryListItemQl = {
     };
   };
   image?: {
-    sourceSrc: string
-  }
+    sourceUrl: string;
+  };
 };
