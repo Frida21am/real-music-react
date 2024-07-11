@@ -1,5 +1,6 @@
-import React from "react"
-import Slider, { Settings } from "react-slick"
+import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
+import Slider, { Settings } from "react-slick";
 
 function AboutUsGallery() {
   const settings: Settings = {
@@ -10,17 +11,19 @@ function AboutUsGallery() {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 2,
-  }
+  };
   return (
     <div className="about-gallery">
       <div className="about-gallery__row">
         <div className="about-gallery__column_text">
           <h2 className="about-gallery__title">О нас</h2>
           <p className="about-gallery__text">
-            Музыкальный магазин Real Music - это широкий выбор музыкальных инструментов с уютной и ламповой атмосферой.
-            Более 8-и лет помогаем начинающим и опытным музыкантам с подбором подходящего инструмента, будь то
-            классическая гитара для ребенка или кахон для уличного музыканта. К каждому инструменту обязательно идёт
-            гарантия и аксессуар в подарок.
+            Музыкальный магазин Real Music - это широкий выбор музыкальных
+            инструментов с уютной и ламповой атмосферой. Более 8-и лет помогаем
+            начинающим и опытным музыкантам с подбором подходящего инструмента,
+            будь то классическая гитара для ребенка или кахон для уличного
+            музыканта. К каждому инструменту обязательно идёт гарантия и
+            аксессуар в подарок.
           </p>
           <div className="about-gallery__btn">
             <a href="/">Напишите нам в WhatsApp</a>
@@ -31,26 +34,41 @@ function AboutUsGallery() {
           <div className="about-gallery__slider">
             <Slider {...settings}>
               <div className="about-gallery__slider-image">
-                <img src={"/aboutUsSlider/photo1.jpeg"} />
+                <StaticImage
+                  src="../images/aboutUsSlider/photo1.jpeg"
+                  alt="Фото"
+                />
               </div>
               <div className="about-gallery__slider-image">
-                <img src={"/aboutUsSlider/photo2.jpeg"} />
+                <StaticImage
+                  src="../images/aboutUsSlider/photo2.jpeg"
+                  alt="Фото"
+                />
               </div>
               <div className="about-gallery__slider-image">
-                <img src={"/aboutUsSlider/photo3.jpeg"} />
+                <StaticImage
+                  src="../images/aboutUsSlider/photo3.jpeg"
+                  alt="Фото"
+                />
               </div>
               <div className="about-gallery__slider-image">
-                <img src={"/aboutUsSlider/photo4.jpeg"} />
+                <StaticImage
+                  src="../images/aboutUsSlider/photo4.jpeg"
+                  alt="Фото"
+                />
               </div>
               <div className="about-gallery__slider-image">
-                <img src={"/aboutUsSlider/photo5.jpeg"} />
+                <StaticImage
+                  src="../images/aboutUsSlider/photo5.jpeg"
+                  alt="Наше фото"
+                />
               </div>
             </Slider>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default AboutUsGallery
+export default AboutUsGallery;

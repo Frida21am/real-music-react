@@ -8,7 +8,7 @@ const GET_PRODUCTS = graphql`
     databaseId
     slug
     name
-    description
+    description(format: RAW)
     shortDescription(format: RAW)
     image {
       id
