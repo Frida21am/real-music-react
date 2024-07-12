@@ -94,7 +94,7 @@ const GET_PRODUCTS = graphql`
 
   {
     wpgraphql {
-      products {
+      products(first: 100) {
         edges {
           node {
             ...ProductContentShort

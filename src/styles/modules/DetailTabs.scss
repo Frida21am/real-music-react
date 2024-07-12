@@ -38,7 +38,15 @@
 .detail-tabs-nav-bg {
   visibility: hidden;
   border-radius: 1px 4px 1px 4px;
-  background: linear-gradient(90deg, #faffcc 0%, #f5eea3 10%, #ffe48a 40%, #ffb54d 65%, #ff974d 85%, #ff8052 100%);
+  background: linear-gradient(
+    90deg,
+    #faffcc 0%,
+    #f5eea3 10%,
+    #ffe48a 40%,
+    #ffb54d 65%,
+    #ff974d 85%,
+    #ff8052 100%
+  );
   box-shadow: 0px 0px 8px 0px hsl(17.72deg 100% 70% / 70%);
   height: 5px;
 }

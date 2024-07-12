@@ -36,7 +36,9 @@ function ProductDetailsView(props: { product: Product }) {
       <div className="detail-bg">
         <div className="container">
           <Link to="/gifts" target="_blank" className="detail-gift">
-            <StaticImage src="../images/giftbox.png" alt="top" />
+            <div className="detail-gift__image">
+              <StaticImage src="../images/giftbox.png" alt="top" />
+            </div>
             <span>
               При заказе этого инструмента Вы получите аксессуар в подарок!
             </span>
@@ -70,6 +72,7 @@ function DetailCard(props: {
   productDetails: {
     title: string;
     description: string;
+    descriptionShort: string;
     isInStock: boolean;
     price: string;
   };
@@ -77,7 +80,9 @@ function DetailCard(props: {
   return (
     <div className="detail-card">
       <h2 className="detail-card__title">{props.productDetails.title}</h2>
-      <p className="detail-card__desc">{props.productDetails.description}</p>
+      <p className="detail-card__desc">
+        {props.productDetails.descriptionShort}
+      </p>
       <div className="detail-card-purchase">
         <div className="detail-card-purchase-info">
           <span className="detail-card-purchase-info__stock">
