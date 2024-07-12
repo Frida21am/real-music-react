@@ -1,15 +1,16 @@
 import React from "react";
-import MainFullScreen from "../components/MainFullScreen";
+import Articles from "../entities/Articles";
+import OurBlogFullscreen from "../fullscreens/OurBlogFullscreen";
 import Layout from "../components/layout/Layout";
 
 function PageOurBlog() {
   return (
     <Layout>
       <div className="blog">
-        <MainFullScreen />
+        <OurBlogFullscreen />
 
         <div className="container">
-          <h2 className="blog__title">Наш блог</h2>
+          <Articles />
         </div>
       </div>
     </Layout>
