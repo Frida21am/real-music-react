@@ -23,7 +23,7 @@ export const createPages = async ({
   const result = await graphql<Products>(`
     query {
       wpgraphql {
-        products {
+        products(first: 100) {
           edges {
             node {
               id
