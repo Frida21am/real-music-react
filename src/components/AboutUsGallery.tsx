@@ -60,7 +60,7 @@ function AboutUsGallery() {
               <div className="about-gallery__slider-image">
                 <StaticImage
                   src="../images/aboutUsSlider/photo5.jpeg"
-                  alt="Наше фото"
+                  alt="Фото"
                 />
               </div>
             </Slider>
