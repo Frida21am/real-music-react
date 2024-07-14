@@ -3,6 +3,7 @@ import { Input } from "antd";
 import FilterPrice from "./FilterPrice";
 import Categories from "../entities/Categories";
 import React from "react";
+import Subcategories from "../entities/Subcategories";
 
 export type SelectedFilters = {
   name?: string;
@@ -68,6 +69,7 @@ function Filtration(props: {
           });
         }}
       />
+      <Subcategories />
       <div className="filters">
         <h2 className="filters__title">Все</h2>
         <ConfigProvider

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "gatsby";
 
 export interface IArticleDto {
   id: number | undefined;
@@ -10,7 +10,7 @@ export interface IArticleDto {
 
 function Article(props: { item: IArticleDto }) {
   return (
-    <NavLink to={`/article/${props.item.id}`} className="blog-articles__item">
+    <Link to={`/article/${props.item.id}`} className="blog-articles__item">
       <img
         src={props.item.img}
         alt="guitar shapes"
@@ -18,7 +18,7 @@ function Article(props: { item: IArticleDto }) {
       />
       <h3 className="blog-articles__item-title">{props.item.title}</h3>
       <p className="blog-articles__item-desc">{props.item.desc}</p>
-    </NavLink>
+    </Link>
   );
 }
 
