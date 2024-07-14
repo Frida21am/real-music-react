@@ -46,7 +46,7 @@ function CharacteristicsTab(props: {
             {prop.name}
           </span>
           <div className="detail-tabs-content-item-property__value">
-            <span>{prop.value}</span>
+            <span>{decodeURI(prop.value)}</span>
           </div>
         </div>
       ))}

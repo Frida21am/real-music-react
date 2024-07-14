@@ -1,14 +1,19 @@
 import React from "react";
-import useGetArticlesList from "../hooks/useGetArticlesList";
 import Article from "./Article";
+import { articles } from "../data/data";
+
+export type Article = {
+  id: number;
+  title: string;
+  img: string;
+  desc: string;
+};
 
 function Articles() {
-  const { articlesList, isLoading } = useGetArticlesList();
+  const articlesList: Article[] = articles;
+
   if (articlesList == null) {
     return <span>Нет статей</span>;
-  }
-  if (isLoading) {
-    return <span>Загрузка...</span>;
   }
   return (
     <div className="blog-articles">

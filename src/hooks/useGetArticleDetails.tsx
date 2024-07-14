@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+/*import { useQuery } from "@tanstack/react-query";
 import { articles } from "../data/data";
 
 export type ArticleDetails = {
@@ -26,4 +26,4 @@ function useGetArticleDetails(articleId: number) {
   return { articleDetails: data, isLoading, error };
 }
 
-export default useGetArticleDetails;
+export default useGetArticleDetails;*/

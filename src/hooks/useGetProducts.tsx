@@ -1,4 +1,3 @@
-import { SelectedFilters, SortingType } from "../components/Filtration";
 import { ProductQl } from "../entities/ProductFullQL";
 import { graphql, useStaticQuery } from "gatsby";
 
