@@ -1,37 +1,22 @@
 import React from "react";
+import { SubCategory } from "../hooks/useGetCategoriesList";
+import Subcategory from "./Subcategory";
 
-function Subcategories() {
+function Subcategories(props: {
+  subCategories: SubCategory[];
+  onSelect: (selectedId: string) => void;
+}) {
   return (
     <div className="subcategories">
       <div className="container">
         <div className="subcategories__row">
-          <div className="subcategories__item">
-            <span>Акустические</span>
-          </div>
-          <div className="subcategories__item">
-            <span>Классические</span>
-          </div>
-          <div className="subcategories__item">
-            <span>Электроакустические</span>
-          </div>
-          <div className="subcategories__item">
-            <span>Трансакустические </span>
-          </div>
-          <div className="subcategories__item">
-            <span>Электрогитары</span>
-          </div>
-          <div className="subcategories__item">
-            <span>Бас-гитары</span>
-          </div>
-          <div className="subcategories__item">
-            <span>Акустические бас-гитары</span>
-          </div>
-          <div className="subcategories__item">
-            <span>Укулеле</span>
-          </div>
-          <div className="subcategories__item">
-            <span>Гиталеле</span>
-          </div>
+          {props.subCategories.map((subCategory) => (
+            <Subcategory
+              key={subCategory.id}
+              subCategory={subCategory}
+              onClick={() => props.onSelect(subCategory.id)}
+            />
+          ))}
         </div>
       </div>
     </div>
