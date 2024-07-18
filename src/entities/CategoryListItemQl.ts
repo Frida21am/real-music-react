@@ -1,10 +1,13 @@
 export type CategoryListItemQl = {
   id: string;
   name: string;
-  parent?: {
-    node: {
-      id: string;
-    };
+  parentId?: string;
+  children: {
+    edjes: {
+      node: {
+        id: string;
+      };
+    }[];
   };
   image?: {
     sourceUrl: string;

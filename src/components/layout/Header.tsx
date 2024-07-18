@@ -16,7 +16,9 @@ function Header() {
         <div className="header-row">
           <div className="header__logo">
             <a href="/" className="header__logo_image">
-              <StaticImage src="../../images/logo12.png" alt="" />
+              <div>
+                <StaticImage src="../../images/logo12.png" alt="" />
+              </div>
             </a>
           </div>
           <div className="header__phone">

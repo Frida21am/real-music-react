@@ -30,7 +30,7 @@ const config: GatsbyConfig = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "wpgraphql",
         // Url to query from
-        url: process.env.WPGRAPHQL_URL || `http://localhost:8080/graphql`,
+        url: process.env.WPGRAPHQL_URL || `http://wp.real-music.store/graphql`,
       },
     },
   ],
