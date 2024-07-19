@@ -1,3 +1,4 @@
+import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 
@@ -58,8 +59,8 @@ function GiftsCutaway() {
             className="gifts-cutaway__column gifts-cutaway__column-card"
             ref={containerRef}
           >
-            <img
-              src="/bussines-card-test.png"
+            <StaticImage
+              src="../images/bussines-card-test.png"
               alt=""
               className={`gifts-cutaway-card ${
                 isInView ? "gifts-cutaway-card_active" : ""
