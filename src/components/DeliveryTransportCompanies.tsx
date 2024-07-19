@@ -11,22 +11,33 @@ function DeliveryTransportCompanies() {
       </h3>
       <div className="delivery-companies__row">
         <div className="delivery-companies__item">
-          <StaticImage src="../images/delivery/pochta-rf.png" alt="pochta-rf" />
+          <div>
+            <StaticImage
+              src="../images/delivery/pochta-rf.png"
+              alt="pochta-rf"
+            />
+          </div>
           <p>Почта России</p>
           <span>(2-5 дней)</span>
         </div>
         <div className="delivery-companies__item">
-          <StaticImage src="../images/delivery/sdek.png" alt="sdek" />
+          <div>
+            <StaticImage src="../images/delivery/sdek.png" alt="sdek" />
+          </div>
           <p>СДЭК</p>
           <span>(2-7 дней)</span>
         </div>
         <div className="delivery-companies__item">
-          <StaticImage src="../images/delivery/avito.png" alt="avito" />
+          <div>
+            <StaticImage src="../images/delivery/avito.png" alt="avito" />
+          </div>
           <p>Авито доставка</p>
           <span>(2-5 дней)</span>
         </div>
         <div className="delivery-companies__item">
-          <StaticImage src="../images/delivery/boxberry.png" alt="boxberry" />
+          <div>
+            <StaticImage src="../images/delivery/boxberry.png" alt="boxberry" />
+          </div>
           <p>Boxberry</p>
           <span>(2-7 дней)</span>
         </div>

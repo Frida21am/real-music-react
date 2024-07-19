@@ -1,7 +1,7 @@
 import React from "react";
 import GiftsAccessories from "../components/GiftsAccessories";
 import GiftsCutaway from "../components/GiftsCutaway";
-import GiftsFulscreen from "../components/GiftsFulscreen";
+import GiftsFulscreen from "../fullscreens/GiftsFulscreen";
 import GiftsGuarantee from "../components/GiftsGuarantee";
 import Layout from "../components/layout/Layout";
 

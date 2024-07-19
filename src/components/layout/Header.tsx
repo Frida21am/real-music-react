@@ -16,9 +16,7 @@ function Header() {
         <div className="header-row">
           <div className="header__logo">
             <a href="/" className="header__logo_image">
-              <div>
-                <StaticImage src="../../images/logo12.png" alt="" />
-              </div>
+              <StaticImage src="../../images/logo12.png" alt="" />
             </a>
           </div>
           <div className="header__phone">
@@ -72,11 +70,19 @@ function Header() {
           </nav>
           <div className="header__addprod">
             <div className="header__addprod_likes">
-              <StaticImage src="../../images/like.png" alt="" />
+              <div className="header__addprod-image">
+                <div>
+                  <StaticImage src="../../images/like.png" alt="" />
+                </div>
+              </div>
               <span>0</span>
             </div>
             <div className="header__addprod_cart">
-              <StaticImage src="../../images/basket.png" alt="" />
+              <div className="header__addprod-image">
+                <div>
+                  <StaticImage src="../../images/basket.png" alt="" />
+                </div>
+              </div>
               <span>0</span>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import MainFullScreen from "../components/MainFullScreen";
+import MainFullScreen from "../fullscreens/MainFullScreen";
 import Products from "../entities/Products";
 
 function PageCatalog() {
