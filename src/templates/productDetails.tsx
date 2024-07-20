@@ -5,18 +5,16 @@ import useGetProductById from "../hooks/useGetProductById";
 import { PageProps } from "gatsby";
 
 type ProductDetailsContext = {
-  id: string
+  id: string;
 };
 
 function PageProductDetails(props: PageProps<any, ProductDetailsContext>) {
   const details = useGetProductById(props.pageContext.id);
-  console.log(details)
+  console.log(details);
   return (
     <Layout>
       <div>
-        <ProductDetailsView
-          product={details}
-        />
+        <ProductDetailsView product={details} />
       </div>
     </Layout>
   );

@@ -21,11 +21,15 @@ function Header() {
           </div>
           <div className="header__phone">
             <div className="header__phone-item">
-              <StaticImage src="../../images/phone-call.png" alt="" />
+              <div>
+                <StaticImage src="../../images/phone-call.png" alt="" />
+              </div>
               <a href="tel:89943336688">8-994-333-66-88</a>
             </div>
             <div className="header__phone-item">
-              <StaticImage src="../../images/phone-call.png" alt="" />
+              <div>
+                <StaticImage src="../../images/phone-call.png" alt="" />
+              </div>
               <a href="tel:89680556655">8-968-055-66-55</a>
             </div>
           </div>

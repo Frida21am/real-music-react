@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
 import { CategoryListItemQl } from "../entities/CategoryListItemQl";
-import Subcategories from "../entities/Subcategories";
 
 export type Category = {
   id: string;
@@ -17,7 +16,7 @@ export type SubCategory = {
 const GET_CATEGORIES = graphql`
   {
     wpgraphql {
-      productCategories(first: 20) {
+      productCategories(first: 100) {
         edges {
           node {
             id

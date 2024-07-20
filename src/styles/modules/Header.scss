@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    img {
+    div {
       width: 17px;
       margin-right: 10px;
     }
@@ -130,9 +130,9 @@
   .header__logo_image {
     width: 50px;
   }
-  .header__phone div {
+  .header__phone-item {
     margin-bottom: 7px;
-    img {
+    div {
       width: 14px;
     }
     a {
@@ -228,6 +228,7 @@
     transition: all 0.3s ease 0s;
     &.active {
       transform: translate3d(0px, 0px, 0px);
+      z-index: 1000;
     }
   }
   .header__nav_list {

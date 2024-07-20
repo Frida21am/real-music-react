@@ -10,11 +10,11 @@ export interface IArticleDto {
 
 function Article(props: { item: IArticleDto }) {
   return (
-    <Link to={`/article/${props.item.id}`} className="blog-articles__item">
+    <Link to={`blog/article${props.item.id}`} className="blog-articles__item">
       <img
         src={props.item.img}
-        alt="guitar shapes"
         className="blog-articles__item-image"
+        alt="guitar shapes"
       />
       <h3 className="blog-articles__item-title">{props.item.title}</h3>
       <p className="blog-articles__item-desc">{props.item.desc}</p>
