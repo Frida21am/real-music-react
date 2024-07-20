@@ -14,6 +14,8 @@ function Subcategories(props: {
             <Subcategory
               key={subCategory.id}
               subCategory={subCategory}
+              //isActive={subCategory.id == }
+              isActive={true}
               onClick={() => props.onSelect(subCategory.id)}
             />
           ))}

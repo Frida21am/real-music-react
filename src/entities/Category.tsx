@@ -1,17 +1,23 @@
 import React from "react";
 
 export interface ICategoryDto {
-  id: string | undefined
-  title: string
-  img?: string
+  id: string | undefined;
+  title: string;
+  img?: string;
 }
 
-function Category(props: { item: ICategoryDto; isActive: boolean; onSelect: () => void }) {
+function Category(props: {
+  item: ICategoryDto;
+  isActive: boolean;
+  onSelect: () => void;
+}) {
   return (
     <div
-      className={`categories-item ${props.isActive ? "categories-item_active" : ""}`}
+      className={`categories-item ${
+        props.isActive ? "categories-item_active" : ""
+      }`}
       onClick={() => {
-        props.onSelect()
+        props.onSelect();
       }}
     >
       <div className="categories-item__image">
@@ -21,7 +27,7 @@ function Category(props: { item: ICategoryDto; isActive: boolean; onSelect: () =
         <span>{props.item.title}</span>
       </div>
     </div>
-  )
+  );
 }
 
-export default Category
+export default Category;
