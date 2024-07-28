@@ -57,11 +57,16 @@ function FeedbackFormPopup(props: {
             </div>
             <div className="popup-form-contacts__input">
               <div className="popup-form-contacts__label">Ваше имя *</div>
-              <input type="text" name="name" />
+              <input type="text" name="name" required />
             </div>
             <div className="popup-form-contacts__input">
               <div className="popup-form-contacts__label">Ваш номер *</div>
-              <InputMask mask="+7 999 999 99 99" maskChar=" " className="tel" />
+              <InputMask
+                mask="+7 999 999 99 99"
+                maskChar=" "
+                className="tel"
+                required
+              />
             </div>
             <div className="popup-form-contacts__input">
               <div className="popup-form-contacts__label">Сообщение</div>

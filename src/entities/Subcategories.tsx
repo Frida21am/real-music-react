@@ -4,7 +4,8 @@ import Subcategory from "./Subcategory";
 
 function Subcategories(props: {
   subCategories: SubCategory[];
-  onSelect: (selectedId: string) => void;
+  onSelect: (selectedCategory: string | undefined) => void;
+  selectedCategory: string | undefined;
 }) {
   return (
     <div className="subcategories">
@@ -14,8 +15,7 @@ function Subcategories(props: {
             <Subcategory
               key={subCategory.id}
               subCategory={subCategory}
-              //isActive={subCategory.id == }
-              isActive={true}
+              isActive={props.selectedCategory == subCategory.id}
               onClick={() => props.onSelect(subCategory.id)}
             />
           ))}

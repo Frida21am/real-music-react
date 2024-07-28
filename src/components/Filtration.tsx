@@ -1,8 +1,9 @@
+import React from "react";
 import { ConfigProvider, Select } from "antd";
 import { Input } from "antd";
 import FilterPrice from "./FilterPrice";
 import Categories from "../entities/Categories";
-import React from "react";
+import useGetCategoriesList from "../hooks/useGetCategoriesList";
 
 export type SelectedFilters = {
   name?: string;
@@ -57,6 +58,13 @@ function Filtration(props: {
   selectedFilters: SelectedFilters;
   onFiltersChanged: (newFilters: SelectedFilters) => void;
 }) {
+  const selectedCategory = useGetCategoriesList().find(
+    (category) =>
+      category.id == props.selectedFilters.category ||
+      category.subCategories.some(
+        (subCategory) => subCategory.id == props.selectedFilters.category
+      )
+  );
   return (
     <>
       <Categories
@@ -69,7 +77,7 @@ function Filtration(props: {
         }}
       />
       <div className="filters">
-        <h2 className="filters__title">Все</h2>
+        <h2 className="filters__title">{selectedCategory?.title ?? "Все"}</h2>
         <ConfigProvider
           theme={{
             components: {

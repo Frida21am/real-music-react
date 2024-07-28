@@ -8,8 +8,9 @@ function Subcategory(props: {
 }) {
   return (
     <div
-      //className={`subcategories__item ${props.isActive ? "subcategories-item_active" : ""}`}
-      className="subcategories__item"
+      className={`subcategories__item ${
+        props.isActive ? "subcategories__item_active" : ""
+      }`}
       onClick={props.onClick}
     >
       <span>{props.subCategory.title}</span>

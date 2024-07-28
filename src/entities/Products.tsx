@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import useGetProducts from "../hooks/useGetProducts";
 import Product from "./Product";
 import { Pagination, ConfigProvider } from "antd";
 import Filtration, { SelectedFilters } from "../components/Filtration";
@@ -12,7 +11,6 @@ function Products() {
   const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({
     sorting: "ByListingTimeDesc",
   });
-
   return (
     <div className="products" id="catalog">
       <Filtration

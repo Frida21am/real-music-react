@@ -10,7 +10,6 @@ type ProductDetailsContext = {
 
 function PageProductDetails(props: PageProps<any, ProductDetailsContext>) {
   const details = useGetProductById(props.pageContext.id);
-  console.log(details);
   return (
     <Layout>
       <div>

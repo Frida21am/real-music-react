@@ -41,6 +41,7 @@ function Categories(props: {
       </div>
       <Subcategories
         subCategories={selectedCategory.subCategories}
+        selectedCategory={props.selectedCategory}
         onSelect={(newSelectedCategoryId) =>
           props.onSelectedCategoryChanged(newSelectedCategoryId)
         }
