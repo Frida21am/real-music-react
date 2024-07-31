@@ -38,18 +38,18 @@
   justify-content: space-between;
   padding-top: 20px;
 }
+
 .detail-slider {
   width: calc(53% - 100px);
   margin: 0 auto;
 }
 
-.detail-slider .slick-list img {
+/*.detail-slider .slick-list img {
   max-height: 630px;
   display: block;
   margin: auto;
   border-radius: 10px;
 }
-
 .detail-slider .slick-dots {
   position: absolute;
   bottom: -100px;
@@ -74,14 +74,6 @@
 .detail-slider .slick-thumb li {
   width: 105px;
 }
-
-.detail-slider .slick-next:before,
-.detail-slider .slick-prev:before {
-  font-size: 28px;
-  line-height: 1;
-  opacity: 0.75;
-  color: #eb971a;
-}
 .detail-slider .slick-prev {
   left: -20px;
   z-index: 100;
@@ -90,6 +82,14 @@
   right: -10px;
   z-index: 100;
 }
+.detail-slider .slick-next:before,
+.detail-slider .slick-prev:before {
+  font-size: 28px;
+  line-height: 1;
+  opacity: 0.75;
+  color: #eb971a;
+}
+*/
 
 .detail-card {
   max-width: 750px;
@@ -159,7 +159,7 @@
       font-size: 15px;
     }
   }
-  .detail-slider {
+  /*.detail-slider {
     width: calc(55% - 92px);
   }
   .detail-slider .slick-list img {
@@ -177,7 +177,7 @@
   }
   .detail-slider .slick-thumb li {
     width: 82px;
-  }
+  }*/
   .detail-card {
     font-size: 22px;
     padding: 30px 0px 5px 40px;
@@ -194,7 +194,7 @@
   .detail-card__row {
     flex-direction: column;
   }
-  .detail-slider {
+  /*.detail-slider {
     width: 100%;
   }
   .detail-slider .slick-prev {
@@ -202,7 +202,7 @@
   }
   .detail-slider .slick-next {
     right: 100px;
-  }
+  }*/
   .detail-card {
     font-size: 20px;
     padding: 90px 5px 5px 5px;
@@ -231,7 +231,7 @@
     left: 15px;
     max-width: 320px;
   }
-  .detail-slider .slick-prev {
+  /*.detail-slider .slick-prev {
     left: -30px;
   }
   .detail-slider .slick-next {
@@ -249,7 +249,7 @@
   }
   .detail-slider .slick-thumb li {
     width: 72px;
-  }
+  }*/
   .detail-card {
     margin: 0;
   }
@@ -270,12 +270,12 @@
 }
 
 @media screen and (max-width: 575px) {
-  .detail-slider .slick-prev {
+  /*.detail-slider .slick-prev {
     left: -25px;
   }
   .detail-slider .slick-next {
     right: -15px;
-  }
+  }*/
   .detail-card__title {
     font-size: 30px;
   }
