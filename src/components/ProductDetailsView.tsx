@@ -1,21 +1,17 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import DetailTabs from "./DetailTabs";
-import { SvgPriceUnderline } from "../svg/svg";
 import React from "react";
+import DetailTabs from "./DetailTabs";
+import ProductSlider from "./ProductSlider";
+import { SvgPriceUnderline } from "../svg/svg";
 import { Link } from "gatsby";
 import { Product } from "../hooks/useGetProducts";
 import { StaticImage } from "gatsby-plugin-image";
 
 function ProductDetailsView(props: { product: Product }) {
   const productDetails = props.product;
-
   if (productDetails == null) {
     return <span>Нет такого товара</span>;
   }
-
-  const settings = {
+  /*const settings = {
     customPaging: function (i: number) {
       return (
         <a>
@@ -29,8 +25,7 @@ function ProductDetailsView(props: { product: Product }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-  };
-
+  };*/
   return (
     <div className="detail">
       <div className="detail-bg">
@@ -44,8 +39,9 @@ function ProductDetailsView(props: { product: Product }) {
             </span>
           </Link>
           <div className="detail-card__row">
-            <div className="detail-slider slider-container">
-              <Slider {...settings}>
+            <div className="detail-slider">
+              <ProductSlider productImages={productDetails.images} />
+              {/*<Slider {...settings}>
                 {productDetails.images.map((imageSrc) => (
                   <div
                     className="detail-slider-full-image"
@@ -54,7 +50,7 @@ function ProductDetailsView(props: { product: Product }) {
                     <img src={imageSrc} />
                   </div>
                 ))}
-              </Slider>
+              </Slider>*/}
             </div>
             <DetailCard productDetails={productDetails} />
           </div>

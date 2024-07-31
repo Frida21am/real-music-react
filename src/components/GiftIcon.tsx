@@ -11,7 +11,7 @@ function GiftIcon() {
   }, 10000);
 
   return (
-    <Link to="/gifts" className="gift-icon">
+    <Link to="/gifts" target="_blank" className="gift-icon">
       <div
         className={
           giftAnim ? "gift-icon__box-body anim" : "gift-icon__box-body"
