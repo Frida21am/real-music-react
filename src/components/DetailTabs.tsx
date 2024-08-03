@@ -10,7 +10,13 @@ export default function DetailDesc(props: {
       tabs={[
         {
           name: "Описание",
-          content: props.description,
+          content: (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: props.description,
+              }}
+            />
+          ),
         },
         {
           name: "Характеристики",

@@ -1,16 +1,9 @@
 import React from "react";
 import Article from "./Article";
-import { articles } from "../data/data";
-
-export type Article = {
-  id: number;
-  title: string;
-  img: string;
-  desc: string;
-};
+import useGetArticles from "../hooks/useGetArticles";
 
 function Articles() {
-  const articlesList: Article[] = articles;
+  const articlesList = useGetArticles();
 
   if (articlesList == null) {
     return <span>Нет статей</span>;

@@ -76,9 +76,13 @@ function DetailCard(props: {
   return (
     <div className="detail-card">
       <h2 className="detail-card__title">{props.productDetails.title}</h2>
-      <p className="detail-card__desc">
-        {props.productDetails.descriptionShort}
-      </p>
+      <p
+        className="detail-card__desc"
+        dangerouslySetInnerHTML={{
+          __html: props.productDetails.descriptionShort,
+        }}
+      />
+
       <div className="detail-card-purchase">
         <div className="detail-card-purchase-info">
           <span className="detail-card-purchase-info__stock">

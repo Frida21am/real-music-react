@@ -10,7 +10,7 @@ function ProductSlider(props: { productImages: string[] }) {
     showToIndex = 3;
   } else if (selectedImg == props.productImages.length - 1) {
     showFromIndex = props.productImages.length - 3;
-    showToIndex = props.productImages.length - 1;
+    showToIndex = props.productImages.length;
   } else {
     showFromIndex = selectedImg - 1;
     showToIndex = selectedImg + 2;
@@ -43,18 +43,19 @@ function ProductSlider(props: { productImages: string[] }) {
       </div>
       <div className="detail-slider__dots">
         {props.productImages
+          .map((image, index) => ({ image, index }))
           .slice(showFromIndex, showToIndex)
-          .map((image, index) => (
+          .map((image) => (
             <img
-              src={image}
-              key={index}
+              src={image.image}
+              key={image.index}
               alt=""
               className={
-                index == selectedImg
+                image.index == selectedImg
                   ? "detail-slider__dot detail-slider__dot_active"
                   : "detail-slider__dot"
               }
-              onClick={() => setSelectedImg(() => index)}
+              onClick={() => setSelectedImg(image.index)}
             />
           ))}
       </div>
