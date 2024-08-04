@@ -32,4 +32,5 @@ export type ProductQl = {
       variation: false;
     }[];
   };
+  metaData?: { key: string; value?: string | TrustedHTML }[];
 };

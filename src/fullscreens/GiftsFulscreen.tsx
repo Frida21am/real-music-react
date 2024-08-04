@@ -14,29 +14,35 @@ function GiftsFulscreen() {
           <div className="gifts-fullscreen-presents">
             <div className="gifts-fullscreen-presents__row_1">
               <div className="gifts-fullscreen-present gifts-fullscreen-present_1">
-                <StaticImage
-                  src="../images/gift.png"
-                  alt=""
-                  draggable="false"
-                />
+                <div className="gifts-fullscreen-present__image">
+                  <StaticImage
+                    src="../images/gift.png"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
               </div>
             </div>
             <div className="gifts-fullscreen-presents__row_2">
               <div className="gifts-fullscreen-present gifts-fullscreen-present_2">
                 <p>Аксессуар на выбор</p>
-                <StaticImage
-                  src="../images/gift.png"
-                  alt=""
-                  draggable="false"
-                />
+                <div className="gifts-fullscreen-present__image">
+                  <StaticImage
+                    src="../images/gift.png"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
               </div>
               <div className="gifts-fullscreen-present gifts-fullscreen-present_3">
                 <p>Гарантию на инструмент</p>
-                <StaticImage
-                  src="../images/gift.png"
-                  alt=""
-                  draggable="false"
-                />
+                <div className="gifts-fullscreen-present__image">
+                  <StaticImage
+                    src="../images/gift.png"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
               </div>
             </div>
           </div>

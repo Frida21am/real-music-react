@@ -9,6 +9,10 @@ const GET_PRODUCTS = graphql`
     name
     description(format: RAW)
     shortDescription(format: RAW)
+    metaData {
+      key
+      value
+    }
     image {
       id
       sourceUrl
@@ -130,6 +134,7 @@ export type Product = {
   slug: string;
   isInStock: boolean;
   characteristics: { name: string; value: string }[];
+  videoSrc?: string | TrustedHTML;
 };
 
 function useGetProducts() {
@@ -158,6 +163,7 @@ function useGetProducts() {
           }) ?? [],
         images: pql.galleryImages.nodes.map((img) => img.sourceUrl),
         isInStock: pql.stockStatus == "IN_STOCK",
+        videoSrc: pql.metaData?.find((el) => el.key == "video_frame")?.value,
       };
     });
 
