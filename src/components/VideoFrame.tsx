@@ -7,7 +7,11 @@ function VideoFrame(props: { frameUrl?: string | TrustedHTML }) {
     <>
       <div className="detail-card__video">
         <p
-          className="detail-card__video-button"
+          className={
+            props.frameUrl
+              ? "detail-card__video-button detail-card__video-button_showed"
+              : "detail-card__video-button"
+          }
           onClick={() => setIsVideoOpen(true)}
         >
           <span>Оценить звучание</span>
