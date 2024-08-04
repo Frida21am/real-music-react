@@ -81,7 +81,7 @@
 }
 .detail-tabs-content-item__content {
   letter-spacing: 0.75px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 30px;
   margin-top: 10px;
   text-align: justify;
@@ -157,13 +157,13 @@
 .detail-tabs-content-item-property__name {
   font-weight: 500;
   flex: 0 0 55%;
-  font-size: 22px;
+  font-size: 21px;
 }
 .detail-tabs-content-item-property__value {
   position: relative;
   flex: 0 0 50%;
   text-align: center;
-  font-size: 21px;
+  font-size: 20px;
   &::after {
     content: "";
     position: absolute;

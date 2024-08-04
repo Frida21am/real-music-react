@@ -1,6 +1,8 @@
-import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 import Slider, { Settings } from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function AboutUsGallery() {
   const settings: Settings = {

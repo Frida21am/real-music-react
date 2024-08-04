@@ -1,6 +1,7 @@
 import React from "react";
 import DetailTabs from "./DetailTabs";
 import ProductSlider from "./ProductSlider";
+import VideoFrame from "./VideoFrame";
 import { SvgPriceUnderline } from "../svg/svg";
 import { Link } from "gatsby";
 import { Product } from "../hooks/useGetProducts";
@@ -11,21 +12,6 @@ function ProductDetailsView(props: { product: Product }) {
   if (productDetails == null) {
     return <span>Нет такого товара</span>;
   }
-  /*const settings = {
-    customPaging: function (i: number) {
-      return (
-        <a>
-          <img src={productDetails.images[i]} alt="" />
-        </a>
-      );
-    },
-    dots: true,
-    dotsClass: "slick-dots slick-thumb",
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };*/
   return (
     <div className="detail">
       <div className="detail-bg">
@@ -41,16 +27,6 @@ function ProductDetailsView(props: { product: Product }) {
           <div className="detail-card__row">
             <div className="detail-slider">
               <ProductSlider productImages={productDetails.images} />
-              {/*<Slider {...settings}>
-                {productDetails.images.map((imageSrc) => (
-                  <div
-                    className="detail-slider-full-image"
-                    key={productDetails.id}
-                  >
-                    <img src={imageSrc} />
-                  </div>
-                ))}
-              </Slider>*/}
             </div>
             <DetailCard productDetails={productDetails} />
           </div>
@@ -71,6 +47,7 @@ function DetailCard(props: {
     descriptionShort: string;
     isInStock: boolean;
     price: string;
+    videoSrc?: string | TrustedHTML;
   };
 }) {
   return (
@@ -102,6 +79,8 @@ function DetailCard(props: {
           </a>
         </div>
       </div>
+
+      <VideoFrame frameUrl={props.productDetails.videoSrc} />
     </div>
   );
 }
