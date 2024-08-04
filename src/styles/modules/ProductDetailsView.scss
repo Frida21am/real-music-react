@@ -102,26 +102,28 @@
 .detail-card__video {
   margin-top: 50px;
   text-align: center;
-  cursor: pointer;
   display: flex;
   justify-content: center;
 }
 .detail-card__video-button {
-  display: flex;
-  justify-content: center;
+  cursor: pointer;
   border: 1px dashed #eb971a;
   border-radius: 10px;
   padding: 11px 20px;
+  display: none;
   span {
-    display: inline-block;
     font-size: 20px;
     font-weight: 500;
     margin-right: 10px;
     color: #eb971a;
   }
 }
+.detail-card__video-button_showed {
+  display: block;
+}
 .detail-card__video-button__img {
   width: 24px;
+  display: inline-block;
 }
 
 .detail-card__video-popup {
@@ -131,8 +133,6 @@
   }
 }
 .detail-card__video-popup__frame {
-  position: absolute;
-  top: 0;
   iframe {
     max-width: 900px;
     max-height: 600px;
