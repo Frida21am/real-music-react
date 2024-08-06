@@ -44,23 +44,27 @@ function FeedbackFormPopup(props: {
           props.isPopupOpen ? "popup__content showed" : "popup__content"
         }
       >
-        <div className="popup-form">
-          <form action="#" className="popup-form-contacts">
+        <div className="feedback-popup-form">
+          <form action="#" className="feedback-popup-form-contacts">
             <span
               className="popup__close"
               onClick={() => props.onPopupClosing(false)}
             >
               <StaticImage src="../images/close.png" alt="" />
             </span>
-            <div className="popup__title">
+            <div className="feedback-popup__title">
               Мы перезвоним вам в ближайшее время
             </div>
-            <div className="popup-form-contacts__input">
-              <div className="popup-form-contacts__label">Ваше имя *</div>
+            <div className="feedback-popup-form-contacts__input">
+              <div className="feedback-popup-form-contacts__label">
+                Ваше имя *
+              </div>
               <input type="text" name="name" required />
             </div>
-            <div className="popup-form-contacts__input">
-              <div className="popup-form-contacts__label">Ваш номер *</div>
+            <div className="feedback-popup-form-contacts__input">
+              <div className="feedback-popup-form-contacts__label">
+                Ваш номер *
+              </div>
               <InputMask
                 mask="+7 999 999 99 99"
                 maskChar=" "
@@ -68,18 +72,20 @@ function FeedbackFormPopup(props: {
                 required
               />
             </div>
-            <div className="popup-form-contacts__input">
-              <div className="popup-form-contacts__label">Сообщение</div>
+            <div className="feedback-popup-form-contacts__input">
+              <div className="feedback-popup-form-contacts__label">
+                Сообщение
+              </div>
               <textarea name="message"></textarea>
             </div>
-            <button type="submit" className="popup-form-contacts__btn">
+            <button type="submit" className="feedback-popup-form-contacts__btn">
               Заказать обратный звонок
             </button>
-            <div className="popup-form-contacts__bottom">
-              <div className="popup-form-contacts__icon">
+            <div className="feedback-popup-form-contacts__bottom">
+              <div className="feedback-popup-form-contacts__icon">
                 <StaticImage src="../images/shield.png" alt="" />
               </div>
-              <div className="popup-form-contacts__confidentiality">
+              <div className="feedback-popup-form-contacts__confidentiality">
                 Мы гарантируем конфиденциальность данных
               </div>
             </div>
