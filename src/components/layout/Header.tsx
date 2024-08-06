@@ -2,6 +2,8 @@ import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import { useState } from "react";
+import EmptyBasket from "../EmptyBasket";
+
 function Header() {
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
   function closeSideBar() {
@@ -9,6 +11,9 @@ function Header() {
       setSideBarIsOpen(!sideBarIsOpen);
     }
   }
+
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+
   return (
     <header className="header">
       <div className="header-blur"></div>
@@ -81,7 +86,10 @@ function Header() {
               </div>
               <span>0</span>
             </div>
-            <div className="header__addprod_cart">
+            <div
+              className="header__addprod_cart"
+              onClick={() => setIsPopupOpen(true)}
+            >
               <div className="header__addprod-image">
                 <div>
                   <StaticImage src="../../images/basket.png" alt="" />
@@ -100,6 +108,7 @@ function Header() {
           </div>
         </div>
       </div>
+      <EmptyBasket isPopupOpen={isPopupOpen} onPopupClosing={setIsPopupOpen} />
     </header>
   );
 }

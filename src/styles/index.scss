@@ -27,6 +27,8 @@
 @import "./modules/Articles.scss";
 @import "./modules/ArticleDetailsView.scss";
 @import "./modules/ProductSlider.scss";
+@import "./modules/Popups.scss";
+@import "./modules/EmptyBasket.scss";
 
 * {
   margin: 0;
@@ -67,6 +69,32 @@ a {
   opacity: 0.9;
   border-radius: 10%;
   z-index: 100;
+}
+
+.notification {
+  background-color: #eb971a;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 10px;
+  z-index: 10000;
+  max-width: 400px;
+  display: none;
+  p {
+    color: #fff;
+    font-size: 16px;
+    padding: 20px 30px;
+  }
+}
+.notification.showed {
+  display: block;
+}
+.notification__close {
+  cursor: pointer;
+  position: absolute;
+  color: #fff;
+  top: 5px;
+  right: 10px;
 }
 
 @media screen and (max-width: 1200px) {

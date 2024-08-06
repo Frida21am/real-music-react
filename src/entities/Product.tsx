@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import { useState } from "react";
+import Notification from "../components/Notification";
 
 export interface IItemDto {
   id: string;
@@ -15,6 +16,11 @@ export interface IItemDto {
 function Product(props: { item: IItemDto }) {
   const [isHovered, setIsHovered] = useState(false);
   const [activeLike, setActiveLike] = useState(false);
+
+  const [activeNotification, setActiveNotification] = useState(false);
+  setTimeout(() => {
+    setActiveNotification(false);
+  }, 5000);
 
   return (
     <div className="products-gradient-box">
@@ -79,12 +85,19 @@ function Product(props: { item: IItemDto }) {
             >
               Подробнее
             </Link>
-            <div className="products-item-bottom__button products-item-bottom__button_add">
+            <div
+              className="products-item-bottom__button products-item-bottom__button_add"
+              onClick={() => setActiveNotification(true)}
+            >
               В корзину
             </div>
           </div>
         </div>
       </div>
+      <Notification
+        activeNotification={activeNotification}
+        onNotificationClosing={setActiveNotification}
+      />
     </div>
   );
 }
