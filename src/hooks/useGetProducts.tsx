@@ -158,7 +158,7 @@ function useGetProducts() {
           pql.attributes?.nodes.map((attr) => {
             return {
               name: attr.label,
-              value: attr.options[0],
+              value: attr.options?.[0],
             };
           }) ?? [],
         images: pql.galleryImages.nodes.map((img) => img.sourceUrl),

@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import { useState } from "react";
-import Notification from "../components/Notification";
+import Notification from "../icons/Notification";
 
 export interface IItemDto {
   id: string;
@@ -14,7 +14,6 @@ export interface IItemDto {
 }
 
 function Product(props: { item: IItemDto }) {
-  const [isHovered, setIsHovered] = useState(false);
   const [activeLike, setActiveLike] = useState(false);
 
   const [activeNotification, setActiveNotification] = useState(false);
@@ -30,12 +29,7 @@ function Product(props: { item: IItemDto }) {
           style={{ textDecoration: "none" }}
           className="products-item__image"
         >
-          <img
-            src={isHovered ? props.item.backImg : props.item.frontImg}
-            alt=""
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          />
+          <img src={props.item.frontImg} alt="" />
         </Link>
         <div
           className={
