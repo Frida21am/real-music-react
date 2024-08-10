@@ -1,9 +1,9 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import React, { ReactNode } from "react";
-import GiftIcon from "../GiftIcon";
-import WhatsAppIcon from "../WhatsAppIcon";
-import BackToTopButton from "../BackToTopButton";
+import GiftIcon from "../../icons/GiftIcon";
+import WhatsAppIcon from "../../icons/WhatsAppIcon";
+import BackToTopButton from "../../icons/BackToTopButton";
 import "../../styles/index.scss";
 
 function Layout(props: { children: ReactNode }) {

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import DetailTabs from "./DetailTabs";
 import ProductSlider from "./ProductSlider";
-import VideoFrame from "./VideoFrame";
+import VideoFrame from "../popups/VideoFrame";
 import { SvgPriceUnderline } from "../svg/svg";
 import { Link } from "gatsby";
 import { Product } from "../hooks/useGetProducts";
 import { StaticImage } from "gatsby-plugin-image";
+import Notification from "../icons/Notification";
 
 function ProductDetailsView(props: { product: Product }) {
   const productDetails = props.product;
@@ -50,6 +51,11 @@ function DetailCard(props: {
     videoSrc?: string | TrustedHTML;
   };
 }) {
+  const [activeNotification, setActiveNotification] = useState(false);
+  setTimeout(() => {
+    setActiveNotification(false);
+  }, 5000);
+
   return (
     <div className="detail-card">
       <h2 className="detail-card__title">{props.productDetails.title}</h2>
@@ -71,7 +77,11 @@ function DetailCard(props: {
           <SvgPriceUnderline />
         </div>
         <div className="detail-card-purchase-buttons">
-          <a href="#" className="detail-card-purchase-buttons__tocart">
+          <a
+            href="#"
+            className="detail-card-purchase-buttons__tocart"
+            onClick={() => setActiveNotification(true)}
+          >
             В корзину
           </a>
           <a href="#" className="detail-card-purchase-buttons__tofavorites">
@@ -81,6 +91,10 @@ function DetailCard(props: {
       </div>
 
       <VideoFrame frameUrl={props.productDetails.videoSrc} />
+      <Notification
+        activeNotification={activeNotification}
+        onNotificationClosing={setActiveNotification}
+      />
     </div>
   );
 }
