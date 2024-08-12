@@ -1,8 +1,8 @@
+import React from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import React from "react";
 import { useState } from "react";
-import EmptyBasket from "../../popups/EmptyBasket";
+import ShoppingCart from "../../popups/ShoppingCart";
 
 function Header() {
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
@@ -108,7 +108,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <EmptyBasket isPopupOpen={isPopupOpen} onPopupClosing={setIsPopupOpen} />
+      <ShoppingCart isPopupOpen={isPopupOpen} onPopupClosing={setIsPopupOpen} />
     </header>
   );
 }

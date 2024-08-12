@@ -158,3 +158,10 @@ export const articles = [
     ),
   },
 ];
+
+export const productsInCart = [
+  "cHJvZHVjdDo0MDc=",
+  "cHJvZHVjdDoxNDM2",
+  "cHJvZHVjdDo0MzA=",
+  "cHJvZHVjdDoxNzkw",
+];
