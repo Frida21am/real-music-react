@@ -139,7 +139,7 @@ export type Product = {
 
 function useGetProducts() {
   const products: Product[] = useStaticQuery<productsQuery>(GET_PRODUCTS)
-    .wpgraphql.products.edges.map((e) => e.node)
+    .wpgraphql.products.edges?.map((e) => e.node)
     .map((pql) => {
       return {
         id: pql.id,

@@ -1,5 +1,5 @@
-import { Link } from "gatsby";
 import React from "react";
+import { Link } from "gatsby";
 import { useState } from "react";
 import Notification from "../icons/Notification";
 
