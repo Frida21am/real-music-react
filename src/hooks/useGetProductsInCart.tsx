@@ -4,16 +4,14 @@ import { productsInCart } from "../data/data";
 
 function useGetProductsInCart() {
   const products: Product[] = useGetProducts();
-  //const productsInCart: Product[] = useLocalStorage([], "order");
+  const [productsInCart] = useLocalStorage([], "order");
   const filteredProducts: Product[] = [];
-  productsInCart?.forEach((item) => {
-    //let product = products.find((product) => product.id == item.id);
+  productsInCart?.forEach((item: string) => {
     let product = products.find((product) => product.id == item);
     if (product) {
       filteredProducts.push(product);
     }
   });
-
   if (filteredProducts == null) {
     throw new Error("Data not found!");
   }
