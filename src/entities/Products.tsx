@@ -40,8 +40,7 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
 
   const [order, setOrder] = useLocalStorage([], "order");
   const addToOrder = (id: string) => {
-    const newItem = productsPage.productsOnPage.find((item) => item.id === id);
-    setOrder([...order, newItem]);
+    setOrder((oldOrder: string[]) => [...oldOrder, id]);
   };
 
   const [like, setLike] = useLocalStorage([], "like");

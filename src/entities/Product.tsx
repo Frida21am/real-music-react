@@ -49,10 +49,13 @@ function Product(props: {
             activeLike ? "t1002__addBtn t1002__addBtn_active" : "t1002__addBtn"
           }
           onClick={() => {
-            setActiveLike((oldActiveLike) => !oldActiveLike);
-            if (activeLike) {
-              setActiveNotification(true);
-            }
+            setActiveLike((oldActiveLike) => {
+              const newValue = !oldActiveLike;
+              if (newValue) {
+                setActiveNotification(true);
+              }
+              return newValue;
+            });
             props.addToLiked(props.item.id);
           }}
         >

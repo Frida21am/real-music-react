@@ -33,6 +33,7 @@
     "react-alice-carousel": "^2.9.1",
     "react-dom": "^18.3.1",
     "react-input-mask": "^2.0.4",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.24.1",
     "react-slick": "^0.30.2",
     "sass": "^1.77.8",
