@@ -7,6 +7,7 @@ import { Link } from "gatsby";
 import { Product } from "../hooks/useGetProducts";
 import { StaticImage } from "gatsby-plugin-image";
 import Notification from "../icons/Notification";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function ProductDetailsView(props: { product: Product }) {
   const productDetails = props.product;
@@ -44,6 +45,7 @@ function ProductDetailsView(props: { product: Product }) {
 
 function DetailCard(props: {
   productDetails: {
+    id: string;
     title: string;
     description: string;
     descriptionShort: string;
@@ -56,6 +58,20 @@ function DetailCard(props: {
   setTimeout(() => {
     setActiveNotification(false);
   }, 5000);
+
+  const [order, setOrder] = useLocalStorage([], "order");
+  const addToOrder = (id: string) => {
+    if (!order.includes(id)) {
+      setOrder((oldOrder: string[]) => [...oldOrder, id]);
+    }
+  };
+
+  const [like, setLike] = useLocalStorage([], "like");
+  const addToLiked = (id: string) => {
+    if (!like.includes(id)) {
+      setLike((oldLiked: string[]) => [...oldLiked, id]);
+    }
+  };
 
   return (
     <div className="detail-card">
@@ -81,11 +97,21 @@ function DetailCard(props: {
           <a
             href="#"
             className="detail-card-purchase-buttons__tocart"
-            onClick={() => setActiveNotification(true)}
+            onClick={() => {
+              setActiveNotification(true);
+              addToOrder(props.productDetails.id);
+            }}
           >
             В корзину
           </a>
-          <a href="#" className="detail-card-purchase-buttons__tofavorites">
+          <a
+            href="#"
+            className="detail-card-purchase-buttons__tofavorites"
+            onClick={() => {
+              setActiveNotification(true);
+              addToLiked(props.productDetails.id);
+            }}
+          >
             В избранное
           </a>
         </div>

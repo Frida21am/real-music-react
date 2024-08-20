@@ -2,12 +2,20 @@ import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import useGetLikedProducts from "../hooks/useGetLikedProducts";
 import ProductInWishList from "../entities/ProductInWishList";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function WishList(props: {
   isWishListOpen: boolean;
   onWishListClosing: (isWishListOpen: boolean) => void;
 }) {
   const products = useGetLikedProducts();
+
+  const [order, setOrder] = useLocalStorage([], "order");
+  const addToOrder = (id: string) => {
+    if (!order.includes(id)) {
+      setOrder((oldOrder: string[]) => [...oldOrder, id]);
+    }
+  };
   return (
     <div className={props.isWishListOpen ? "wishlist showed" : "wishlist"}>
       <span
@@ -19,7 +27,7 @@ function WishList(props: {
       <h2 className="wishlist__title">Избранное</h2>
       <div className="wishlist-products">
         {products.map((el) => (
-          <ProductInWishList key={el.id} product={el} />
+          <ProductInWishList key={el.id} product={el} addToOrder={addToOrder} />
         ))}
       </div>
     </div>

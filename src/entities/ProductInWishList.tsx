@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Product } from "../hooks/useGetProducts";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
-function ProductInWishList(props: { product: Product }) {
+function ProductInWishList(props: {
+  product: Product;
+  addToOrder: (id: string) => void;
+}) {
   return (
     <div className="wishlist-products__item">
       <div className="wishlist-products__item-image">
@@ -20,7 +23,14 @@ function ProductInWishList(props: { product: Product }) {
           {props.product.title}
         </Link>
       </div>
-      <button className="wishlist-products__item-button">В корзину</button>
+      <button
+        className="wishlist-products__item-button"
+        onClick={() => {
+          props.addToOrder(props.product.id);
+        }}
+      >
+        В корзину
+      </button>
       <div className="wishlist-products__item-delete">
         <div className="wishlist-products__item-delete_img">
           <StaticImage src="../images/close.png" alt="" />

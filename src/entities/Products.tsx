@@ -40,12 +40,16 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
 
   const [order, setOrder] = useLocalStorage([], "order");
   const addToOrder = (id: string) => {
-    setOrder((oldOrder: string[]) => [...oldOrder, id]);
+    if (!order.includes(id)) {
+      setOrder((oldOrder: string[]) => [...oldOrder, id]);
+    }
   };
 
   const [like, setLike] = useLocalStorage([], "like");
   const addToLiked = (id: string) => {
-    setLike((oldLiked: string[]) => [...oldLiked, id]);
+    if (!like.includes(id)) {
+      setLike((oldLiked: string[]) => [...oldLiked, id]);
+    }
   };
 
   return (
