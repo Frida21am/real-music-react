@@ -45,8 +45,7 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
 
   const [like, setLike] = useLocalStorage([], "like");
   const addToLiked = (id: string) => {
-    const newItem = productsPage.productsOnPage.find((item) => item.id === id);
-    setLike([...like, newItem]);
+    setLike((oldLiked: string[]) => [...oldLiked, id]);
   };
 
   return (
@@ -84,6 +83,7 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
           className="catalog__pagination"
           defaultCurrent={1}
           pageSize={pageSize}
+          showSizeChanger={false}
           total={productsPage.productsCount}
           current={currentPage}
           onChange={(newCurrentPage: number) => {

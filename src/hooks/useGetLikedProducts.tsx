@@ -1,13 +1,11 @@
 import useGetProducts, { Product } from "./useGetProducts";
 import useLocalStorage from "./useLocalStorage";
-import { likedProducts } from "../data/data";
 
 function useGetLikedProducts() {
   const products: Product[] = useGetProducts();
-  //const likedProducts: Product[] = useLocalStorage([], "order");
+  const [likedProducts] = useLocalStorage([], "like");
   const filteredProducts: Product[] = [];
-  likedProducts?.forEach((item) => {
-    //let product = products.find((product) => product.id == item.id);
+  likedProducts?.forEach((item: string) => {
     let product = products.find((product) => product.id == item);
     if (product) {
       filteredProducts.push(product);

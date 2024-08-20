@@ -20,6 +20,7 @@ function ProductInWishList(props: { product: Product }) {
           {props.product.title}
         </Link>
       </div>
+      <button className="wishlist-products__item-button">В корзину</button>
       <div className="wishlist-products__item-delete">
         <div className="wishlist-products__item-delete_img">
           <StaticImage src="../images/close.png" alt="" />
