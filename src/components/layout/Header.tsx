@@ -12,9 +12,9 @@ function Header() {
       setSideBarIsOpen(!sideBarIsOpen);
     }
   }
-
   const [isWishListOpen, setIsWishListOpen] = useState<boolean>(false);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+
   return (
     <header className="header">
       <div className="header-blur"></div>

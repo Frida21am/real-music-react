@@ -1,6 +1,5 @@
 import useGetProducts, { Product } from "./useGetProducts";
 import useLocalStorage from "./useLocalStorage";
-import { productsInCart } from "../data/data";
 
 function useGetProductsInCart() {
   const products: Product[] = useGetProducts();

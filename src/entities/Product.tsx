@@ -24,6 +24,7 @@ function Product(props: {
   setTimeout(() => {
     setActiveNotification(false);
   }, 5000);
+
   return (
     <div className="products-gradient-box">
       <div className="products-item">
