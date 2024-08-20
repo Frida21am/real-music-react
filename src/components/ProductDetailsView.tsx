@@ -13,6 +13,7 @@ function ProductDetailsView(props: { product: Product }) {
   if (productDetails == null) {
     return <span>Нет такого товара</span>;
   }
+
   return (
     <div className="detail">
       <div className="detail-bg">
@@ -94,6 +95,7 @@ function DetailCard(props: {
       <Notification
         activeNotification={activeNotification}
         onNotificationClosing={setActiveNotification}
+        name={props.productDetails.title}
       />
     </div>
   );

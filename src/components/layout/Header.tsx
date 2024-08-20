@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { useState } from "react";
 import ShoppingCart from "../../popups/ShoppingCart";
+import WishList from "../WishList";
 
 function Header() {
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
@@ -12,8 +13,8 @@ function Header() {
     }
   }
 
+  const [isWishListOpen, setIsWishListOpen] = useState<boolean>(false);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
-
   return (
     <header className="header">
       <div className="header-blur"></div>
@@ -78,7 +79,10 @@ function Header() {
             </ul>
           </nav>
           <div className="header__addprod">
-            <div className="header__addprod_likes">
+            <div
+              className="header__addprod_likes"
+              onClick={() => setIsWishListOpen(true)}
+            >
               <div className="header__addprod-image">
                 <div>
                   <StaticImage src="../../images/like.png" alt="" />
@@ -108,6 +112,10 @@ function Header() {
           </div>
         </div>
       </div>
+      <WishList
+        isWishListOpen={isWishListOpen}
+        onWishListClosing={setIsWishListOpen}
+      />
       <ShoppingCart isPopupOpen={isPopupOpen} onPopupClosing={setIsPopupOpen} />
     </header>
   );

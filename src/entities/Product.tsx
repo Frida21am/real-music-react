@@ -13,14 +13,17 @@ export interface IItemDto {
   bestseller: boolean;
 }
 
-function Product(props: { item: IItemDto }) {
+function Product(props: {
+  item: IItemDto;
+  addToOrder: (id: string) => void;
+  addToLiked: (id: string) => void;
+}) {
   const [activeLike, setActiveLike] = useState(false);
 
   const [activeNotification, setActiveNotification] = useState(false);
   setTimeout(() => {
     setActiveNotification(false);
   }, 5000);
-
   return (
     <div className="products-gradient-box">
       <div className="products-item">
@@ -41,12 +44,17 @@ function Product(props: { item: IItemDto }) {
           хит!
         </div>
 
-        <a
-          href="#addtofavorites"
+        <div
           className={
             activeLike ? "t1002__addBtn t1002__addBtn_active" : "t1002__addBtn"
           }
-          onClick={() => setActiveLike((oldActiveLike) => !oldActiveLike)}
+          onClick={() => {
+            setActiveLike((oldActiveLike) => !oldActiveLike);
+            if (activeLike) {
+              setActiveNotification(true);
+            }
+            props.addToLiked(props.item.id);
+          }}
         >
           <svg
             width="21"
@@ -61,7 +69,7 @@ function Product(props: { item: IItemDto }) {
               strokeLinejoin="round"
             ></path>
           </svg>
-        </a>
+        </div>
 
         <div className="products-item-bottom">
           <Link
@@ -81,7 +89,10 @@ function Product(props: { item: IItemDto }) {
             </Link>
             <div
               className="products-item-bottom__button products-item-bottom__button_add"
-              onClick={() => setActiveNotification(true)}
+              onClick={() => {
+                setActiveNotification(true);
+                props.addToOrder(props.item.id);
+              }}
             >
               В корзину
             </div>
@@ -91,6 +102,7 @@ function Product(props: { item: IItemDto }) {
       <Notification
         activeNotification={activeNotification}
         onNotificationClosing={setActiveNotification}
+        name={props.item.title}
       />
     </div>
   );

@@ -3,6 +3,7 @@ import React from "react";
 function Notification(props: {
   activeNotification: boolean;
   onNotificationClosing: (activeNotification: boolean) => void;
+  name: string;
 }) {
   return (
     <div
@@ -16,7 +17,7 @@ function Notification(props: {
       >
         x
       </span>
-      <p>Укулеле сопрано добавлено в корзину / избранное</p>
+      <p>{props.name} добавлено в корзину / избранное</p>
     </div>
   );
 }

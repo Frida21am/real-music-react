@@ -1,7 +1,6 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import InputMask from "react-input-mask";
-import { productsInCart } from "../data/data";
 import useGetProductsInCart from "../hooks/useGetProductsInCart";
 import EmptyCart from "./EmptyCart";
 import ProductInCart from "../entities/ProductInCart";
@@ -10,26 +9,26 @@ function ShoppingCart(props: {
   isPopupOpen: boolean;
   onPopupClosing: (isPopupOpen: boolean) => void;
 }) {
-  const products = useGetProductsInCart(productsInCart);
+  const products = useGetProductsInCart();
   return (
     <div className="cart">
       <div
         className={props.isPopupOpen ? "popup__shadow showed" : "popup__shadow"}
         onClick={() => props.onPopupClosing(false)}
-      ></div>
+      >
+        <span
+          className="popup__close"
+          onClick={() => props.onPopupClosing(false)}
+        >
+          <StaticImage src="../images/close.png" alt="" />
+        </span>
+      </div>
       <div
         className={
           props.isPopupOpen ? "popup__content showed" : "popup__content"
         }
       >
         <div className="cart__content">
-          <span
-            className="popup__close"
-            onClick={() => props.onPopupClosing(false)}
-          >
-            <StaticImage src="../images/close.png" alt="" />
-          </span>
-
           {products.length != 0 ? <Order /> : <EmptyCart />}
         </div>
       </div>
@@ -38,7 +37,7 @@ function ShoppingCart(props: {
 }
 
 function Order() {
-  const products = useGetProductsInCart(productsInCart);
+  const products = useGetProductsInCart();
   return (
     <div className="order">
       <h2 className="order__title">Ваш заказ:</h2>

@@ -165,3 +165,10 @@ export const productsInCart = [
   "cHJvZHVjdDo0MzA=",
   "cHJvZHVjdDoxNzkw",
 ];
+
+export const likedProducts = [
+  "cHJvZHVjdDo0MDc=",
+  "cHJvZHVjdDoxNDM2",
+  "cHJvZHVjdDo0MzA=",
+  "cHJvZHVjdDoxNzkw",
+];

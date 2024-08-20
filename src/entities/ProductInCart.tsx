@@ -10,7 +10,10 @@ function ProductInCart(props: { product: Product }) {
         <img src={props.product.frontImg} alt="" />
       </div>
       <div className="order-products__item-text">
-        <Link to="#" className="order-products__item-title">
+        <Link
+          to={`/catalog/${props.product.slug}`}
+          className="order-products__item-title"
+        >
           {props.product.title}
         </Link>
         <span className="order-products__item-price">
@@ -18,7 +21,9 @@ function ProductInCart(props: { product: Product }) {
         </span>
       </div>
       <div className="order-products__item-close">
-        <StaticImage src="../images/close.png" alt="" />
+        <div className="order-products__item-close_img">
+          <StaticImage src="../images/close.png" alt="" />
+        </div>
       </div>
     </div>
   );

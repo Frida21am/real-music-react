@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import Product from "./Product";
 import { Pagination, ConfigProvider } from "antd";
+import Product from "./Product";
 import Filtration, { SelectedFilters } from "../components/Filtration";
 import useGetFilteredProducts from "../hooks/useGetFilteredProducts";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const pageSize = 12;
 
@@ -36,13 +37,31 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
       </div>
     );
   }
+
+  const [order, setOrder] = useLocalStorage([], "order");
+  const addToOrder = (id: string) => {
+    const newItem = productsPage.productsOnPage.find((item) => item.id === id);
+    setOrder([...order, newItem]);
+  };
+
+  const [like, setLike] = useLocalStorage([], "like");
+  const addToLiked = (id: string) => {
+    const newItem = productsPage.productsOnPage.find((item) => item.id === id);
+    setLike([...like, newItem]);
+  };
+
   return (
     <>
       <div>
         {productsPage.productsCount != 0 ? (
           <div className="products__row">
             {productsPage.productsOnPage.map((el) => (
-              <Product key={el.id} item={el} />
+              <Product
+                key={el.id}
+                item={el}
+                addToOrder={addToOrder}
+                addToLiked={addToLiked}
+              />
             ))}
           </div>
         ) : (
