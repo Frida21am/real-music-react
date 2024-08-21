@@ -60,10 +60,15 @@ function DetailCard(props: {
   }, 5000);
 
   const [order, setOrder] = useLocalStorage([], "order");
+
   const addToOrder = (id: string) => {
     if (!order.includes(id)) {
       setOrder((oldOrder: string[]) => [...oldOrder, id]);
     }
+  };
+
+  const removeFromOrder = (id: string) => {
+    setOrder((oldOrder: string[]) => oldOrder.filter((item) => item !== id));
   };
 
   const [like, setLike] = useLocalStorage([], "like");
@@ -108,6 +113,8 @@ function DetailCard(props: {
                 if (newValue) {
                   setActiveNotification(true);
                   addToOrder(props.productDetails.id);
+                } else {
+                  removeFromOrder(props.productDetails.id);
                 }
                 return newValue;
               });

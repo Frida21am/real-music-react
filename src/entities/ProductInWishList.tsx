@@ -6,6 +6,7 @@ import { Link } from "gatsby";
 function ProductInWishList(props: {
   product: Product;
   addToOrder: (id: string) => void;
+  removeFromLiked: (id: string) => void;
 }) {
   return (
     <div className="wishlist-products__item">
@@ -31,7 +32,12 @@ function ProductInWishList(props: {
       >
         В корзину
       </button>
-      <div className="wishlist-products__item-delete">
+      <div
+        className="wishlist-products__item-delete"
+        onClick={() => {
+          props.removeFromLiked(props.product.id);
+        }}
+      >
         <div className="wishlist-products__item-delete_img">
           <StaticImage src="../images/close.png" alt="" />
         </div>

@@ -4,6 +4,7 @@ import InputMask from "react-input-mask";
 import useGetProductsInCart from "../hooks/useGetProductsInCart";
 import EmptyCart from "./EmptyCart";
 import ProductInCart from "../entities/ProductInCart";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function ShoppingCart(props: {
   isPopupOpen: boolean;
@@ -38,12 +39,22 @@ function ShoppingCart(props: {
 
 function Order() {
   const products = useGetProductsInCart();
+
+  const [order, setOrder] = useLocalStorage([], "order");
+  const removeFromOrder = (id: string) => {
+    setOrder((oldOrder: string[]) => oldOrder.filter((item) => item !== id));
+  };
+
   return (
     <div className="order">
       <h2 className="order__title">Ваш заказ:</h2>
       <div className="order-products__row">
         {products.map((el) => (
-          <ProductInCart key={el.id} product={el} />
+          <ProductInCart
+            key={el.id}
+            product={el}
+            removeFromOrder={removeFromOrder}
+          />
         ))}
       </div>
       <p className="order-products__sum">Сумма: 6 080р.</p>

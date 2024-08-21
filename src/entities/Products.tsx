@@ -39,17 +39,25 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
   }
 
   const [order, setOrder] = useLocalStorage([], "order");
+
   const addToOrder = (id: string) => {
     if (!order.includes(id)) {
       setOrder((oldOrder: string[]) => [...oldOrder, id]);
     }
   };
+  const removeFromOrder = (id: string) => {
+    setOrder((oldOrder: string[]) => oldOrder.filter((item) => item !== id));
+  };
 
   const [like, setLike] = useLocalStorage([], "like");
+
   const addToLiked = (id: string) => {
     if (!like.includes(id)) {
       setLike((oldLiked: string[]) => [...oldLiked, id]);
     }
+  };
+  const removeFromLiked = (id: string) => {
+    setLike((oldLiked: string[]) => oldLiked.filter((item) => item !== id));
   };
 
   return (
@@ -63,6 +71,8 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
                 item={el}
                 addToOrder={addToOrder}
                 addToLiked={addToLiked}
+                removeFromOrder={removeFromOrder}
+                removeFromLiked={removeFromLiked}
               />
             ))}
           </div>
