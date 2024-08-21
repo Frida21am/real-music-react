@@ -83,20 +83,27 @@
 .detail-card-purchase-buttons {
   display: flex;
   flex-direction: column;
-  font-size: 20px;
-  a {
+  button {
+    font-size: 18px;
+    width: 200px;
+    border: none;
     color: #fff;
     text-decoration: none;
-    padding: 15px 30px;
+    padding: 15px 0;
     background-color: #eb971a;
     border-radius: 10px;
     text-align: center;
     margin-bottom: 20px;
     transition: box-shadow 200ms ease;
+    cursor: pointer;
     &:hover {
       box-shadow: 0px 0px 8px 0px hsl(17.72deg 100% 70% / 70%);
     }
   }
+}
+.detail-card-purchase-buttons__tocart_remove {
+  background: linear-gradient(#d88c1afa, #b37519f6);
+  color: darken(#fff, 6%);
 }
 
 .detail-card__video {
@@ -160,7 +167,9 @@
     font-size: 35px;
   }
   .detail-card-purchase-buttons {
-    font-size: 19px;
+    button {
+      font-size: 19px;
+    }
   }
 }
 
@@ -185,7 +194,9 @@
     font-size: 45px;
   }
   .detail-card-purchase-buttons {
-    font-size: 18px;
+    button {
+      font-size: 18px;
+    }
   }
 }
 @media screen and (max-width: 767px) {
@@ -229,7 +240,7 @@
   .detail-card-purchase-buttons {
     font-size: 17px;
     width: 50%;
-    a {
+    button {
       padding: 13px 20px;
     }
   }
