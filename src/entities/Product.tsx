@@ -25,6 +25,8 @@ function Product(props: {
     setActiveNotification(false);
   }, 5000);
 
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+
   return (
     <div className="products-gradient-box">
       <div className="products-item">
@@ -76,14 +78,18 @@ function Product(props: {
         </div>
 
         <div className="products-item-bottom">
-          <Link
-            to={`/catalog/${props.item.slug}`}
-            style={{ textDecoration: "none" }}
-            className="products-item-bottom__title"
-          >
-            {props.item.title}
-          </Link>
-          <div className="products-item-bottom__price">{props.item.price}</div>
+          <div className="products-item-bottom__info">
+            <Link
+              to={`/catalog/${props.item.slug}`}
+              style={{ textDecoration: "none" }}
+              className="products-item-bottom__title"
+            >
+              {props.item.title}
+            </Link>
+            <div className="products-item-bottom__price">
+              {props.item.price}
+            </div>
+          </div>
           <div className="products-item-bottom__buttons">
             <Link
               to={`/catalog/${props.item.slug}`}
@@ -92,13 +98,23 @@ function Product(props: {
               Подробнее
             </Link>
             <div
-              className="products-item-bottom__button products-item-bottom__button_add"
+              className={
+                isAddedToCart
+                  ? "products-item-bottom__button products-item-bottom__button_remove"
+                  : "products-item-bottom__button products-item-bottom__button_add"
+              }
               onClick={() => {
-                setActiveNotification(true);
-                props.addToOrder(props.item.id);
+                setIsAddedToCart((oldValue) => {
+                  const newValue = !oldValue;
+                  if (newValue) {
+                    setActiveNotification(true);
+                    props.addToOrder(props.item.id);
+                  }
+                  return newValue;
+                });
               }}
             >
-              В корзину
+              {isAddedToCart ? "Убрать из корзины" : "В корзину"}
             </div>
           </div>
         </div>

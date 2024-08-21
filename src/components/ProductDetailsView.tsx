@@ -73,6 +73,8 @@ function DetailCard(props: {
     }
   };
 
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+
   return (
     <div className="detail-card">
       <h2 className="detail-card__title">{props.productDetails.title}</h2>
@@ -94,18 +96,26 @@ function DetailCard(props: {
           <SvgPriceUnderline />
         </div>
         <div className="detail-card-purchase-buttons">
-          <a
-            href="#"
-            className="detail-card-purchase-buttons__tocart"
+          <button
+            className={
+              isAddedToCart
+                ? "detail-card-purchase-buttons__tocart detail-card-purchase-buttons__tocart_remove"
+                : "detail-card-purchase-buttons__tocart"
+            }
             onClick={() => {
-              setActiveNotification(true);
-              addToOrder(props.productDetails.id);
+              setIsAddedToCart((oldValue) => {
+                const newValue = !oldValue;
+                if (newValue) {
+                  setActiveNotification(true);
+                  addToOrder(props.productDetails.id);
+                }
+                return newValue;
+              });
             }}
           >
-            В корзину
-          </a>
-          <a
-            href="#"
+            {isAddedToCart ? "Убрать из корзины" : "В корзину"}
+          </button>
+          <button
             className="detail-card-purchase-buttons__tofavorites"
             onClick={() => {
               setActiveNotification(true);
@@ -113,7 +123,7 @@ function DetailCard(props: {
             }}
           >
             В избранное
-          </a>
+          </button>
         </div>
       </div>
 

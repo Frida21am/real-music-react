@@ -17,7 +17,7 @@ function Notification(props: {
       >
         x
       </span>
-      <p>{props.name} добавлено в корзину / избранное</p>
+      <p>Добавлено {props.name}</p>
     </div>
   );
 }

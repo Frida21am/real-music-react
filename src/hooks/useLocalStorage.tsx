@@ -2,11 +2,15 @@ import { useState, useEffect } from "react";
 
 function useLocalStorage(initialValue: string[], key: string) {
   const getValue = () => {
-    const storage = localStorage.getItem(key);
-    if (storage) {
-      return JSON.parse(storage);
+    if (typeof window == "undefined") {
+      return [];
+    } else {
+      const storage = localStorage.getItem(key);
+      if (storage) {
+        return JSON.parse(storage);
+      }
+      return initialValue;
     }
-    return initialValue;
   };
 
   const [value, setValue] = useState(getValue);
