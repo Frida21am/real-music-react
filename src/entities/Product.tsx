@@ -17,6 +17,8 @@ function Product(props: {
   item: IItemDto;
   addToOrder: (id: string) => void;
   addToLiked: (id: string) => void;
+  removeFromOrder: (id: string) => void;
+  removeFromLiked: (id: string) => void;
 }) {
   const [activeLike, setActiveLike] = useState(false);
 
@@ -56,6 +58,8 @@ function Product(props: {
               const newValue = !oldActiveLike;
               if (newValue) {
                 setActiveNotification(true);
+              } else {
+                props.removeFromLiked(props.item.id);
               }
               return newValue;
             });
@@ -109,6 +113,8 @@ function Product(props: {
                   if (newValue) {
                     setActiveNotification(true);
                     props.addToOrder(props.item.id);
+                  } else {
+                    props.removeFromOrder(props.item.id);
                   }
                   return newValue;
                 });

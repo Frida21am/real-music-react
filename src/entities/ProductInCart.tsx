@@ -3,7 +3,10 @@ import { Product } from "../hooks/useGetProducts";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
-function ProductInCart(props: { product: Product }) {
+function ProductInCart(props: {
+  product: Product;
+  removeFromOrder: (id: string) => void;
+}) {
   return (
     <div className="order-products__item">
       <div className="order-products__item-image">
@@ -20,7 +23,10 @@ function ProductInCart(props: { product: Product }) {
           {props.product.price}
         </span>
       </div>
-      <div className="order-products__item-close">
+      <div
+        className="order-products__item-close"
+        onClick={() => props.removeFromOrder(props.product.id)}
+      >
         <div className="order-products__item-close_img">
           <StaticImage src="../images/close.png" alt="" />
         </div>

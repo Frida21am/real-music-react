@@ -10,12 +10,23 @@ function WishList(props: {
 }) {
   const products = useGetLikedProducts();
 
+  const [like, setLike] = useLocalStorage([], "like");
+  const removeFromLiked = (id: string) => {
+    setLike((oldLiked: string[]) => oldLiked.filter((item) => item !== id));
+  };
+
   const [order, setOrder] = useLocalStorage([], "order");
   const addToOrder = (id: string) => {
     if (!order.includes(id)) {
       setOrder((oldOrder: string[]) => [...oldOrder, id]);
+      removeFromLiked(id);
     }
   };
+
+  const removeFromOrder = (id: string) => {
+    setOrder((oldOrder: string[]) => oldOrder.filter((item) => item !== id));
+  };
+
   return (
     <div className={props.isWishListOpen ? "wishlist showed" : "wishlist"}>
       <span
@@ -27,7 +38,12 @@ function WishList(props: {
       <h2 className="wishlist__title">Избранное</h2>
       <div className="wishlist-products">
         {products.map((el) => (
-          <ProductInWishList key={el.id} product={el} addToOrder={addToOrder} />
+          <ProductInWishList
+            key={el.id}
+            product={el}
+            addToOrder={addToOrder}
+            removeFromLiked={removeFromLiked}
+          />
         ))}
       </div>
     </div>

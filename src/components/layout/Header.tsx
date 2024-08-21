@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { useState } from "react";
 import ShoppingCart from "../../popups/ShoppingCart";
 import WishList from "../WishList";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 function Header() {
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
@@ -14,6 +15,9 @@ function Header() {
   }
   const [isWishListOpen, setIsWishListOpen] = useState<boolean>(false);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+
+  const [likesQuantity] = useLocalStorage([], "like");
+  const [orderQuantity] = useLocalStorage([], "order");
 
   return (
     <header className="header">
@@ -88,7 +92,7 @@ function Header() {
                   <StaticImage src="../../images/like.png" alt="" />
                 </div>
               </div>
-              <span>0</span>
+              <span>{likesQuantity.length}</span>
             </div>
             <div
               className="header__addprod_cart"
@@ -99,7 +103,7 @@ function Header() {
                   <StaticImage src="../../images/basket.png" alt="" />
                 </div>
               </div>
-              <span>0</span>
+              <span>{orderQuantity.length}</span>
             </div>
           </div>
           <div
