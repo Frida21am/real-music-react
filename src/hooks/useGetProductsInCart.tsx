@@ -1,11 +1,15 @@
+import { useContext } from "react";
 import useGetProducts, { Product } from "./useGetProducts";
-import useLocalStorage from "./useLocalStorage";
+import ProductsInOrderContext from "../components/context/ProductsInOrderContext";
 
 function useGetProductsInCart() {
   const products: Product[] = useGetProducts();
-  const [productsInCart] = useLocalStorage([], "order");
+  const productsInCart = useContext(ProductsInOrderContext);
+  if (productsInCart == null) {
+    return [];
+  }
   const filteredProducts: Product[] = [];
-  productsInCart?.forEach((item: string) => {
+  productsInCart.order.forEach((item: string) => {
     let product = products.find((product) => product.id == item);
     if (product) {
       filteredProducts.push(product);

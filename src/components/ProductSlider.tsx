@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { StaticImage } from "gatsby-plugin-image";
 
 function ProductSlider(props: { productImages: string[] }) {
   const [selectedImg, setSelectedImg] = useState<number>(0);
@@ -19,18 +20,20 @@ function ProductSlider(props: { productImages: string[] }) {
   return (
     <div className="detail-slider__container">
       <div className="detail-slider__main-img">
-        <button
-          type="button"
+        <div
           className="detail-slider__button-prev"
           onClick={() =>
             setSelectedImg((oldSelectedImage) =>
               oldSelectedImage != 0 ? selectedImg - 1 : selectedImg
             )
           }
-        ></button>
+        >
+          <div>
+            <StaticImage src="../images/sliderArrow.png" alt="" />
+          </div>
+        </div>
         <img src={props.productImages[selectedImg]} alt="" />
-        <button
-          type="button"
+        <div
           className="detail-slider__button-next"
           onClick={() =>
             setSelectedImg((oldSelectedImage) =>
@@ -39,7 +42,11 @@ function ProductSlider(props: { productImages: string[] }) {
                 : selectedImg
             )
           }
-        ></button>
+        >
+          <div>
+            <StaticImage src="../images/sliderArrow.png" alt="" />
+          </div>
+        </div>
       </div>
       <div className="detail-slider__dots">
         {props.productImages

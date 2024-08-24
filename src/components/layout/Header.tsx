@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import { useState } from "react";
 import ShoppingCart from "../../popups/ShoppingCart";
 import WishList from "../WishList";
-import useLocalStorage from "../../hooks/useLocalStorage";
+import useGetLikedProducts from "../../hooks/useGetLikedProducts";
+import useGetProductsInCart from "../../hooks/useGetProductsInCart";
 
 function Header() {
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
@@ -13,11 +13,12 @@ function Header() {
       setSideBarIsOpen(!sideBarIsOpen);
     }
   }
+
   const [isWishListOpen, setIsWishListOpen] = useState<boolean>(false);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
 
-  const [likesQuantity] = useLocalStorage([], "like");
-  const [orderQuantity] = useLocalStorage([], "order");
+  const likedProducts = useGetLikedProducts();
+  const productsInOrder = useGetProductsInCart();
 
   return (
     <header className="header">
@@ -92,7 +93,7 @@ function Header() {
                   <StaticImage src="../../images/like.png" alt="" />
                 </div>
               </div>
-              <span>{likesQuantity.length}</span>
+              <span>{likedProducts.length}</span>
             </div>
             <div
               className="header__addprod_cart"
@@ -103,7 +104,7 @@ function Header() {
                   <StaticImage src="../../images/basket.png" alt="" />
                 </div>
               </div>
-              <span>{orderQuantity.length}</span>
+              <span>{productsInOrder.length}</span>
             </div>
           </div>
           <div

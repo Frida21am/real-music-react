@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DetailTabs from "./DetailTabs";
 import ProductSlider from "./ProductSlider";
 import VideoFrame from "../popups/VideoFrame";
@@ -7,7 +7,8 @@ import { Link } from "gatsby";
 import { Product } from "../hooks/useGetProducts";
 import { StaticImage } from "gatsby-plugin-image";
 import Notification from "../icons/Notification";
-import useLocalStorage from "../hooks/useLocalStorage";
+import ProductsInOrderContext from "./context/ProductsInOrderContext";
+import ProductsInWishlistContext from "./context/ProductsInWishlistContext";
 
 function ProductDetailsView(props: { product: Product }) {
   const productDetails = props.product;
@@ -54,31 +55,17 @@ function DetailCard(props: {
     videoSrc?: string | TrustedHTML;
   };
 }) {
+  const productsInOrderContext = useContext(ProductsInOrderContext);
+  const isAddedToCart = productsInOrderContext?.order.some(
+    (id) => id == props.productDetails.id
+  );
+
+  const productsInWishlistContext = useContext(ProductsInWishlistContext);
+
   const [activeNotification, setActiveNotification] = useState(false);
   setTimeout(() => {
     setActiveNotification(false);
   }, 5000);
-
-  const [order, setOrder] = useLocalStorage([], "order");
-
-  const addToOrder = (id: string) => {
-    if (!order.includes(id)) {
-      setOrder((oldOrder: string[]) => [...oldOrder, id]);
-    }
-  };
-
-  const removeFromOrder = (id: string) => {
-    setOrder((oldOrder: string[]) => oldOrder.filter((item) => item !== id));
-  };
-
-  const [like, setLike] = useLocalStorage([], "like");
-  const addToLiked = (id: string) => {
-    if (!like.includes(id)) {
-      setLike((oldLiked: string[]) => [...oldLiked, id]);
-    }
-  };
-
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   return (
     <div className="detail-card">
@@ -108,16 +95,15 @@ function DetailCard(props: {
                 : "detail-card-purchase-buttons__tocart"
             }
             onClick={() => {
-              setIsAddedToCart((oldValue) => {
-                const newValue = !oldValue;
-                if (newValue) {
-                  setActiveNotification(true);
-                  addToOrder(props.productDetails.id);
-                } else {
-                  removeFromOrder(props.productDetails.id);
-                }
-                return newValue;
-              });
+              if (!isAddedToCart) {
+                setActiveNotification(true);
+                productsInOrderContext?.addToOrder(props.productDetails.id);
+              } else {
+                productsInOrderContext?.removeFromOrder(
+                  props.productDetails.id
+                );
+              }
+              return isAddedToCart;
             }}
           >
             {isAddedToCart ? "Убрать из корзины" : "В корзину"}
@@ -126,7 +112,7 @@ function DetailCard(props: {
             className="detail-card-purchase-buttons__tofavorites"
             onClick={() => {
               setActiveNotification(true);
-              addToLiked(props.productDetails.id);
+              productsInWishlistContext?.addToLiked(props.productDetails.id);
             }}
           >
             В избранное

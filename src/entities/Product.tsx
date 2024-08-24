@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "gatsby";
 import { useState } from "react";
 import Notification from "../icons/Notification";
+import ProductsInWishlistContext from "../components/context/ProductsInWishlistContext";
+import ProductsInOrderContext from "../components/context/ProductsInOrderContext";
 
 export interface IItemDto {
   id: string;
@@ -13,21 +15,21 @@ export interface IItemDto {
   bestseller: boolean;
 }
 
-function Product(props: {
-  item: IItemDto;
-  addToOrder: (id: string) => void;
-  addToLiked: (id: string) => void;
-  removeFromOrder: (id: string) => void;
-  removeFromLiked: (id: string) => void;
-}) {
-  const [activeLike, setActiveLike] = useState(false);
+function Product(props: { item: IItemDto }) {
+  const productsInWishlistContext = useContext(ProductsInWishlistContext);
+  const isActiveLike = productsInWishlistContext?.liked.some(
+    (id) => id == props.item.id
+  );
+
+  const productsInOrderContext = useContext(ProductsInOrderContext);
+  const isAddedToCart = productsInOrderContext?.order.some(
+    (id) => id == props.item.id
+  );
 
   const [activeNotification, setActiveNotification] = useState(false);
   setTimeout(() => {
     setActiveNotification(false);
   }, 5000);
-
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   return (
     <div className="products-gradient-box">
@@ -51,19 +53,18 @@ function Product(props: {
 
         <div
           className={
-            activeLike ? "t1002__addBtn t1002__addBtn_active" : "t1002__addBtn"
+            isActiveLike
+              ? "t1002__addBtn t1002__addBtn_active"
+              : "t1002__addBtn"
           }
           onClick={() => {
-            setActiveLike((oldActiveLike) => {
-              const newValue = !oldActiveLike;
-              if (newValue) {
-                setActiveNotification(true);
-              } else {
-                props.removeFromLiked(props.item.id);
-              }
-              return newValue;
-            });
-            props.addToLiked(props.item.id);
+            if (!isActiveLike) {
+              setActiveNotification(true);
+              productsInWishlistContext?.addToLiked(props.item.id);
+            } else {
+              productsInWishlistContext?.removeFromLiked(props.item.id);
+            }
+            return isActiveLike;
           }}
         >
           <svg
@@ -108,16 +109,13 @@ function Product(props: {
                   : "products-item-bottom__button products-item-bottom__button_add"
               }
               onClick={() => {
-                setIsAddedToCart((oldValue) => {
-                  const newValue = !oldValue;
-                  if (newValue) {
-                    setActiveNotification(true);
-                    props.addToOrder(props.item.id);
-                  } else {
-                    props.removeFromOrder(props.item.id);
-                  }
-                  return newValue;
-                });
+                if (!isAddedToCart) {
+                  setActiveNotification(true);
+                  productsInOrderContext?.addToOrder(props.item.id);
+                } else {
+                  productsInOrderContext?.removeFromOrder(props.item.id);
+                }
+                return isAddedToCart;
               }}
             >
               {isAddedToCart ? "Убрать из корзины" : "В корзину"}

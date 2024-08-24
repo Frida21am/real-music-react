@@ -1,31 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import useGetLikedProducts from "../hooks/useGetLikedProducts";
 import ProductInWishList from "../entities/ProductInWishList";
-import useLocalStorage from "../hooks/useLocalStorage";
+import ProductsInWishlistContext from "./context/ProductsInWishlistContext";
+import ProductsInOrderContext from "./context/ProductsInOrderContext";
 
 function WishList(props: {
   isWishListOpen: boolean;
   onWishListClosing: (isWishListOpen: boolean) => void;
 }) {
   const products = useGetLikedProducts();
-
-  const [like, setLike] = useLocalStorage([], "like");
-  const removeFromLiked = (id: string) => {
-    setLike((oldLiked: string[]) => oldLiked.filter((item) => item !== id));
-  };
-
-  const [order, setOrder] = useLocalStorage([], "order");
-  const addToOrder = (id: string) => {
-    if (!order.includes(id)) {
-      setOrder((oldOrder: string[]) => [...oldOrder, id]);
-      removeFromLiked(id);
-    }
-  };
-
-  const removeFromOrder = (id: string) => {
-    setOrder((oldOrder: string[]) => oldOrder.filter((item) => item !== id));
-  };
+  const likedProductsContext = useContext(ProductsInWishlistContext);
+  const orderedProductsContext = useContext(ProductsInOrderContext);
 
   return (
     <div className={props.isWishListOpen ? "wishlist showed" : "wishlist"}>
@@ -37,14 +23,16 @@ function WishList(props: {
       </span>
       <h2 className="wishlist__title">Избранное</h2>
       <div className="wishlist-products">
-        {products.map((el) => (
-          <ProductInWishList
-            key={el.id}
-            product={el}
-            addToOrder={addToOrder}
-            removeFromLiked={removeFromLiked}
-          />
-        ))}
+        {likedProductsContext && orderedProductsContext
+          ? products.map((el) => (
+              <ProductInWishList
+                key={el.id}
+                product={el}
+                addToOrder={orderedProductsContext.addToOrder}
+                removeFromLiked={likedProductsContext.removeFromLiked}
+              />
+            ))
+          : []}
       </div>
     </div>
   );
