@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Product } from "../hooks/useGetProducts";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
@@ -28,6 +28,7 @@ function ProductInWishList(props: {
         className="wishlist-products__item-button"
         onClick={() => {
           props.addToOrder(props.product.id);
+          props.removeFromLiked(props.product.id);
         }}
       >
         В корзину

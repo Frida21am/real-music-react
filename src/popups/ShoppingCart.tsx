@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import InputMask from "react-input-mask";
 import useGetProductsInCart from "../hooks/useGetProductsInCart";
 import EmptyCart from "./EmptyCart";
 import ProductInCart from "../entities/ProductInCart";
-import useLocalStorage from "../hooks/useLocalStorage";
+import ProductsInOrderContext from "../components/context/ProductsInOrderContext";
 
 function ShoppingCart(props: {
   isPopupOpen: boolean;
@@ -39,23 +39,21 @@ function ShoppingCart(props: {
 
 function Order() {
   const products = useGetProductsInCart();
-
-  const [order, setOrder] = useLocalStorage([], "order");
-  const removeFromOrder = (id: string) => {
-    setOrder((oldOrder: string[]) => oldOrder.filter((item) => item !== id));
-  };
+  const orderedProductsContext = useContext(ProductsInOrderContext);
 
   return (
     <div className="order">
       <h2 className="order__title">Ваш заказ:</h2>
       <div className="order-products__row">
-        {products.map((el) => (
-          <ProductInCart
-            key={el.id}
-            product={el}
-            removeFromOrder={removeFromOrder}
-          />
-        ))}
+        {orderedProductsContext
+          ? products.map((el) => (
+              <ProductInCart
+                key={el.id}
+                product={el}
+                removeFromOrder={orderedProductsContext?.removeFromOrder}
+              />
+            ))
+          : []}
       </div>
       <p className="order-products__sum">Сумма: 6 080р.</p>
       <form action="#" className="order-form">

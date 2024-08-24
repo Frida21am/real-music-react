@@ -4,7 +4,6 @@ import { Pagination, ConfigProvider } from "antd";
 import Product from "./Product";
 import Filtration, { SelectedFilters } from "../components/Filtration";
 import useGetFilteredProducts from "../hooks/useGetFilteredProducts";
-import useLocalStorage from "../hooks/useLocalStorage";
 
 const pageSize = 12;
 
@@ -38,42 +37,13 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
     );
   }
 
-  const [order, setOrder] = useLocalStorage([], "order");
-
-  const addToOrder = (id: string) => {
-    if (!order.includes(id)) {
-      setOrder((oldOrder: string[]) => [...oldOrder, id]);
-    }
-  };
-  const removeFromOrder = (id: string) => {
-    setOrder((oldOrder: string[]) => oldOrder.filter((item) => item !== id));
-  };
-
-  const [like, setLike] = useLocalStorage([], "like");
-
-  const addToLiked = (id: string) => {
-    if (!like.includes(id)) {
-      setLike((oldLiked: string[]) => [...oldLiked, id]);
-    }
-  };
-  const removeFromLiked = (id: string) => {
-    setLike((oldLiked: string[]) => oldLiked.filter((item) => item !== id));
-  };
-
   return (
     <>
       <div>
         {productsPage.productsCount != 0 ? (
           <div className="products__row">
             {productsPage.productsOnPage.map((el) => (
-              <Product
-                key={el.id}
-                item={el}
-                addToOrder={addToOrder}
-                addToLiked={addToLiked}
-                removeFromOrder={removeFromOrder}
-                removeFromLiked={removeFromLiked}
-              />
+              <Product key={el.id} item={el} />
             ))}
           </div>
         ) : (

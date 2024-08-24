@@ -1,11 +1,15 @@
+import { useContext } from "react";
 import useGetProducts, { Product } from "./useGetProducts";
-import useLocalStorage from "./useLocalStorage";
+import ProductsInWishlistContext from "../components/context/ProductsInWishlistContext";
 
 function useGetLikedProducts() {
   const products: Product[] = useGetProducts();
-  const [likedProducts] = useLocalStorage([], "like");
+  const likedProducts = useContext(ProductsInWishlistContext);
+  if (likedProducts == null) {
+    return [];
+  }
   const filteredProducts: Product[] = [];
-  likedProducts?.forEach((item: string) => {
+  likedProducts.liked.forEach((item: string) => {
     let product = products.find((product) => product.id == item);
     if (product) {
       filteredProducts.push(product);
