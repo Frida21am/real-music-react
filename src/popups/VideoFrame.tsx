@@ -1,7 +1,9 @@
-import { StaticImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
+import { StaticImage } from "gatsby-plugin-image";
+import ReactPlayer from "react-player/youtube";
+import PlayVideoIcon from "../icons/PlayVideoIcon";
 
-function VideoFrame(props: { frameUrl?: string | TrustedHTML }) {
+function VideoFrame(props: { frameUrl?: string }) {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
   return (
     <>
@@ -32,8 +34,9 @@ function VideoFrame(props: { frameUrl?: string | TrustedHTML }) {
 function VideoFramePopup(props: {
   isVideoOpen: boolean;
   onPopupClosing: (isVideoOpen: boolean) => void;
-  frameUrl?: string | TrustedHTML;
+  frameUrl?: string;
 }) {
+  let url = props.isVideoOpen ? props.frameUrl : undefined;
   return (
     <div className="detail-card__video-popup">
       <div
@@ -51,15 +54,14 @@ function VideoFramePopup(props: {
         >
           <StaticImage src="../images/close.png" alt="" />
         </span>
-        <div
+        <ReactPlayer
           className="detail-card__video-popup__frame"
-          dangerouslySetInnerHTML={
-            props.frameUrl
-              ? {
-                  __html: props.frameUrl,
-                }
-              : undefined
-          }
+          light
+          url={url}
+          playIcon={<PlayVideoIcon />}
+          playing
+          width="900px"
+          height="500px"
         />
       </div>
     </div>

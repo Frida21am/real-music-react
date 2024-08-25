@@ -33,7 +33,9 @@ function Footer() {
             </div>
             <div className="footer-partners">
               Так же есть партнерский шоурум{" "}
-              <a href="https://music-in-you.store/">Мusic In You</a>
+              <a href="https://music-in-you.store/" target="_blank">
+                Мusic In You
+              </a>
             </div>
           </div>
         </div>

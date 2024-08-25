@@ -1,5 +1,5 @@
-import ProductDetailsView from "../components/ProductDetailsView";
 import React from "react";
+import ProductDetailsView from "../components/ProductDetailsView";
 import Layout from "../components/layout/Layout";
 import useGetProductById from "../hooks/useGetProductById";
 import { PageProps } from "gatsby";
