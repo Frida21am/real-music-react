@@ -55,3 +55,22 @@
   transform: scale(1);
   filter: none;
 }
+
+@media screen and (max-width: 575px) {
+  .detail-slider__main-img {
+    img {
+      height: 450px;
+    }
+  }
+  .detail-slider__dot {
+    width: 110px;
+    height: 75px;
+  }
+  .detail-slider__button-prev,
+  .detail-slider__button-next {
+    display: none;
+  }
+  .detail-card {
+    padding: 50px 5px 5px 5px;
+  }
+}

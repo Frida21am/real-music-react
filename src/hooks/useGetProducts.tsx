@@ -134,7 +134,7 @@ export type Product = {
   slug: string;
   isInStock: boolean;
   characteristics: { name: string; value: string }[];
-  videoSrc?: string | TrustedHTML;
+  videoSrc?: string;
 };
 
 function useGetProducts() {

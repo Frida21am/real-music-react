@@ -52,7 +52,7 @@ function DetailCard(props: {
     descriptionShort: string;
     isInStock: boolean;
     price: string;
-    videoSrc?: string | TrustedHTML;
+    videoSrc?: string;
   };
 }) {
   const productsInOrderContext = useContext(ProductsInOrderContext);
