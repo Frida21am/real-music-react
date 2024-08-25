@@ -88,6 +88,11 @@
 }
 
 @media screen and (max-width: 991px) {
+  .feedback-popup {
+    .popup__content {
+      margin-left: -190px;
+    }
+  }
   .feedback-popup-form {
     padding: 35px 20px 20px 20px;
   }
@@ -118,6 +123,11 @@
 }
 
 @media screen and (max-width: 575px) {
+  .feedback-popup {
+    .popup__content {
+      margin-left: -170px;
+    }
+  }
   .feedback-popup-form {
     padding: 35px 20px 20px 20px;
   }

@@ -31,6 +31,10 @@ function Footer() {
                 10:00 до 22:00
               </span>
             </div>
+            <div className="footer-partners">
+              Так же есть партнерский шоурум{" "}
+              <a href="https://music-in-you.store/">Мusic In You</a>
+            </div>
           </div>
         </div>
       </div>

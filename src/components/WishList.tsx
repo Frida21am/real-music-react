@@ -12,7 +12,6 @@ function WishList(props: {
   const products = useGetLikedProducts();
   const likedProductsContext = useContext(ProductsInWishlistContext);
   const orderedProductsContext = useContext(ProductsInOrderContext);
-
   return (
     <div className={props.isWishListOpen ? "wishlist showed" : "wishlist"}>
       <span
@@ -23,8 +22,9 @@ function WishList(props: {
       </span>
       <h2 className="wishlist__title">Избранное</h2>
       <div className="wishlist-products">
-        {likedProductsContext && orderedProductsContext
-          ? products.map((el) => (
+        {likedProductsContext && orderedProductsContext ? (
+          likedProductsContext.liked.length != 0 ? (
+            products.map((el) => (
               <ProductInWishList
                 key={el.id}
                 product={el}
@@ -32,7 +32,19 @@ function WishList(props: {
                 removeFromLiked={likedProductsContext.removeFromLiked}
               />
             ))
-          : []}
+          ) : (
+            <div className="empty-wishlist">
+              <p className="empty-wishlist__caption">
+                В Избранном пока нет товаров
+              </p>
+              <a href="/" className="empty-wishlist__button">
+                В каталог
+              </a>
+            </div>
+          )
+        ) : (
+          []
+        )}
       </div>
     </div>
   );

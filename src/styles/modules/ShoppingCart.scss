@@ -3,6 +3,9 @@
     margin-top: -250px;
     margin-left: -400px;
   }
+  .popup__close {
+    right: 25px;
+  }
 }
 .cart__content {
   background-color: #272727;
@@ -53,6 +56,7 @@
 }
 .order-products__item-price {
   display: inline-block;
+  min-width: 60px;
 }
 .order-products__item-close {
   cursor: pointer;
@@ -157,4 +161,109 @@
   top: 45%;
   left: calc(50% - 121px);
   width: 190px;
+}
+
+@media screen and (max-width: 991px) {
+  .cart .popup__content {
+    margin-left: -350px;
+  }
+  .cart__content {
+    width: 700px;
+  }
+  .empty-cart-content__bg_logo {
+    top: calc(50% - 180px);
+    left: calc(50% - 180px);
+    width: 360px;
+  }
+  .empty-cart-content__bg_guitar {
+    top: 40%;
+    left: calc(50% - 47px);
+    width: 94px;
+  }
+  .empty-cart-content__bg_basket {
+    top: 45%;
+    left: calc(47% - 71px);
+    width: 142px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .cart .popup__content {
+    margin-left: -250px;
+  }
+  .cart__content {
+    width: 500px;
+  }
+  .order-products__item-image {
+    img {
+      width: 55px;
+      height: 55px;
+    }
+  }
+  .order-products__item-text {
+    font-size: 16px;
+    width: 300px;
+  }
+  .order-form {
+    input,
+    select,
+    option,
+    textarea {
+      font-size: 17px;
+      padding: 8px 15px;
+    }
+  }
+  .empty-cart-content__bg_logo {
+    top: calc(50% - 120px);
+    left: calc(50% - 120px);
+    width: 240px;
+  }
+  .empty-cart-content__bg_guitar {
+    top: 40%;
+    left: calc(50% - 31px);
+    width: 62px;
+  }
+  .empty-cart-content__bg_basket {
+    top: 45%;
+    left: calc(47% - 47px);
+    width: 94px;
+  }
+  .empty-cart-content__title {
+    font-size: 28px;
+  }
+  .empty-cart-content__caption {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .cart .popup__content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+  .cart__content {
+    width: 100%;
+    height: 100%;
+  }
+  .order-products__item-image {
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  }
+  .order-products__item-text {
+    font-size: 15px;
+    width: 230px;
+  }
+  .empty-cart-content__text {
+    padding: 70px 30px;
+  }
+  .empty-cart-content__title {
+    font-size: 26px;
+  }
+  .empty-cart-content__caption {
+    font-size: 18px;
+  }
 }
