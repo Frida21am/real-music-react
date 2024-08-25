@@ -16,20 +16,19 @@ function ShoppingCart(props: {
       <div
         className={props.isPopupOpen ? "popup__shadow showed" : "popup__shadow"}
         onClick={() => props.onPopupClosing(false)}
-      >
-        <span
-          className="popup__close"
-          onClick={() => props.onPopupClosing(false)}
-        >
-          <StaticImage src="../images/close.png" alt="" />
-        </span>
-      </div>
+      ></div>
       <div
         className={
           props.isPopupOpen ? "popup__content showed" : "popup__content"
         }
       >
         <div className="cart__content">
+          <span
+            className="popup__close"
+            onClick={() => props.onPopupClosing(false)}
+          >
+            <StaticImage src="../images/close.png" alt="" />
+          </span>
           {products.length != 0 ? <Order /> : <EmptyCart />}
         </div>
       </div>
