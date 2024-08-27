@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import { sideBarMenu } from "../../data/data";
 import ShoppingCart from "../../popups/ShoppingCart";
 import WishList from "../WishList";
 import useGetLikedProducts from "../../hooks/useGetLikedProducts";
@@ -20,6 +21,7 @@ function Header() {
   const likedProducts = useGetLikedProducts();
   const productsInOrder = useGetProductsInCart();
 
+  const currentUrl = window.location.pathname;
   return (
     <header className="header">
       <div className="header-blur"></div>
@@ -46,26 +48,24 @@ function Header() {
           </div>
           <nav className={sideBarIsOpen ? "header__nav active" : "header__nav"}>
             <ul className="header__nav_list">
-              <li>
-                <Link to="/" onClick={() => closeSideBar()}>
-                  Каталог
-                </Link>
-              </li>
-              <li>
-                <Link to="/about-us" onClick={() => closeSideBar()}>
-                  О нас
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" onClick={() => closeSideBar()}>
-                  Наш блог
-                </Link>
-              </li>
-              <li>
-                <Link to="/delivery" onClick={() => closeSideBar()}>
-                  Доставка
-                </Link>
-              </li>
+              {sideBarMenu.map((el) => (
+                <li
+                  className={
+                    el.href == currentUrl
+                      ? "header__nav-list__item active"
+                      : "header__nav-list__item"
+                  }
+                >
+                  <Link
+                    to={el.href}
+                    onClick={() => {
+                      closeSideBar();
+                    }}
+                  >
+                    {el.name}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <a href="#contacts" onClick={() => closeSideBar()}>
                   Контакты

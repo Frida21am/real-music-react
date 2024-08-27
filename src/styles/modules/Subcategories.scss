@@ -24,3 +24,24 @@
   box-shadow: -1px 2px 5px rgba(39, 39, 39, 0.1) inset;
   color: #eb971a;
 }
+
+@media screen and (max-width: 850px) {
+  .subcategories__row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .subcategories__item {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .subcategories__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .subcategories__row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
