@@ -32,7 +32,11 @@ function ProductSlider(props: { productImages: string[] }) {
             <StaticImage src="../images/sliderArrow.png" alt="" />
           </div>
         </div>
-        <img src={props.productImages[selectedImg]} alt="" />
+        <img
+          src={props.productImages[selectedImg]}
+          alt=""
+          className="detail-slider__main-img_img"
+        />
         <div
           className="detail-slider__button-next"
           onClick={() =>

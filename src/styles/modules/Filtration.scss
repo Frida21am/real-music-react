@@ -1,5 +1,6 @@
 .filters {
-  margin: 60px 0 30px 10px;
+  margin: 30px 0;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -84,9 +85,12 @@
   .filters__title {
     font-size: 24px;
   }
+  .filters {
+    margin: 0 0 30px 0;
+  }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 808px) {
   .filters {
     justify-content: center;
   }

@@ -172,3 +172,22 @@ export const likedProducts = [
   "cHJvZHVjdDo0MzA=",
   "cHJvZHVjdDoxNzkw",
 ];
+
+export const sideBarMenu = [
+  {
+    href: "/",
+    name: "Каталог",
+  },
+  {
+    href: "/about-us/",
+    name: "О нас",
+  },
+  {
+    href: "/blog/",
+    name: "Наш блог",
+  },
+  {
+    href: "/delivery/",
+    name: "Доставка",
+  },
+];
