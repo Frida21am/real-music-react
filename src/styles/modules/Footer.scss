@@ -63,12 +63,19 @@
 .footer-partners {
   margin-top: 30px;
   a {
+    display: inline-block;
     color: #eb971a;
     border-bottom: 1px solid #eb971a;
   }
 }
 
 @media screen and (max-width: 1200px) {
+  .footer {
+    padding: 30px 0 130px 0;
+  }
+  .footer-map {
+    padding-bottom: 60%;
+  }
   .footer-text {
     font-size: 18px;
   }
@@ -84,6 +91,9 @@
 }
 
 @media screen and (max-width: 991px) {
+  .footer-map {
+    padding-bottom: 80%;
+  }
   .footer-text {
     font-size: 16px;
   }
@@ -101,6 +111,9 @@
 }
 
 @media screen and (max-width: 767px) {
+  .footer-map {
+    padding-bottom: 60%;
+  }
   .footer__row {
     grid-template-columns: 1fr;
     grid-template-rows: 1.5fr 1fr;
@@ -125,6 +138,12 @@
 }
 
 @media screen and (max-width: 575px) {
+  .footer {
+    padding: 30px 0 120px 0;
+  }
+  .footer-map {
+    padding-bottom: 70%;
+  }
   .footer__row {
     grid-template-rows: 1fr 0.8fr;
   }
