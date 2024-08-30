@@ -66,16 +66,19 @@
     img {
       width: 32px;
     }
-    a {
+    a,
+    span {
       color: #fff;
       text-decoration: none;
       text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
       transition: color 0.3s ease 0s;
+      cursor: pointer;
       &:hover {
         color: darken(#fff, 30%);
       }
     }
-    a.active {
+    a.active,
+    span.active {
       color: darken(#fff, 30%);
     }
   }
