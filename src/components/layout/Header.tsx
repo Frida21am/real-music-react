@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
+import { useRef } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { sideBarMenu } from "../../data/data";
 import ShoppingCart from "../../popups/ShoppingCart";
@@ -21,7 +22,10 @@ function Header() {
   const likedProducts = useGetLikedProducts();
   const productsInOrder = useGetProductsInCart();
 
-  const currentUrl = window.location.pathname;
+  let currentUrl: string | undefined;
+  if (typeof window != "undefined") {
+    currentUrl = window.location.pathname;
+  }
   return (
     <header className="header">
       <div className="header-blur"></div>
@@ -67,9 +71,17 @@ function Header() {
                 </li>
               ))}
               <li>
-                <a href="#contacts" onClick={() => closeSideBar()}>
+                <span
+                  onClick={() => {
+                    const contacts = document.getElementById("contacts");
+                    contacts?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                    closeSideBar();
+                  }}
+                >
                   Контакты
-                </a>
+                </span>
               </li>
               <li>
                 <StaticImage src="../../images/delivery/avito.png" alt="" />

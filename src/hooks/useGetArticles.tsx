@@ -15,6 +15,7 @@ const GET_ARTICLES = graphql`
                 sourceUrl
               }
             }
+            content(format: RENDERED)
           }
         }
       }
@@ -42,6 +43,7 @@ type ArticleQl = {
       sourceUrl: string;
     };
   };
+  content: string;
 };
 
 export type Article = {
@@ -50,6 +52,7 @@ export type Article = {
   title: string;
   excerpt: string;
   image?: string;
+  content: string;
 };
 
 function useGetArticles() {
@@ -62,6 +65,7 @@ function useGetArticles() {
         title: pql.title,
         excerpt: pql.excerpt,
         image: pql.featuredImage.node?.sourceUrl,
+        content: pql.content,
       };
     });
   return articles;

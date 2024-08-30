@@ -14,11 +14,11 @@
 }
 .gifts-fullscreen-caption-title {
   color: #eb971a;
-  font-size: 100px;
+  font-size: calc(25px + 75 * (100vw / 1680));
   font-weight: 400;
 }
 .gifts-fullscreen-caption-subtitle {
-  font-size: 24px;
+  font-size: calc(8px + 16 * (100vw / 1680));
   margin: 30px 0;
   font-weight: 400;
 }
@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: center;
   p {
-    font-size: 20px;
+    font-size: calc(9px + 11 * (100vw / 1680));
     color: #eb971a;
   }
 }
@@ -106,7 +106,7 @@
 }
 .gifts-accessories-title {
   text-align: center;
-  font-size: 80px;
+  font-size: calc(27px + 53 * (100vw / 1680));
   margin-bottom: 20px;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -134,17 +134,17 @@
 .gifts-accessories-table_3 {
   padding: 25px 15px;
   .gifts-accessories-table__title {
-    font-size: 30px;
+    font-size: calc(10px + 20 * (100vw / 1680));
   }
 }
 .gifts-accessories-table__title {
-  font-size: 34px;
+  font-size: calc(11px + 23 * (100vw / 1680));
   color: #eb971a;
   text-align: center;
   margin-bottom: 5px;
 }
 .gifts-accessories-list {
-  font-size: 20px;
+  font-size: calc(7px + 13 * (100vw / 1680));
   li {
     list-style-type: "- ";
     list-style-position: inside;
@@ -157,7 +157,7 @@
 }
 .gifts-guarantee__title {
   text-align: center;
-  font-size: 60px;
+  font-size: calc(20px + 40 * (100vw / 1680));
   margin-bottom: 40px;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -172,15 +172,15 @@
 }
 .gifts-guarantee__item {
   text-align: center;
-  font-size: 19px;
+  font-size: calc(6px + 13 * (100vw / 1680));
 }
 .gifts-guarantee__item-number {
-  font-size: 28px;
+  font-size: calc(9px + 19 * (100vw / 1680));
   font-weight: 500;
   display: block;
 }
 .gifts-guarantee__item-type {
-  font-size: 28px;
+  font-size: calc(9px + 19 * (100vw / 1680));
   font-weight: 500;
   margin-bottom: 10px;
   span {
@@ -192,14 +192,14 @@
 }
 .gifts-guarantee__item-return {
   color: #eb971a;
-  font-size: 21px;
+  font-size: calc(7px + 14 * (100vw / 1680));
 }
 
 .gifts-cutaway {
   padding: 40px 0 65px 0;
 }
 .gifts-cutaway__title {
-  font-size: 30px;
+  font-size: calc(10px + 20 * (100vw / 1680));
   font-weight: 600;
 }
 .gifts-cutaway__row {
@@ -209,7 +209,7 @@
   width: 50%;
 }
 .gifts-cutaway-features {
-  font-size: 25px;
+  font-size: calc(8px + 17 * (100vw / 1680));
   font-weight: 500;
   margin: 30px 0;
 }
@@ -226,7 +226,7 @@
   li {
     margin-bottom: 15px;
     line-height: 31px;
-    font-size: 20px;
+    font-size: calc(7px + 13 * (100vw / 1680));
     box-sizing: content-box;
     span {
       color: rgb(255, 185, 5);
@@ -242,7 +242,7 @@
   padding: 10px 55px;
   color: #fff;
   background-color: #e6941a;
-  font-size: 20px;
+  font-size: calc(7px + 13 * (100vw / 1680));
   font-weight: 500;
   padding: 10px 45px;
   border-radius: 20px;
@@ -267,7 +267,7 @@
   width: 450px;
 }
 .gifts-cutaway-card_active {
-  animation: business-card 1.9s linear forwards;
+  animation: business-card 2.1s linear forwards;
 }
 @keyframes business-card {
   0% {
@@ -288,5 +288,142 @@
   }
   100% {
     transform: translateX(-71px) translateY(-56px) rotate(55deg) scale(1.2, 1.2);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .gifts-fullscreen-present__image {
+    width: 130px;
+  }
+  .gifts-accessories {
+    padding: 70px 0 60px 0;
+  }
+  .gifts-accessories__right-column {
+    margin-left: 15px;
+  }
+  .gifts-cutaway__column {
+    width: 40%;
+  }
+  .gifts-cutaway__column-card {
+    width: 55%;
+  }
+  .gifts-cutaway-card {
+    width: 350px;
+  }
+  @keyframes business-card {
+    100% {
+      transform: translateX(-80px) translateY(35px) rotate(55deg)
+        scale(1.2, 1.2);
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .gifts-fullscreen-present__image {
+    width: 100px;
+  }
+  .gifts-cutaway__row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .gifts-cutaway__column-features {
+    width: auto;
+  }
+  .gifts-cutaway__column-card {
+    width: 100%;
+    height: 260px;
+  }
+  .gifts-cutaway-card {
+    width: 300px;
+  }
+  @keyframes business-card {
+    0% {
+      transform: translateX(0px) translateY(900px) rotate(0deg) scale(1, 1);
+      animation-timing-function: linear;
+    }
+    1% {
+      transform: translateX(0px) translateY(1000px) rotate(0deg) scale(1, 1);
+      animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+    }
+    59% {
+      transform: translateX(-100px) translateY(45px) rotate(0deg) scale(1, 1);
+      animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+    }
+    70% {
+      transform: translateX(-100px) translateY(45px) rotate(0deg) scale(1, 1);
+      animation-timing-function: ease-out;
+    }
+    100% {
+      transform: translateX(-175px) translateY(-30px) rotate(55deg)
+        scale(1.2, 1.2);
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .gifts-fullscreen-present__image {
+    width: 90px;
+  }
+  .gifts-cutaway__column-card {
+    height: 220px;
+  }
+  @keyframes business-card {
+    0% {
+      transform: translateX(0px) translateY(600px) rotate(0deg) scale(1, 1);
+      animation-timing-function: linear;
+    }
+    1% {
+      transform: translateX(0px) translateY(700px) rotate(0deg) scale(1, 1);
+      animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+    }
+    59% {
+      transform: translateX(-120px) translateY(45px) rotate(0deg) scale(1, 1);
+      animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+    }
+    70% {
+      transform: translateX(-120px) translateY(45px) rotate(0deg) scale(1, 1);
+      animation-timing-function: ease-out;
+    }
+    100% {
+      transform: translateX(-110px) translateY(-30px) rotate(55deg)
+        scale(1.2, 1.2);
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .gifts-fullscreen-presents__row_2 {
+    margin-top: 5px;
+  }
+  .gifts-fullscreen-present__image {
+    width: 80px;
+  }
+  .gifts-cutaway__column-card {
+    height: 170px;
+  }
+  .gifts-cutaway-card {
+    width: 210px;
+  }
+  @keyframes business-card {
+    0% {
+      transform: translateX(-10px) translateY(500px) rotate(0deg) scale(1, 1);
+      animation-timing-function: linear;
+    }
+    1% {
+      transform: translateX(-10px) translateY(600px) rotate(0deg) scale(1, 1);
+      animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+    }
+    59% {
+      transform: translateX(-80px) translateY(40px) rotate(0deg) scale(1, 1);
+      animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+    }
+    70% {
+      transform: translateX(-80px) translateY(30px) rotate(0deg) scale(1, 1);
+      animation-timing-function: ease-out;
+    }
+    100% {
+      transform: translateX(-70px) translateY(0px) rotate(55deg) scale(1.2, 1.2);
+    }
   }
 }

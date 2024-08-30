@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 @import "react-alice-carousel/lib/scss/alice-carousel.scss";
 
@@ -37,6 +38,7 @@
 }
 html {
   scrollbar-color: #ffbb00 #222222;
+  //scroll-behavior: smooth;
 }
 
 body {

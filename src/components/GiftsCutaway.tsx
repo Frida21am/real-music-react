@@ -1,5 +1,5 @@
-import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 import { useEffect, useRef, useState } from "react";
 
 let options = {
@@ -41,7 +41,7 @@ function GiftsCutaway() {
           визитку в подарок!
         </h2>
         <div className="gifts-cutaway__row">
-          <div className="gifts-cutaway__column">
+          <div className="gifts-cutaway__column gifts-cutaway__column-features">
             <p className="gifts-cutaway-features">Особенности нашей визитки:</p>
             <ul className="gifts-cutaway-features__list">
               <li>
@@ -62,6 +62,7 @@ function GiftsCutaway() {
             <StaticImage
               src="../images/bussines-card-test.png"
               alt=""
+              placeholder="none"
               className={`gifts-cutaway-card ${
                 isInView ? "gifts-cutaway-card_active" : ""
               }`}
