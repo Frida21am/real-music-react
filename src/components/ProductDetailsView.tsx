@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import { toast } from "react-toastify";
 import DetailTabs from "./DetailTabs";
 import ProductSlider from "./ProductSlider";
 import VideoFrame from "../popups/VideoFrame";
 import { SvgPriceUnderline } from "../svg/svg";
-import { Link } from "gatsby";
 import { Product } from "../hooks/useGetProducts";
-import { StaticImage } from "gatsby-plugin-image";
-import Notification from "../icons/Notification";
 import ProductsInOrderContext from "./context/ProductsInOrderContext";
 import ProductsInWishlistContext from "./context/ProductsInWishlistContext";
 
@@ -22,7 +22,11 @@ function ProductDetailsView(props: { product: Product }) {
         <div className="container">
           <Link to="/gifts" target="_blank" className="detail-gift">
             <div className="detail-gift__image">
-              <StaticImage src="../images/giftbox.png" alt="top" />
+              <StaticImage
+                src="../images/giftbox.png"
+                alt="top"
+                placeholder="none"
+              />
             </div>
             <span>
               При заказе этого инструмента Вы получите аксессуар в подарок!
@@ -61,11 +65,11 @@ function DetailCard(props: {
   );
 
   const productsInWishlistContext = useContext(ProductsInWishlistContext);
+  const isAddedToWishlist = productsInWishlistContext?.liked.some(
+    (id) => id == props.productDetails.id
+  );
 
-  const [activeNotification, setActiveNotification] = useState(false);
-  setTimeout(() => {
-    setActiveNotification(false);
-  }, 5000);
+  const notify = () => toast("Товар добавлен");
 
   return (
     <div className="detail-card">
@@ -96,7 +100,7 @@ function DetailCard(props: {
             }
             onClick={() => {
               if (!isAddedToCart) {
-                setActiveNotification(true);
+                notify();
                 productsInOrderContext?.addToOrder(props.productDetails.id);
               } else {
                 productsInOrderContext?.removeFromOrder(
@@ -109,23 +113,29 @@ function DetailCard(props: {
             {isAddedToCart ? "Убрать из корзины" : "В корзину"}
           </button>
           <button
-            className="detail-card-purchase-buttons__tofavorites"
+            className={
+              isAddedToWishlist
+                ? "detail-card-purchase-buttons__tofavorites detail-card-purchase-buttons__tofavorites_remove"
+                : "detail-card-purchase-buttons__tofavorites"
+            }
             onClick={() => {
-              setActiveNotification(true);
-              productsInWishlistContext?.addToLiked(props.productDetails.id);
+              if (!isAddedToWishlist) {
+                notify();
+                productsInWishlistContext?.addToLiked(props.productDetails.id);
+              } else {
+                productsInWishlistContext?.removeFromLiked(
+                  props.productDetails.id
+                );
+              }
+              return isAddedToWishlist;
             }}
           >
-            В избранное
+            {isAddedToWishlist ? "Из избранного" : "В избранное"}
           </button>
         </div>
       </div>
 
       <VideoFrame frameUrl={props.productDetails.videoSrc} />
-      <Notification
-        activeNotification={activeNotification}
-        onNotificationClosing={setActiveNotification}
-        name={props.productDetails.title}
-      />
     </div>
   );
 }

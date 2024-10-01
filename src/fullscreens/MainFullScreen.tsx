@@ -1,5 +1,5 @@
-import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 import { useState } from "react";
 import InputMask from "react-input-mask";
 
@@ -50,7 +50,11 @@ function FeedbackFormPopup(props: {
               className="popup__close"
               onClick={() => props.onPopupClosing(false)}
             >
-              <StaticImage src="../images/close.png" alt="" />
+              <StaticImage
+                src="../images/close.png"
+                alt=""
+                placeholder="none"
+              />
             </span>
             <div className="feedback-popup__title">
               Мы перезвоним вам в ближайшее время
@@ -83,7 +87,11 @@ function FeedbackFormPopup(props: {
             </button>
             <div className="feedback-popup-form-contacts__bottom">
               <div className="feedback-popup-form-contacts__icon">
-                <StaticImage src="../images/shield.png" alt="" />
+                <StaticImage
+                  src="../images/shield.png"
+                  alt=""
+                  placeholder="none"
+                />
               </div>
               <div className="feedback-popup-form-contacts__confidentiality">
                 Мы гарантируем конфиденциальность данных

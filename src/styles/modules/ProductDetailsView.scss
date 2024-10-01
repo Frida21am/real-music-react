@@ -101,8 +101,9 @@
     }
   }
 }
-.detail-card-purchase-buttons__tocart_remove {
-  background: linear-gradient(#d88c1afa, #b37519f6);
+.detail-card-purchase-buttons__tocart_remove,
+.detail-card-purchase-buttons__tofavorites_remove {
+  background-color: darken(#eb971a, 5%) !important;
   color: darken(#fff, 6%);
 }
 

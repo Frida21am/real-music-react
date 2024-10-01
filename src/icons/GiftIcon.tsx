@@ -1,7 +1,6 @@
+import React, { useState } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import React from "react";
-import { useState } from "react";
 
 function GiftIcon() {
   const [giftAnim, setGiftAnim] = useState(false);
@@ -21,6 +20,7 @@ function GiftIcon() {
           className="gift-icon__img"
           src="../images/musical-instruments.png"
           alt=""
+          placeholder="none"
         />
         <div className="gift-icon__box-lid">
           <div className="gift-icon__box-bowtie"></div>

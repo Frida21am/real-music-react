@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "gatsby";
-import { useState } from "react";
-import Notification from "../icons/Notification";
+import { toast } from "react-toastify";
 import ProductsInWishlistContext from "../components/context/ProductsInWishlistContext";
 import ProductsInOrderContext from "../components/context/ProductsInOrderContext";
 
@@ -26,10 +25,7 @@ function Product(props: { item: IItemDto }) {
     (id) => id == props.item.id
   );
 
-  const [activeNotification, setActiveNotification] = useState(false);
-  setTimeout(() => {
-    setActiveNotification(false);
-  }, 5000);
+  const notify = () => toast("Товар добавлен");
 
   return (
     <div className="products-gradient-box">
@@ -59,7 +55,7 @@ function Product(props: { item: IItemDto }) {
           }
           onClick={() => {
             if (!isActiveLike) {
-              setActiveNotification(true);
+              notify();
               productsInWishlistContext?.addToLiked(props.item.id);
             } else {
               productsInWishlistContext?.removeFromLiked(props.item.id);
@@ -110,7 +106,7 @@ function Product(props: { item: IItemDto }) {
               }
               onClick={() => {
                 if (!isAddedToCart) {
-                  setActiveNotification(true);
+                  notify();
                   productsInOrderContext?.addToOrder(props.item.id);
                 } else {
                   productsInOrderContext?.removeFromOrder(props.item.id);
@@ -123,11 +119,6 @@ function Product(props: { item: IItemDto }) {
           </div>
         </div>
       </div>
-      <Notification
-        activeNotification={activeNotification}
-        onNotificationClosing={setActiveNotification}
-        name={props.item.title}
-      />
     </div>
   );
 }

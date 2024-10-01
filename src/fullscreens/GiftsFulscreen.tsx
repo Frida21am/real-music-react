@@ -19,6 +19,7 @@ function GiftsFulscreen() {
                     src="../images/gift.png"
                     alt=""
                     draggable="false"
+                    placeholder="none"
                   />
                 </div>
               </div>
@@ -31,6 +32,7 @@ function GiftsFulscreen() {
                     src="../images/gift.png"
                     alt=""
                     draggable="false"
+                    placeholder="none"
                   />
                 </div>
               </div>
@@ -41,6 +43,7 @@ function GiftsFulscreen() {
                     src="../images/gift.png"
                     alt=""
                     draggable="false"
+                    placeholder="none"
                   />
                 </div>
               </div>

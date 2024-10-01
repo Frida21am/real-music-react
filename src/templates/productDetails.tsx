@@ -1,8 +1,8 @@
 import React from "react";
+import { PageProps } from "gatsby";
 import ProductDetailsView from "../components/ProductDetailsView";
 import Layout from "../components/layout/Layout";
 import useGetProductById from "../hooks/useGetProductById";
-import { PageProps } from "gatsby";
 
 type ProductDetailsContext = {
   id: string;

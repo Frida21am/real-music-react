@@ -1,7 +1,9 @@
+import React, { ReactNode } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../../styles/index.scss";
 import Header from "./Header";
 import Footer from "./Footer";
-import React, { ReactNode } from "react";
 import GiftIcon from "../../icons/GiftIcon";
 import WhatsAppIcon from "../../icons/WhatsAppIcon";
 import BackToTopButton from "../../icons/BackToTopButton";
@@ -50,6 +52,18 @@ function Layout(props: { children: ReactNode }) {
             <WhatsAppIcon />
             <BackToTopButton />
           </main>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={3000}
+            hideProgressBar
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            pauseOnHover={false}
+            draggable
+            theme="light"
+          />
           <Footer />
         </div>
       </ProductsInWishlistContext.Provider>

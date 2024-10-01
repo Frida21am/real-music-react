@@ -72,31 +72,13 @@ a {
   z-index: 100;
 }
 
-.notification {
-  opacity: 0.9;
-  background-color: #eb971a;
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  border-radius: 10px;
-  z-index: 10000;
-  max-width: 400px;
-  display: none;
-  p {
-    color: #fff;
-    font-size: 16px;
-    padding: 20px 30px;
-  }
-}
-.notification.showed {
-  display: block;
-}
-.notification__close {
-  cursor: pointer;
-  position: absolute;
+.Toastify__toast-theme--light {
+  background: #eb971a;
   color: #fff;
-  top: 5px;
-  right: 10px;
+}
+.Toastify__close-button--light {
+  color: #fff;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 1200px) {
