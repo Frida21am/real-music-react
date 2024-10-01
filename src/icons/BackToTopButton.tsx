@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
 function BackToTopButton() {
@@ -26,7 +25,11 @@ function BackToTopButton() {
     <>
       {backToTopButton && (
         <button className="up-arrow-btn" onClick={scrollUp}>
-          <StaticImage src="../images/up-arrow-btn.png" alt="" />
+          <StaticImage
+            src="../images/up-arrow-btn.png"
+            alt=""
+            placeholder="none"
+          />
         </button>
       )}
     </>

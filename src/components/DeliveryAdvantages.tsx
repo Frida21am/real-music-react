@@ -9,7 +9,11 @@ function DeliveryAdvantages() {
         <h3 className="delivery-advantages__caption">Доставка в день заказа</h3>
         <div className="delivery-advantages__item">
           <div>
-            <StaticImage src="../images/delivery/checked2.png" alt="checked" />
+            <StaticImage
+              src="../images/delivery/checked2.png"
+              alt="checked"
+              placeholder="none"
+            />
           </div>
           <p>
             После оформления заказа с менеджером доставка производится по
@@ -18,13 +22,21 @@ function DeliveryAdvantages() {
         </div>
         <div className="delivery-advantages__item">
           <div>
-            <StaticImage src="../images/delivery/checked2.png" alt="checked" />
+            <StaticImage
+              src="../images/delivery/checked2.png"
+              alt="checked"
+              placeholder="none"
+            />
           </div>
           <p>Доставка осуществляется в интервале с 11:00 до 22:00 часов</p>
         </div>
         <div className="delivery-advantages__item">
           <div>
-            <StaticImage src="../images/delivery/checked2.png" alt="checked" />
+            <StaticImage
+              src="../images/delivery/checked2.png"
+              alt="checked"
+              placeholder="none"
+            />
           </div>
           <p>
             Есть доставка ко времени, выбирайте удобный интервал не менее 1 часа
@@ -32,7 +44,11 @@ function DeliveryAdvantages() {
         </div>
         <div className="delivery-advantages__item">
           <div>
-            <StaticImage src="../images/delivery/checked2.png" alt="checked" />
+            <StaticImage
+              src="../images/delivery/checked2.png"
+              alt="checked"
+              placeholder="none"
+            />
           </div>
           <p>
             Мы поможем поднять до дверей крупногабаритный товар. Услуги по

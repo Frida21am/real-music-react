@@ -23,7 +23,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
           </a>
         </div>
         <div className="notfound-link notfound-link__tofaq">
-          <a href="/">
+          <a href="/about-us/#about-faq">
             <p className="notfound-link-caption notfound-link-caption__tofaq">
               Часто задаваемые вопросы
             </p>

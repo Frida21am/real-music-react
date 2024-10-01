@@ -18,7 +18,7 @@ function WishList(props: {
         className="wishlist__close"
         onClick={() => props.onWishListClosing(false)}
       >
-        <StaticImage src="../images/close.png" alt="" />
+        <StaticImage src="../images/close.png" alt="" placeholder="none" />
       </span>
       <h2 className="wishlist__title">Избранное</h2>
       <div className="wishlist-products">

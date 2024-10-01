@@ -8,7 +8,7 @@ function VideoFrame(props: { frameUrl?: string }) {
   return (
     <>
       <div className="detail-card__video">
-        <p
+        <div
           className={
             props.frameUrl
               ? "detail-card__video-button detail-card__video-button_showed"
@@ -18,9 +18,9 @@ function VideoFrame(props: { frameUrl?: string }) {
         >
           <span>Оценить звучание</span>
           <p className="detail-card__video-button__img">
-            <StaticImage src="../images/play.png" alt="" />
+            <StaticImage src="../images/play.png" alt="" placeholder="none" />
           </p>
-        </p>
+        </div>
       </div>
       <VideoFramePopup
         isVideoOpen={isVideoOpen}
@@ -52,7 +52,7 @@ function VideoFramePopup(props: {
           className="popup__close"
           onClick={() => props.onPopupClosing(false)}
         >
-          <StaticImage src="../images/close.png" alt="" />
+          <StaticImage src="../images/close.png" alt="" placeholder="none" />
         </span>
         <ReactPlayer
           className="detail-card__video-popup__frame"

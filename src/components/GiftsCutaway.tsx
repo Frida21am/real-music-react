@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import { useEffect, useRef, useState } from "react";
 
 let options = {
   root: null,

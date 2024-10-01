@@ -1,5 +1,4 @@
-import React from "react";
-import { ReactElement, useState } from "react";
+import React, { ReactElement, useState } from "react";
 
 export default function DetailDesc(props: {
   description: string;

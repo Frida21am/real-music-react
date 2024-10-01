@@ -47,7 +47,7 @@ const faqQuestions: CollapseProps["items"] = [
 
 function AboutUsFaq() {
   return (
-    <div className="about-faq">
+    <div className="about-faq" id="about-faq">
       <h2 className="about-faq__title">Часто задаваемые вопросы</h2>
       <ConfigProvider
         theme={{

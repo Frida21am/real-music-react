@@ -11,6 +11,7 @@ function AboutUsAdvantages() {
             <StaticImage
               src="../images/advantagesIcons/repair&rental.png"
               alt="repair&rental"
+              placeholder="none"
             />
           </div>
           <div className="about-advantages__item-text">
@@ -22,6 +23,7 @@ function AboutUsAdvantages() {
             <StaticImage
               src="../images/advantagesIcons/service.png"
               alt="service"
+              placeholder="none"
             />
           </div>
           <div className="about-advantages__item-text">
@@ -33,6 +35,7 @@ function AboutUsAdvantages() {
             <StaticImage
               src="../images/advantagesIcons/gifts&discounts.png"
               alt="gifts&discounts"
+              placeholder="none"
             />
           </div>
           <div className="about-advantages__item-text">
@@ -44,6 +47,7 @@ function AboutUsAdvantages() {
             <StaticImage
               src="../images/advantagesIcons/location.png"
               alt="location"
+              placeholder="none"
             />
           </div>
           <div className="about-advantages__item-text">
@@ -55,6 +59,7 @@ function AboutUsAdvantages() {
             <StaticImage
               src="../images/advantagesIcons/delivery.png"
               alt="delivery"
+              placeholder="none"
             />
           </div>
           <div className="about-advantages__item-text">
@@ -66,6 +71,7 @@ function AboutUsAdvantages() {
             <StaticImage
               src="../images/advantagesIcons/guarantee.png"
               alt="guarantee"
+              placeholder="none"
             />
           </div>
           <div className="about-advantages__item-text">

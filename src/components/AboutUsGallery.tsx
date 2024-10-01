@@ -46,30 +46,35 @@ function AboutUsGallery() {
                 <StaticImage
                   src="../images/aboutUsSlider/photo1.jpeg"
                   alt="Фото"
+                  placeholder="none"
                 />
               </div>
               <div className="about-gallery__slider-image">
                 <StaticImage
                   src="../images/aboutUsSlider/photo2.jpeg"
                   alt="Фото"
+                  placeholder="none"
                 />
               </div>
               <div className="about-gallery__slider-image">
                 <StaticImage
                   src="../images/aboutUsSlider/photo3.jpeg"
                   alt="Фото"
+                  placeholder="none"
                 />
               </div>
               <div className="about-gallery__slider-image">
                 <StaticImage
                   src="../images/aboutUsSlider/photo4.jpeg"
                   alt="Фото"
+                  placeholder="none"
                 />
               </div>
               <div className="about-gallery__slider-image">
                 <StaticImage
                   src="../images/aboutUsSlider/photo5.jpeg"
                   alt="Фото"
+                  placeholder="none"
                 />
               </div>
             </Slider>

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import InputMask from "react-input-mask";
+import { StaticImage } from "gatsby-plugin-image";
 import useGetProductsInCart from "../hooks/useGetProductsInCart";
 import EmptyCart from "./EmptyCart";
 import ProductInCart from "../entities/ProductInCart";
@@ -27,7 +27,7 @@ function ShoppingCart(props: {
             className="popup__close"
             onClick={() => props.onPopupClosing(false)}
           >
-            <StaticImage src="../images/close.png" alt="" />
+            <StaticImage src="../images/close.png" alt="" placeholder="none" />
           </span>
           {products.length != 0 ? <Order /> : <EmptyCart />}
         </div>
@@ -64,11 +64,9 @@ function Order() {
           placeholder="Ваш номер"
           required
         />
-        <select name="delivery-method">
+        <select name="delivery-method" defaultValue="value2">
           <option value="value1">Выберите способ доставки</option>
-          <option value="value2" selected>
-            Самовывоз из нашего магазина
-          </option>
+          <option value="value2">Самовывоз из нашего магазина</option>
           <option value="value3">Доставка по Москве</option>
           <option value="value3">Доставка СДЭК по всей России</option>
         </select>

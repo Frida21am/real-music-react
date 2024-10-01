@@ -28,7 +28,7 @@ function ProductInCart(props: {
         onClick={() => props.removeFromOrder(props.product.id)}
       >
         <div className="order-products__item-close_img">
-          <StaticImage src="../images/close.png" alt="" />
+          <StaticImage src="../images/close.png" alt="" placeholder="none" />
         </div>
       </div>
     </div>

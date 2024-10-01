@@ -29,7 +29,11 @@ function ProductSlider(props: { productImages: string[] }) {
           }
         >
           <div>
-            <StaticImage src="../images/sliderArrow.png" alt="" />
+            <StaticImage
+              src="../images/sliderArrow.png"
+              alt=""
+              placeholder="none"
+            />
           </div>
         </div>
         <img
@@ -48,7 +52,11 @@ function ProductSlider(props: { productImages: string[] }) {
           }
         >
           <div>
-            <StaticImage src="../images/sliderArrow.png" alt="" />
+            <StaticImage
+              src="../images/sliderArrow.png"
+              alt=""
+              placeholder="none"
+            />
           </div>
         </div>
       </div>
