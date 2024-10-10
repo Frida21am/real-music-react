@@ -1,13 +1,35 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
+
+const animationAdvantages = {
+  hidden: {
+    x: 200,
+    opacity: 0,
+  },
+  visible: (custom: number) => ({
+    x: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.1, duration: 0.3 },
+  }),
+};
 
 function DeliveryAdvantages() {
   return (
     <div className="delivery-advantages">
       <h2 className="delivery-advantages__title">Доставка по Москве</h2>
-      <div className="delivery-advantages__row">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.5, once: true }}
+        className="delivery-advantages__row"
+      >
         <h3 className="delivery-advantages__caption">Доставка в день заказа</h3>
-        <div className="delivery-advantages__item">
+        <motion.div
+          custom={1}
+          variants={animationAdvantages}
+          className="delivery-advantages__item"
+        >
           <div>
             <StaticImage
               src="../images/delivery/checked2.png"
@@ -19,8 +41,12 @@ function DeliveryAdvantages() {
             После оформления заказа с менеджером доставка производится по
             тарифам курьерских служб Достависта и Яндекс
           </p>
-        </div>
-        <div className="delivery-advantages__item">
+        </motion.div>
+        <motion.div
+          custom={2}
+          variants={animationAdvantages}
+          className="delivery-advantages__item"
+        >
           <div>
             <StaticImage
               src="../images/delivery/checked2.png"
@@ -29,8 +55,12 @@ function DeliveryAdvantages() {
             />
           </div>
           <p>Доставка осуществляется в интервале с 11:00 до 22:00 часов</p>
-        </div>
-        <div className="delivery-advantages__item">
+        </motion.div>
+        <motion.div
+          custom={3}
+          variants={animationAdvantages}
+          className="delivery-advantages__item"
+        >
           <div>
             <StaticImage
               src="../images/delivery/checked2.png"
@@ -41,8 +71,12 @@ function DeliveryAdvantages() {
           <p>
             Есть доставка ко времени, выбирайте удобный интервал не менее 1 часа
           </p>
-        </div>
-        <div className="delivery-advantages__item">
+        </motion.div>
+        <motion.div
+          custom={4}
+          variants={animationAdvantages}
+          className="delivery-advantages__item"
+        >
           <div>
             <StaticImage
               src="../images/delivery/checked2.png"
@@ -54,8 +88,8 @@ function DeliveryAdvantages() {
             Мы поможем поднять до дверей крупногабаритный товар. Услуги по
             подъему и сборке оплачиваются отдельно
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
