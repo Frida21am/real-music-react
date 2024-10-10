@@ -1,5 +1,6 @@
 import * as React from "react";
 import { HeadFC, PageProps } from "gatsby";
+import "../styles/index.scss";
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (

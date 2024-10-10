@@ -1,6 +1,6 @@
 import React from "react";
-import { Collapse, ConfigProvider } from "antd";
-import type { CollapseProps } from "antd";
+import { Collapse, CollapseProps, ConfigProvider } from "antd";
+import { motion } from "framer-motion";
 
 const faqQuestions: CollapseProps["items"] = [
   {
@@ -45,6 +45,18 @@ const faqQuestions: CollapseProps["items"] = [
   },
 ];
 
+const animationQuestions = {
+  hidden: {
+    x: -100,
+    opacity: 0,
+  },
+  visible: (custom: number) => ({
+    x: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.2, duration: 0.6 },
+  }),
+};
+
 function AboutUsFaq() {
   return (
     <div className="about-faq" id="about-faq">
@@ -65,11 +77,18 @@ function AboutUsFaq() {
           },
         }}
       >
-        <Collapse
-          items={faqQuestions}
-          defaultActiveKey={["0"]}
-          className="about-faq__accordion"
-        />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.5, once: true }}
+          variants={animationQuestions}
+        >
+          <Collapse
+            items={faqQuestions}
+            defaultActiveKey={["0"]}
+            className="about-faq__accordion"
+          />
+        </motion.div>
       </ConfigProvider>
     </div>
   );
