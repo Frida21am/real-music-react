@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 import { toast } from "react-toastify";
 import DetailTabs from "./DetailTabs";
 import ProductSlider from "./ProductSlider";
 import VideoFrame from "../popups/VideoFrame";
 import { SvgPriceUnderline } from "../svg/svg";
-import { Product } from "../hooks/useGetProducts";
 import ProductsInOrderContext from "./context/ProductsInOrderContext";
 import ProductsInWishlistContext from "./context/ProductsInWishlistContext";
+import Image from "next/image";
+import Link from "next/link";
+import { Product } from "@/entities/apiClient.dto";
 
 function ProductDetailsView(props: { product: Product }) {
   const productDetails = props.product;
@@ -20,13 +20,9 @@ function ProductDetailsView(props: { product: Product }) {
     <div className="detail">
       <div className="detail-bg">
         <div className="container">
-          <Link to="/gifts" target="_blank" className="detail-gift">
+          <Link href="/gifts" target="_blank" className="detail-gift">
             <div className="detail-gift__image">
-              <StaticImage
-                src="../images/giftbox.png"
-                alt="top"
-                placeholder="none"
-              />
+              <Image src="/images/giftbox.png" alt="top" fill />
             </div>
             <span>
               При заказе этого инструмента Вы получите аксессуар в подарок!
@@ -50,7 +46,7 @@ function ProductDetailsView(props: { product: Product }) {
 
 function DetailCard(props: {
   productDetails: {
-    id: string;
+    id: number;
     title: string;
     description: string;
     descriptionShort: string;

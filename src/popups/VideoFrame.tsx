@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import ReactPlayer from "react-player/youtube";
 import PlayVideoIcon from "../icons/PlayVideoIcon";
+import Image from "next/image";
 
 function VideoFrame(props: { frameUrl?: string }) {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
@@ -18,7 +18,7 @@ function VideoFrame(props: { frameUrl?: string }) {
         >
           <span>Оценить звучание</span>
           <p className="detail-card__video-button__img">
-            <StaticImage src="../images/play.png" alt="" placeholder="none" />
+            <Image src="/images/play.png" alt="" fill />
           </p>
         </div>
       </div>
@@ -36,7 +36,7 @@ function VideoFramePopup(props: {
   onPopupClosing: (isVideoOpen: boolean) => void;
   frameUrl?: string;
 }) {
-  let url = props.isVideoOpen ? props.frameUrl : undefined;
+  const url = props.isVideoOpen ? props.frameUrl : undefined;
   return (
     <div className="detail-card__video-popup">
       <div
@@ -52,7 +52,7 @@ function VideoFramePopup(props: {
           className="popup__close"
           onClick={() => props.onPopupClosing(false)}
         >
-          <StaticImage src="../images/close.png" alt="" placeholder="none" />
+          <Image src="/images/close.png" alt="" fill />
         </span>
         <ReactPlayer
           className="detail-card__video-popup__frame"

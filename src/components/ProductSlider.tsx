@@ -1,5 +1,5 @@
+import Image from "next/image";
 import React, { useState } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 
 function ProductSlider(props: { productImages: string[] }) {
   const [selectedImg, setSelectedImg] = useState<number>(0);
@@ -29,17 +29,14 @@ function ProductSlider(props: { productImages: string[] }) {
           }
         >
           <div>
-            <StaticImage
-              src="../images/sliderArrow.png"
-              alt=""
-              placeholder="none"
-            />
+            <Image src="/images/sliderArrow.png" alt="" fill />
           </div>
         </div>
-        <img
+        <Image
           src={props.productImages[selectedImg]}
           alt=""
           className="detail-slider__main-img_img"
+          fill
         />
         <div
           className="detail-slider__button-next"
@@ -52,11 +49,7 @@ function ProductSlider(props: { productImages: string[] }) {
           }
         >
           <div>
-            <StaticImage
-              src="../images/sliderArrow.png"
-              alt=""
-              placeholder="none"
-            />
+            <Image src="/images/sliderArrow.png" alt="" fill />
           </div>
         </div>
       </div>
@@ -65,7 +58,7 @@ function ProductSlider(props: { productImages: string[] }) {
           .map((image, index) => ({ image, index }))
           .slice(showFromIndex, showToIndex)
           .map((image) => (
-            <img
+            <Image
               src={image.image}
               key={image.index}
               alt=""
@@ -75,6 +68,7 @@ function ProductSlider(props: { productImages: string[] }) {
                   : "detail-slider__dot"
               }
               onClick={() => setSelectedImg(image.index)}
+              fill
             />
           ))}
       </div>

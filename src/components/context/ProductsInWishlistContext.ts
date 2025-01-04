@@ -1,9 +1,11 @@
+"use client";
+
 import { createContext } from "react";
 
 export interface LikedContextParams {
-  liked: string[];
-  addToLiked: (id: string) => void;
-  removeFromLiked: (id: string) => void;
+  liked: number[];
+  addToLiked: (id: number) => void;
+  removeFromLiked: (id: number) => void;
 }
 
 const ProductsInWishlistContext = createContext<LikedContextParams | null>(

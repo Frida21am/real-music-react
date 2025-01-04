@@ -1,3 +1,27 @@
+@use "./modules/ProductDetailsView.scss";
+@use "./modules/Filtration.scss";
+@use "./modules/DetailTabs.scss";
+@use "./modules/Categories.scss";
+@use "./modules/Subcategories.scss";
+@use "./modules/Products.scss";
+@use "./modules/Footer.scss";
+@use "./modules/Header.scss";
+@use "./modules/MainFullscreen.scss";
+@use "./modules/PageGifts.scss";
+@use "./modules/GiftIcon.scss";
+@use "./modules/PageAboutUs.scss";
+@use "./modules/PageDelivery.scss";
+@use "./modules/FeedbackFormPopup.scss";
+@use "./modules/WhatsAppIcon.scss";
+@use "./modules/PageNotFound.scss";
+@use "./modules/OurBlogFullscreen.scss";
+@use "./modules/Articles.scss";
+@use "./modules/ArticleDetailsView.scss";
+@use "./modules/ProductSlider.scss";
+@use "./modules/Popups.scss";
+@use "./modules/ShoppingCart.scss";
+@use "./modules/Wishlist.scss";
+
 @import url("https://use.typekit.net/ovt6ynt.css");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700");
@@ -6,31 +30,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-@import "react-alice-carousel/lib/scss/alice-carousel.scss";
-
-@import "./modules/ProductDetailsView.scss";
-@import "./modules/Filtration.scss";
-@import "./modules/DetailTabs.scss";
-@import "./modules/Categories.scss";
-@import "./modules/Subcategories.scss";
-@import "./modules/Products.scss";
-@import "./modules/Footer.scss";
-@import "./modules/Header.scss";
-@import "./modules/MainFullscreen.scss";
-@import "./modules/PageGifts.scss";
-@import "./modules/GiftIcon.scss";
-@import "./modules/PageAboutUs.scss";
-@import "./modules/PageDelivery.scss";
-@import "./modules/FeedbackFormPopup.scss";
-@import "./modules/WhatsAppIcon.scss";
-@import "./modules/PageNotFound.scss";
-@import "./modules/OurBlogFullscreen.scss";
-@import "./modules/Articles.scss";
-@import "./modules/ArticleDetailsView.scss";
-@import "./modules/ProductSlider.scss";
-@import "./modules/Popups.scss";
-@import "./modules/ShoppingCart.scss";
-@import "./modules/Wishlist.scss";
+//@import "react-alice-carousel/lib/scss/alice-carousel.scss";
 
 * {
   margin: 0;

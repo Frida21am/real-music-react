@@ -1,20 +1,20 @@
 import React from "react";
-import { Product } from "../hooks/useGetProducts";
-import { StaticImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
+import Image from "next/image";
+import Link from "next/link";
+import { Product } from "./apiClient.dto";
 
 function ProductInCart(props: {
   product: Product;
-  removeFromOrder: (id: string) => void;
+  removeFromOrder: (id: number) => void;
 }) {
   return (
     <div className="order-products__item">
       <div className="order-products__item-image">
-        <img src={props.product.frontImg} alt="" />
+        <Image src={props.product.frontImg} alt="" fill />
       </div>
       <div className="order-products__item-text">
         <Link
-          to={`/catalog/${props.product.slug}`}
+          href={`/catalog/${props.product.slug}`}
           className="order-products__item-title"
         >
           {props.product.title}
@@ -28,7 +28,7 @@ function ProductInCart(props: {
         onClick={() => props.removeFromOrder(props.product.id)}
       >
         <div className="order-products__item-close_img">
-          <StaticImage src="../images/close.png" alt="" placeholder="none" />
+          <Image src="/images/close.png" alt="" fill />
         </div>
       </div>
     </div>

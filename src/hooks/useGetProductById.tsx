@@ -1,13 +1,16 @@
-import useGetProducts, { Product } from "./useGetProducts";
+import { getProductById } from "@/entities/apiClient";
+import { useQuery } from "@tanstack/react-query";
 
-function useGetProductById(id: string) {
-  const products: Product[] = useGetProducts();
-  const searchedProduct = products.find((product) => product.id == id);
+function useGetProductById(id: number) {
+  const query = useQuery({
+    queryKey: ["products", id],
+    queryFn: () => getProductById(id),
+  });
 
-  if (searchedProduct == null) {
-    throw new Error("Data not found!");
-  }
-  return searchedProduct;
+  return {
+    data: query.data,
+    isLoading: query.isLoading,
+  };
 }
 
 export default useGetProductById;

@@ -1,5 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
-import { Link } from "gatsby";
 
 export interface IArticleDto {
   id: string;
@@ -11,9 +12,9 @@ export interface IArticleDto {
 
 function Article(props: { item: IArticleDto }) {
   return (
-    <Link to={`/articles/${props.item.slug}`} className="blog-articles__item">
-      <img
-        src={props.item.image}
+    <Link href={`/articles/${props.item.slug}`} className="blog-articles__item">
+      <Image
+        src={props.item.image ?? ""}
         className="blog-articles__item-image"
         alt="guitar shapes"
       />

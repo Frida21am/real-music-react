@@ -1,7 +1,8 @@
+import Image from "next/image";
 import React from "react";
 
 export interface ICategoryDto {
-  id: string | undefined;
+  id: number | undefined;
   title: string;
   img?: string;
 }
@@ -21,7 +22,7 @@ function Category(props: {
       }}
     >
       <div className="categories-item__image">
-        <img src={props.item.img} alt="" draggable="false" />
+        <Image src={props.item.img ?? ""} alt="" draggable="false" fill />
       </div>
       <div className="categories-item__caption">
         <span>{props.item.title}</span>

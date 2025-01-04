@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import Image from "next/image";
 
 function WhatsAppIcon() {
   return (
@@ -10,11 +10,7 @@ function WhatsAppIcon() {
       rel="noopener noreferrer"
     >
       <div className="whatsapp-button">
-        <StaticImage
-          src="../images/whatsappIcon.png"
-          alt="WhatsApp"
-          placeholder="none"
-        />
+        <Image src="/images/whatsappIcon.png" alt="WhatsApp" fill />
       </div>
     </a>
   );

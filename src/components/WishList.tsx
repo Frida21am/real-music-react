@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import Image from "next/image";
 import useGetLikedProducts from "../hooks/useGetLikedProducts";
 import ProductInWishList from "../entities/ProductInWishList";
 import ProductsInWishlistContext from "./context/ProductsInWishlistContext";
@@ -18,7 +18,7 @@ function WishList(props: {
         className="wishlist__close"
         onClick={() => props.onWishListClosing(false)}
       >
-        <StaticImage src="../images/close.png" alt="" placeholder="none" />
+        <Image src="/images/close.png" alt="" fill />
       </span>
       <h2 className="wishlist__title">Избранное</h2>
       <div className="wishlist-products">

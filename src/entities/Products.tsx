@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useState } from "react";
 import { Pagination, ConfigProvider } from "antd";
@@ -24,12 +26,18 @@ function Products() {
 
 function ProductsList(props: { selectedFilters: SelectedFilters }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPage = useGetFilteredProducts(
-    currentPage,
-    pageSize,
-    props.selectedFilters
-  );
-  if (productsPage == null) {
+  const {
+    products: productsPage,
+    isLoading,
+    isError,
+    error,
+  } = useGetFilteredProducts(currentPage, pageSize, props.selectedFilters);
+
+  if (isLoading) {
+    return "загружается...";
+  }
+
+  if (productsPage?.products == null) {
     return (
       <div className="no-products">
         <p>Нет товаров</p>
@@ -37,12 +45,14 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
     );
   }
 
+  const productsCount = productsPage.totalPages * pageSize;
+
   return (
     <>
       <div>
-        {productsPage.productsCount != 0 ? (
+        {productsCount != 0 ? (
           <div className="products__row">
-            {productsPage.productsOnPage.map((el) => (
+            {productsPage.products.map((el) => (
               <Product key={el.id} item={el} />
             ))}
           </div>
@@ -68,7 +78,7 @@ function ProductsList(props: { selectedFilters: SelectedFilters }) {
           defaultCurrent={1}
           pageSize={pageSize}
           showSizeChanger={false}
-          total={productsPage.productsCount}
+          total={productsCount}
           current={currentPage}
           onChange={(newCurrentPage: number) => {
             setCurrentPage(newCurrentPage);

@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/layout/Layout";
+import Layout from "../app/layout";
 import { PageProps } from "gatsby";
 import ArticleDetailsView from "../components/ArticleDetailsView";
 import useGetArticleDetails from "../hooks/useGetArticleDetails";

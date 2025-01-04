@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import Image from "next/image";
 
 function BackToTopButton() {
   const [backToTopButton, setBackToTopButton] = useState(false);
@@ -25,11 +27,7 @@ function BackToTopButton() {
     <>
       {backToTopButton && (
         <button className="up-arrow-btn" onClick={scrollUp}>
-          <StaticImage
-            src="../images/up-arrow-btn.png"
-            alt=""
-            placeholder="none"
-          />
+          <Image src="/images/up-arrow-btn.png" alt="" fill />
         </button>
       )}
     </>
