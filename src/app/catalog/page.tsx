@@ -1,8 +1,8 @@
+import Products from "@/entities/Products";
+import MainFullScreen from "@/fullscreens/MainFullScreen";
 import React from "react";
-import MainFullScreen from "../fullscreens/MainFullScreen";
-import Products from "../entities/Products";
 
-function PageCatalog() {
+function Page() {
   return (
     <div className="catalog">
       <MainFullScreen />
@@ -13,4 +13,4 @@ function PageCatalog() {
   );
 }
 
-export default PageCatalog;
+export default Page;

@@ -1,5 +1,5 @@
+import Image from "next/image";
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 
 function GiftsFulscreen() {
   return (
@@ -15,12 +15,7 @@ function GiftsFulscreen() {
             <div className="gifts-fullscreen-presents__row_1">
               <div className="gifts-fullscreen-present gifts-fullscreen-present_1">
                 <div className="gifts-fullscreen-present__image">
-                  <StaticImage
-                    src="../images/gift.png"
-                    alt=""
-                    draggable="false"
-                    placeholder="none"
-                  />
+                  <Image src="../images/gift.png" alt="" draggable="false" />
                 </div>
               </div>
             </div>
@@ -28,23 +23,13 @@ function GiftsFulscreen() {
               <div className="gifts-fullscreen-present gifts-fullscreen-present_2">
                 <p>Аксессуар на выбор</p>
                 <div className="gifts-fullscreen-present__image">
-                  <StaticImage
-                    src="../images/gift.png"
-                    alt=""
-                    draggable="false"
-                    placeholder="none"
-                  />
+                  <Image src="../images/gift.png" alt="" draggable="false" />
                 </div>
               </div>
               <div className="gifts-fullscreen-present gifts-fullscreen-present_3">
                 <p>Гарантию на инструмент</p>
                 <div className="gifts-fullscreen-present__image">
-                  <StaticImage
-                    src="../images/gift.png"
-                    alt=""
-                    draggable="false"
-                    placeholder="none"
-                  />
+                  <Image src="../images/gift.png" alt="" draggable="false" />
                 </div>
               </div>
             </div>

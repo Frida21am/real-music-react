@@ -1,6 +1,6 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const animationAdvantages = {
   hidden: {
@@ -31,11 +31,7 @@ function DeliveryAdvantages() {
           className="delivery-advantages__item"
         >
           <div>
-            <StaticImage
-              src="../images/delivery/checked2.png"
-              alt="checked"
-              placeholder="none"
-            />
+            <Image src="../images/delivery/checked2.png" alt="checked" fill />
           </div>
           <p>
             После оформления заказа с менеджером доставка производится по
@@ -48,11 +44,7 @@ function DeliveryAdvantages() {
           className="delivery-advantages__item"
         >
           <div>
-            <StaticImage
-              src="../images/delivery/checked2.png"
-              alt="checked"
-              placeholder="none"
-            />
+            <Image src="../images/delivery/checked2.png" alt="checked" fill />
           </div>
           <p>Доставка осуществляется в интервале с 11:00 до 22:00 часов</p>
         </motion.div>
@@ -62,11 +54,7 @@ function DeliveryAdvantages() {
           className="delivery-advantages__item"
         >
           <div>
-            <StaticImage
-              src="../images/delivery/checked2.png"
-              alt="checked"
-              placeholder="none"
-            />
+            <Image src="../images/delivery/checked2.png" alt="checked" fill />
           </div>
           <p>
             Есть доставка ко времени, выбирайте удобный интервал не менее 1 часа
@@ -78,11 +66,7 @@ function DeliveryAdvantages() {
           className="delivery-advantages__item"
         >
           <div>
-            <StaticImage
-              src="../images/delivery/checked2.png"
-              alt="checked"
-              placeholder="none"
-            />
+            <Image src="../images/delivery/checked2.png" alt="checked" fill />
           </div>
           <p>
             Мы поможем поднять до дверей крупногабаритный товар. Услуги по

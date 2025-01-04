@@ -1,6 +1,11 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+import pochtaImg from "../../public/images/delivery/pochta-rf.png";
+import sdekImg from "../../public/images/delivery/sdek.png";
+import avitoImg from "../../public/images/delivery/avito.png";
+import boxberryImg from "../../public/images/delivery/boxberry.png";
 
 const animationCompanies = {
   hidden: {
@@ -34,11 +39,7 @@ function DeliveryTransportCompanies() {
           className="delivery-companies__item"
         >
           <div>
-            <StaticImage
-              src="../images/delivery/pochta-rf.png"
-              alt="pochta-rf"
-              placeholder="none"
-            />
+            <Image src={pochtaImg} alt="pochta-rf" />
           </div>
           <p>Почта России</p>
           <span>(2-5 дней)</span>
@@ -49,11 +50,7 @@ function DeliveryTransportCompanies() {
           className="delivery-companies__item"
         >
           <div>
-            <StaticImage
-              src="../images/delivery/sdek.png"
-              alt="sdek"
-              placeholder="none"
-            />
+            <Image src={sdekImg} alt="sdek" />
           </div>
           <p>СДЭК</p>
           <span>(2-7 дней)</span>
@@ -64,11 +61,7 @@ function DeliveryTransportCompanies() {
           className="delivery-companies__item"
         >
           <div>
-            <StaticImage
-              src="../images/delivery/avito.png"
-              alt="avito"
-              placeholder="none"
-            />
+            <Image src={avitoImg} alt="avito" />
           </div>
           <p>Авито доставка</p>
           <span>(2-5 дней)</span>
@@ -79,11 +72,7 @@ function DeliveryTransportCompanies() {
           className="delivery-companies__item"
         >
           <div>
-            <StaticImage
-              src="../images/delivery/boxberry.png"
-              alt="boxberry"
-              placeholder="none"
-            />
+            <Image src={boxberryImg} alt="boxberry" />
           </div>
           <p>Boxberry</p>
           <span>(2-7 дней)</span>

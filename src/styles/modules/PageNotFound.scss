@@ -1,7 +1,7 @@
 //.notfound {}
 .notfound-banner {
   padding-top: 145px;
-  background: url("../images/404/404-banner-1600x2.jpg") no-repeat;
+  background: url("/images/404/404-banner-1600x2.jpg") no-repeat;
   color: #fff;
   width: 100%;
   height: 500px;
@@ -52,12 +52,12 @@
 }
 .notfound-link__tocatalog {
   a {
-    background: url("../images/404/404-catalog-1600x.jpg") no-repeat;
+    background: url("/images/404/404-catalog-1600x.jpg") no-repeat;
   }
 }
 .notfound-link__tofaq {
   a {
-    background: url("../images/404//404-faq-1600x.jpg") no-repeat;
+    background: url("/images/404//404-faq-1600x.jpg") no-repeat;
   }
 }
 
@@ -72,24 +72,24 @@
 @media screen and (max-width: 1700px) {
   .notfound-link__tocatalog {
     a {
-      background: 25% 0 url("../images/404/404-catalog-1600x.jpg") no-repeat;
+      background: 25% 0 url("/images/404/404-catalog-1600x.jpg") no-repeat;
     }
   }
   .notfound-link__tofaq {
     a {
-      background: 25% 0 url("../images/404//404-faq-1600x.jpg") no-repeat;
+      background: 25% 0 url("/images/404//404-faq-1600x.jpg") no-repeat;
     }
   }
 }
 @media screen and (max-width: 1500px) {
   .notfound-link__tocatalog {
     a {
-      background: 40% 0 url("../images/404/404-catalog-1600x.jpg") no-repeat;
+      background: 40% 0 url("/images/404/404-catalog-1600x.jpg") no-repeat;
     }
   }
   .notfound-link__tofaq {
     a {
-      background: 40% 0 url("../images/404//404-faq-1600x.jpg") no-repeat;
+      background: 40% 0 url("/images/404//404-faq-1600x.jpg") no-repeat;
     }
   }
 }

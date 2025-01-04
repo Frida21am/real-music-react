@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { Link } from "gatsby";
 import { toast } from "react-toastify";
 import ProductsInWishlistContext from "../components/context/ProductsInWishlistContext";
 import ProductsInOrderContext from "../components/context/ProductsInOrderContext";
+import Link from "next/link";
+import Image from "next/image";
 
 export interface IItemDto {
-  id: string;
+  id: number;
   slug: string;
   title: string;
   frontImg?: string;
@@ -31,11 +32,11 @@ function Product(props: { item: IItemDto }) {
     <div className="products-gradient-box">
       <div className="products-item">
         <Link
-          to={`/catalog/${props.item.slug}`}
+          href={`/catalog/${props.item.id}`}
           style={{ textDecoration: "none" }}
           className="products-item__image"
         >
-          <img src={props.item.frontImg} alt="" />
+          <Image src={props.item.frontImg ?? ""} alt="" fill />
         </Link>
         <div
           className={
@@ -81,7 +82,7 @@ function Product(props: { item: IItemDto }) {
         <div className="products-item-bottom">
           <div className="products-item-bottom__info">
             <Link
-              to={`/catalog/${props.item.slug}`}
+              href={`/catalog/${props.item.slug}`}
               style={{ textDecoration: "none" }}
               className="products-item-bottom__title"
             >
@@ -93,7 +94,7 @@ function Product(props: { item: IItemDto }) {
           </div>
           <div className="products-item-bottom__buttons">
             <Link
-              to={`/catalog/${props.item.slug}`}
+              href={`/catalog/${props.item.slug}`}
               className="products-item-bottom__button products-item-bottom__button_more"
             >
               Подробнее

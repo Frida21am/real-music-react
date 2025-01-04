@@ -1,22 +1,35 @@
 import React from "react";
-import { SubCategory } from "../hooks/useGetCategoriesList";
 import Subcategory from "./Subcategory";
+import useGetSubCategories from "@/hooks/useGetSubCategories";
+import { SubCategory } from "./apiClient.dto";
 
 function Subcategories(props: {
-  subCategories: SubCategory[];
-  onSelect: (selectedCategory: string | undefined) => void;
-  selectedCategory: string | undefined;
+  onSelect: (selectedSubCategory: SubCategory | undefined) => void;
+  selectedCategory: number;
+  selectedSubCategory: number | undefined;
 }) {
+  const { subCategories, isLoading } = useGetSubCategories(
+    props.selectedCategory
+  );
+
+  if (isLoading) {
+    return "загружается...";
+  }
+
+  if (subCategories == null) {
+    return "Ошибка загрузки";
+  }
+
   return (
     <div className="subcategories">
       <div className="container">
         <div className="subcategories__row">
-          {props.subCategories.map((subCategory) => (
+          {subCategories.map((subCategory) => (
             <Subcategory
               key={subCategory.id}
               subCategory={subCategory}
-              isActive={props.selectedCategory == subCategory.id}
-              onClick={() => props.onSelect(subCategory.id)}
+              isActive={props.selectedSubCategory == subCategory.id}
+              onClick={() => props.onSelect(subCategory)}
             />
           ))}
         </div>

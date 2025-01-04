@@ -1,5 +1,5 @@
 import React from "react";
-import { SubCategory } from "../hooks/useGetCategoriesList";
+import { SubCategory } from "./apiClient.dto";
 
 function Subcategory(props: {
   subCategory: SubCategory;

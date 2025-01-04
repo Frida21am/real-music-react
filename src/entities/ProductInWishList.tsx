@@ -1,24 +1,24 @@
 import React from "react";
-import { Product } from "../hooks/useGetProducts";
-import { StaticImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
+import Image from "next/image";
+import Link from "next/link";
+import { Product } from "./apiClient.dto";
 
 function ProductInWishList(props: {
   product: Product;
-  addToOrder: (id: string) => void;
-  removeFromLiked: (id: string) => void;
+  addToOrder: (id: number) => void;
+  removeFromLiked: (id: number) => void;
 }) {
   return (
     <div className="wishlist-products__item">
       <div className="wishlist-products__item-image">
-        <img src={props.product.frontImg} alt="" />
+        <Image src={props.product.frontImg} alt="" />
       </div>
       <div className="wishlist-products__item-text">
         <span className="wishlist-products__item-price">
           {props.product.price}
         </span>
         <Link
-          to={`/catalog/${props.product.slug}`}
+          href={`/catalog/${props.product.slug}`}
           className="wishlist-products__item-title"
         >
           {props.product.title}
@@ -40,7 +40,7 @@ function ProductInWishList(props: {
         }}
       >
         <div className="wishlist-products__item-delete_img">
-          <StaticImage src="../images/close.png" alt="" placeholder="none" />
+          <Image src="/images/close.png" alt="" fill />
         </div>
       </div>
     </div>

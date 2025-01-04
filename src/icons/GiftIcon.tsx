@@ -1,6 +1,8 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
 import React, { useState } from "react";
-import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 
 function GiftIcon() {
   const [giftAnim, setGiftAnim] = useState(false);
@@ -10,17 +12,17 @@ function GiftIcon() {
   }, 10000);
 
   return (
-    <Link to="/gifts" target="_blank" className="gift-icon">
+    <Link href="/gifts" target="_blank" className="gift-icon">
       <div
         className={
           giftAnim ? "gift-icon__box-body anim" : "gift-icon__box-body"
         }
       >
-        <StaticImage
+        <Image
           className="gift-icon__img"
-          src="../images/musical-instruments.png"
+          src="/images/musical-instruments.png"
           alt=""
-          placeholder="none"
+          fill
         />
         <div className="gift-icon__box-lid">
           <div className="gift-icon__box-bowtie"></div>

@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
-import InputMask from "react-input-mask";
-import { StaticImage } from "gatsby-plugin-image";
 import useGetProductsInCart from "../hooks/useGetProductsInCart";
 import EmptyCart from "./EmptyCart";
 import ProductInCart from "../entities/ProductInCart";
 import ProductsInOrderContext from "../components/context/ProductsInOrderContext";
+import Image from "next/image";
+import ReactInputMask from "react-input-mask";
 
 function ShoppingCart(props: {
   isPopupOpen: boolean;
   onPopupClosing: (isPopupOpen: boolean) => void;
 }) {
-  const products = useGetProductsInCart();
+  const { data, isLoading } = useGetProductsInCart();
   return (
     <div className="cart">
       <div
@@ -27,9 +27,18 @@ function ShoppingCart(props: {
             className="popup__close"
             onClick={() => props.onPopupClosing(false)}
           >
-            <StaticImage src="../images/close.png" alt="" placeholder="none" />
+            <Image src="/images/close.png" alt="" fill />
           </span>
-          {products.length != 0 ? <Order /> : <EmptyCart />}
+          {!isLoading && data != null ? (
+            data.length != 0 ? (
+              <Order />
+            ) : (
+              <EmptyCart />
+            )
+          ) : (
+            "loading..."
+          )}
+          {}
         </div>
       </div>
     </div>
@@ -57,7 +66,7 @@ function Order() {
       <p className="order-products__sum">Сумма: 6 080р.</p>
       <form action="#" className="order-form">
         <input type="text" name="name" placeholder="Ваше имя" required />
-        <InputMask
+        <ReactInputMask
           mask="+7 999 999 99 99"
           maskChar=" "
           className="tel"

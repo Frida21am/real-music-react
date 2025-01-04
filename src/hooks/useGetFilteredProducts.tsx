@@ -1,63 +1,55 @@
 import { SelectedFilters, SortingType } from "../components/Filtration";
-import useGetProducts, { Product } from "./useGetProducts";
+import { useQuery } from "@tanstack/react-query";
+import { getAllProducts } from "@/entities/apiClient";
 
-function filterProducts(product: Product, selectedFilters: SelectedFilters) {
+function getFilter(selectedFilters: SelectedFilters) {
   if (selectedFilters == null) {
-    return true;
-  }
-  if (selectedFilters.name != null) {
-    if (
-      !product.title.toLowerCase().includes(selectedFilters.name.toLowerCase())
-    ) {
-      return false;
-    }
-  }
-  if (selectedFilters.priceRange != null) {
-    if (selectedFilters.priceRange.min != null) {
-      if (product.priceRaw < selectedFilters.priceRange.min) {
-        return false;
-      }
-    }
-    if (selectedFilters.priceRange.max != null) {
-      if (product.priceRaw > selectedFilters.priceRange.max) {
-        return false;
-      }
-    }
+    return {};
   }
 
-  if (selectedFilters.category != null) {
-    if (!product.categoryIds.some((id) => id == selectedFilters.category)) {
-      return false;
-    }
-  }
-
-  return true;
+  return {
+    search: selectedFilters.name,
+    min_price: selectedFilters.priceRange?.min,
+    max_price: selectedFilters.priceRange?.max,
+    category:
+      selectedFilters.subCategory != null
+        ? selectedFilters.subCategory.id
+        : selectedFilters.category?.id,
+  };
 }
 
-function sortProducts(
-  firstProduct: Product,
-  secondProduct: Product,
-  sorting: SortingType
-): number {
+function getSort(sorting: SortingType) {
   switch (sorting) {
     case "ByNameAsc":
-      return firstProduct.title.toUpperCase() >
-        secondProduct.title.toUpperCase()
-        ? 1
-        : -1;
+      return {
+        order: "asc",
+        orderBy: "title",
+      };
     case "ByNameDesc":
-      return firstProduct.title.toUpperCase() <
-        secondProduct.title.toUpperCase()
-        ? 1
-        : -1;
+      return {
+        order: "desc",
+        orderBy: "title",
+      };
     case "ByPriceAsk":
-      return firstProduct.price > secondProduct.price ? 1 : -1;
+      return {
+        order: "asc",
+        orderBy: "price",
+      };
     case "ByPriceDesc":
-      return firstProduct.price < secondProduct.price ? 1 : -1;
+      return {
+        order: "desc",
+        orderBy: "price",
+      };
     case "ByListingTimeAsc":
-      return firstProduct.listingTime > secondProduct.listingTime ? 1 : -1;
+      return {
+        order: "asc",
+        orderBy: "modified",
+      };
     case "ByListingTimeDesc":
-      return firstProduct.listingTime < secondProduct.listingTime ? 1 : -1;
+      return {
+        order: "desc",
+        orderBy: "modified",
+      };
     default:
       return 0;
   }
@@ -68,24 +60,24 @@ function useGetFilteredProducts(
   pageSize: number,
   selectedFilters: SelectedFilters
 ) {
-  const firstProductIndex = (currentPage - 1) * pageSize;
-  const lastProductIndex = firstProductIndex + pageSize;
-  const products: Product[] = useGetProducts();
-  const allProducts: Product[] = products
-    .filter((product) => filterProducts(product, selectedFilters))
-    .sort((firstProduct, secondProduct) =>
-      sortProducts(firstProduct, secondProduct, selectedFilters.sorting)
-    );
-  const productsCount: number = allProducts.length;
-  const productsOnPage: Product[] = allProducts.slice(
-    firstProductIndex,
-    lastProductIndex
-  );
+  const filter = {
+    ...getFilter(selectedFilters),
+    ...getSort(selectedFilters.sorting),
+    page: currentPage,
+    per_page: pageSize,
+  };
 
-  if (allProducts == null) {
-    throw new Error("Data not found!");
-  }
-  return { productsCount, productsOnPage };
+  const query = useQuery({
+    queryKey: ["products", JSON.stringify(filter)],
+    queryFn: async () => await getAllProducts(filter),
+  });
+
+  return {
+    products: query.data,
+    isLoading: query.isLoading,
+    isError: query.isError,
+    error: query.error,
+  };
 }
 
 export default useGetFilteredProducts;

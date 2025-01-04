@@ -3,13 +3,15 @@ import { ConfigProvider, Select } from "antd";
 import { Input } from "antd";
 import FilterPrice from "./FilterPrice";
 import Categories from "../entities/Categories";
-import useGetCategoriesList from "../hooks/useGetCategoriesList";
+import useGetCategories from "@/hooks/useGetCategories";
+import { Category, SubCategory } from "@/entities/apiClient.dto";
 
 export type SelectedFilters = {
   name?: string;
   priceRange?: SelectedFiltersPrice;
   sorting: SortingType;
-  category?: string;
+  category?: Category;
+  subCategory?: SubCategory;
 };
 
 export type SelectedFiltersPrice = {
@@ -58,26 +60,35 @@ function Filtration(props: {
   selectedFilters: SelectedFilters;
   onFiltersChanged: (newFilters: SelectedFilters) => void;
 }) {
-  const selectedCategory = useGetCategoriesList().find(
-    (category) =>
-      category.id == props.selectedFilters.category ||
-      category.subCategories.some(
-        (subCategory) => subCategory.id == props.selectedFilters.category
-      )
-  );
+  const { data, isLoading } = useGetCategories();
+
+  if (isLoading || data == null) {
+    return "загружается...";
+  }
+
   return (
     <>
       <Categories
         selectedCategory={props.selectedFilters.category}
+        selectedSubCategory={props.selectedFilters.subCategory}
         onSelectedCategoryChanged={(newSelectedCategory) => {
           props.onFiltersChanged({
             ...props.selectedFilters,
             category: newSelectedCategory,
+            subCategory: undefined,
+          });
+        }}
+        onSelectedSubCategoryChanged={(newSelectedSubCategory) => {
+          props.onFiltersChanged({
+            ...props.selectedFilters,
+            subCategory: newSelectedSubCategory,
           });
         }}
       />
       <div className="filters">
-        <h2 className="filters__title">{selectedCategory?.title ?? "Все"}</h2>
+        <h2 className="filters__title">
+          {props.selectedFilters.category?.title ?? "Все"}
+        </h2>
         <ConfigProvider
           theme={{
             components: {
