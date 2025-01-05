@@ -1,7 +1,7 @@
 import React from "react";
 import Subcategory from "./Subcategory";
 import useGetSubCategories from "@/hooks/useGetSubCategories";
-import { SubCategory } from "./apiClient.dto";
+import { SubCategory } from "../../../api/apiClient.dto";
 
 function Subcategories(props: {
   onSelect: (selectedSubCategory: SubCategory | undefined) => void;

@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import Link from "next/link";
+import Image from "next/image";
 
-let options = {
+const options = {
   root: null,
   rootMargin: "5px",
   threshold: 0.5,
@@ -9,7 +10,7 @@ let options = {
 function GiftsCutaway() {
   const containerRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
-  let callback = function (
+  const callback = function (
     entries: IntersectionObserverEntry[],
     observer: IntersectionObserver
   ) {
@@ -22,7 +23,7 @@ function GiftsCutaway() {
     }
   };
   useEffect(() => {
-    let observer = new IntersectionObserver(callback, options);
+    const observer = new IntersectionObserver(callback, options);
     if (containerRef.current != null) {
       observer.observe(containerRef.current);
     }
@@ -50,21 +51,21 @@ function GiftsCutaway() {
                 <span>Бессрочная</span>. Может воспользоваться любой
               </li>
             </ul>
-            <a href="/" className="gifts-cutaway-catalog-btn">
+            <Link href="/" className="gifts-cutaway-catalog-btn">
               В каталог
-            </a>
+            </Link>
           </div>
           <div
             className="gifts-cutaway__column gifts-cutaway__column-card"
             ref={containerRef}
           >
-            <StaticImage
+            <Image
               src="../images/bussines-card-test.png"
               alt=""
-              placeholder="none"
               className={`gifts-cutaway-card ${
                 isInView ? "gifts-cutaway-card_active" : ""
               }`}
+              fill
             />
           </div>
         </div>

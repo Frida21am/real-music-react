@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Product } from "./apiClient.dto";
+import { Product } from "../../../api/apiClient.dto";
 
 function ProductInCart(props: {
   product: Product;

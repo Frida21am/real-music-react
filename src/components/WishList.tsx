@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import Image from "next/image";
 import useGetLikedProducts from "../hooks/useGetLikedProducts";
-import ProductInWishList from "../entities/ProductInWishList";
+import ProductInWishList from "./ui/popups/ProductInWishList";
 import ProductsInWishlistContext from "./context/ProductsInWishlistContext";
 import ProductsInOrderContext from "./context/ProductsInOrderContext";
+import Link from "next/link";
 
 function WishList(props: {
   isWishListOpen: boolean;
@@ -37,9 +38,9 @@ function WishList(props: {
               <p className="empty-wishlist__caption">
                 В Избранном пока нет товаров
               </p>
-              <a href="/" className="empty-wishlist__button">
+              <Link href="/" className="empty-wishlist__button">
                 В каталог
-              </a>
+              </Link>
             </div>
           )
         ) : (

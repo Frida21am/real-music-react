@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import WishList from "./WishList";
-import ShoppingCart from "@/popups/ShoppingCart";
+import WishList from "../../WishList";
+import ShoppingCart from "@/components/ui/popups/ShoppingCart";
 import useGetLikedProductsCount from "@/hooks/useGetLikedProductsCount";
 import useGetProductsInCartCount from "@/hooks/useGetProductsInCartCount";
 

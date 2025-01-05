@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Subcategories from "./Subcategories";
 import useGetCategories from "@/hooks/useGetCategories";
-import { Category as CategoryItem, SubCategory } from "./apiClient.dto";
+import {
+  Category as CategoryItem,
+  SubCategory,
+} from "../../../api/apiClient.dto";
 import Category from "./Category";
 
 function Categories(props: {
@@ -19,11 +22,7 @@ function Categories(props: {
   return (
     <>
       {!isLoading && data != null ? (
-        <CategoriesList
-          {...props}
-          categories={data.categories}
-          allCategory={data.allCategory}
-        />
+        <CategoriesList {...props} categories={data.categories} />
       ) : (
         "загружается..."
       )}

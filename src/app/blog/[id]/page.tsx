@@ -1,8 +1,8 @@
 import React from "react";
-import Layout from "../app/layout";
+import Layout from "../../layout";
 import { PageProps } from "gatsby";
-import ArticleDetailsView from "../components/ArticleDetailsView";
-import useGetArticleDetails from "../hooks/useGetArticleDetails";
+import ArticleDetailsView from "../../ArticleDetailsView";
+import useGetArticleDetails from "../../../hooks/useGetArticleDetails";
 
 type ArticleDetailsContext = {
   id: string;

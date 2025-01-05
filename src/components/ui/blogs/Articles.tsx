@@ -1,6 +1,26 @@
+import React from "react";
+import useGetArticles from "../../../hooks/useGetArticles";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
+function Articles() {
+  const articlesList = useGetArticles();
+
+  if (articlesList == null) {
+    return <span>Нет статей</span>;
+  }
+  return (
+    <div className="blog-articles">
+      <div className="container">
+        <div className="blog-articles__row">
+          {articlesList.map((el) => (
+            <Article key={el.id} item={el} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export interface IArticleDto {
   id: string;
@@ -26,4 +46,4 @@ function Article(props: { item: IArticleDto }) {
   );
 }
 
-export default Article;
+export default Articles;

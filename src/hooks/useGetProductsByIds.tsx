@@ -1,4 +1,4 @@
-import { getProductsByIds } from "@/entities/apiClient";
+import { getProductsByIds } from "@/api/apiClient";
 import { useQuery } from "@tanstack/react-query";
 
 function useGetProductsByIds(ids: number[]) {

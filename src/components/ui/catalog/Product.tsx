@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { toast } from "react-toastify";
-import ProductsInWishlistContext from "../components/context/ProductsInWishlistContext";
-import ProductsInOrderContext from "../components/context/ProductsInOrderContext";
+import ProductsInWishlistContext from "../../context/ProductsInWishlistContext";
+import ProductsInOrderContext from "../../context/ProductsInOrderContext";
 import Link from "next/link";
 import Image from "next/image";
 

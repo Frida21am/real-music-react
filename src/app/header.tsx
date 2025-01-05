@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderSideBarIcon from "@/components/headerSideBarIcon";
+import HeaderSideBarIcon from "@/components/ui/layout/headerSideBarIcon";
 
 function Header() {
   return (

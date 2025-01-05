@@ -1,4 +1,4 @@
-import MainFullScreenContent from "@/components/mainFullScreenContent";
+import MainFullScreenContent from "@/components/ui/layout/mainFullScreenContent";
 import React from "react";
 
 function MainFullScreen() {

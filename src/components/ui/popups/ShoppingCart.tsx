@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import useGetProductsInCart from "../hooks/useGetProductsInCart";
+import useGetProductsInCart from "../../../hooks/useGetProductsInCart";
 import EmptyCart from "./EmptyCart";
-import ProductInCart from "../entities/ProductInCart";
-import ProductsInOrderContext from "../components/context/ProductsInOrderContext";
+import ProductInCart from "./ProductInCart";
+import ProductsInOrderContext from "../../context/ProductsInOrderContext";
 import Image from "next/image";
 import ReactInputMask from "react-input-mask";
 

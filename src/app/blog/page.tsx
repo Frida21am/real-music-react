@@ -1,5 +1,5 @@
-import Articles from "@/entities/Articles";
-import OurBlogFullscreen from "@/fullscreens/OurBlogFullscreen";
+import Articles from "@/components/ui/blogs/Articles";
+import OurBlogFullscreen from "@/components/ui/fullscreens/OurBlogFullscreen";
 import React from "react";
 
 function Page() {
