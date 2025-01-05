@@ -1,5 +1,5 @@
-import Products from "@/entities/Products";
-import MainFullScreen from "@/fullscreens/MainFullScreen";
+import Products from "@/components/ui/catalog/Products";
+import MainFullScreen from "@/components/ui/fullscreens/MainFullScreen";
 import React from "react";
 
 function Page() {

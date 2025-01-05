@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function EmptyCart() {
@@ -8,7 +9,8 @@ function EmptyCart() {
         <div className="empty-cart-content__filter">
           <h3 className="empty-cart-content__title">Ваша корзина пуста</h3>
           <p className="empty-cart-content__caption">
-            Подберите музыкальные инструменты <a href="/">в нашем каталоге</a>
+            Подберите музыкальные инструменты{" "}
+            <Link href="/">в нашем каталоге</Link>
           </p>
         </div>
       </div>

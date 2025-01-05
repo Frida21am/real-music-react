@@ -4,8 +4,8 @@ import React from "react";
 import { useState } from "react";
 import { Pagination, ConfigProvider } from "antd";
 import Product from "./Product";
-import Filtration, { SelectedFilters } from "../components/Filtration";
-import useGetFilteredProducts from "../hooks/useGetFilteredProducts";
+import Filtration, { SelectedFilters } from "./Filtration";
+import useGetFilteredProducts from "../../../hooks/useGetFilteredProducts";
 
 const pageSize = 12;
 
@@ -26,12 +26,11 @@ function Products() {
 
 function ProductsList(props: { selectedFilters: SelectedFilters }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const {
-    products: productsPage,
-    isLoading,
-    isError,
-    error,
-  } = useGetFilteredProducts(currentPage, pageSize, props.selectedFilters);
+  const { products: productsPage, isLoading } = useGetFilteredProducts(
+    currentPage,
+    pageSize,
+    props.selectedFilters
+  );
 
   if (isLoading) {
     return "загружается...";

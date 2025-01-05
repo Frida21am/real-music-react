@@ -1,6 +1,9 @@
-import { SelectedFilters, SortingType } from "../components/Filtration";
+import {
+  SelectedFilters,
+  SortingType,
+} from "../components/ui/catalog/Filtration";
 import { useQuery } from "@tanstack/react-query";
-import { getAllProducts } from "@/entities/apiClient";
+import { getAllProducts } from "@/api/apiClient";
 
 function getFilter(selectedFilters: SelectedFilters) {
   if (selectedFilters == null) {

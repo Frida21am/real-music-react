@@ -1,4 +1,4 @@
-import { getSubCategories } from "@/entities/apiClient";
+import { getSubCategories } from "@/api/apiClient";
 import { useQuery } from "@tanstack/react-query";
 
 function useGetCategories(categoryId: number) {

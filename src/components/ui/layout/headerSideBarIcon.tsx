@@ -41,7 +41,7 @@ function HeaderSideBarIcon() {
   return (
     <div className="header-row">
       <div className="header__logo">
-        <a href="/" className="header__logo_image">
+        <Link href="/" className="header__logo_image">
           <Image
             className="header__logo_image"
             src={logoImg}
@@ -49,7 +49,7 @@ function HeaderSideBarIcon() {
             width={50}
             height={50}
           />
-        </a>
+        </Link>
       </div>
       <div className="header__phone">
         <div className="header__phone-item">

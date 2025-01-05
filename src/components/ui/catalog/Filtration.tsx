@@ -2,9 +2,9 @@ import React from "react";
 import { ConfigProvider, Select } from "antd";
 import { Input } from "antd";
 import FilterPrice from "./FilterPrice";
-import Categories from "../entities/Categories";
+import Categories from "./Categories";
 import useGetCategories from "@/hooks/useGetCategories";
-import { Category, SubCategory } from "@/entities/apiClient.dto";
+import { Category, SubCategory } from "@/api/apiClient.dto";
 
 export type SelectedFilters = {
   name?: string;

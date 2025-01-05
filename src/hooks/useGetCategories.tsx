@@ -1,4 +1,4 @@
-import { getAllCategories, getAllCategory } from "@/entities/apiClient";
+import { getAllCategories, getAllCategory } from "@/api/apiClient";
 import { useQuery } from "@tanstack/react-query";
 
 function useGetCategories() {

@@ -3,7 +3,7 @@ import axios from "axios";
 import {
   Category as WooCategory,
   Product as WooProduct,
-} from "@/entities/woocommercProducts";
+} from "@/api/woocommercProducts";
 import { Category, Product } from "./apiClient.dto";
 
 type Response<T> = {
