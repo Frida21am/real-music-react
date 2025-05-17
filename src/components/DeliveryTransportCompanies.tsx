@@ -2,10 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import pochtaImg from "../../public/images/delivery/pochta-rf.png";
-import sdekImg from "../../public/images/delivery/sdek.png";
-import avitoImg from "../../public/images/delivery/avito.png";
-import boxberryImg from "../../public/images/delivery/boxberry.png";
+import pochtaImg from "@images/delivery/pochta-rf.png";
+import sdekImg from "@images/delivery/sdek.png";
+import avitoImg from "@images/delivery/avito.png";
+import boxberryImg from "@images/delivery/boxberry.png";
 
 const animationCompanies = {
   hidden: {

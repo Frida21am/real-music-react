@@ -1,6 +1,8 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import repairRental from "@/images/advantagesIcons/repair&rental.png";
+import serivces from "@/images/advantagesIcons/services.png";
 
 const animationScale = {
   hidden: {
@@ -30,11 +32,7 @@ function AboutUsAdvantages() {
           className="about-advantages__item"
         >
           <div className="about-advantages__item-icon">
-            <StaticImage
-              src="../images/advantagesIcons/repair&rental.png"
-              alt="repair&rental"
-              placeholder="none"
-            />
+            <Image src={repairRental} alt="repair&rental" />
           </div>
           <div className="about-advantages__item-text">
             <span>Ремонт и Аренда музыкальных инструментов</span>
@@ -46,11 +44,7 @@ function AboutUsAdvantages() {
           className="about-advantages__item"
         >
           <div className="about-advantages__item-icon">
-            <StaticImage
-              src="../images/advantagesIcons/service.png"
-              alt="service"
-              placeholder="none"
-            />
+            <Image src={serivces} alt="service" />
           </div>
           <div className="about-advantages__item-text">
             <span>Высокий уровень сервиса</span>
