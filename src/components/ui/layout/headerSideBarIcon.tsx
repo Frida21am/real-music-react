@@ -6,9 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import avitoImg from "../../public/images/delivery/avito.png";
-import logoImg from "../../public/images/logo12.png";
-import phoneCallImg from "../../public/images/phone-call.png";
+import avitoImg from "@/images/delivery/avito.png";
+import logoImg from "@/images/logo12.png";
+import phoneCallImg from "@/images/phone-call.png";
 
 function HeaderSideBarIcon() {
   const sideBarMenu = [

@@ -3,12 +3,12 @@ import { toast } from "react-toastify";
 import DetailTabs from "./DetailTabs";
 import ProductSlider from "./ProductSlider";
 import VideoFrame from "../popups/VideoFrame";
-import { SvgPriceUnderline } from "../../../svg/svg";
 import ProductsInOrderContext from "../../context/ProductsInOrderContext";
 import ProductsInWishlistContext from "../../context/ProductsInWishlistContext";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/api/apiClient.dto";
+import { SvgPriceUnderline } from "./SvgPriceUnderline";
 
 function ProductDetailsView(props: { product: Product }) {
   const productDetails = props.product;

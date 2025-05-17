@@ -7,8 +7,8 @@ import ShoppingCart from "@/components/ui/popups/ShoppingCart";
 import useGetLikedProductsCount from "@/hooks/useGetLikedProductsCount";
 import useGetProductsInCartCount from "@/hooks/useGetProductsInCartCount";
 
-import basketImg from "../../public/images/basket.png";
-import likesImg from "../../public/images/like.png";
+import basketImg from "@/images/basket.png";
+import likesImg from "@/images/like.png";
 
 function HeaderLikedProductsIcon() {
   const [isWishListOpen, setIsWishListOpen] = useState<boolean>(false);
