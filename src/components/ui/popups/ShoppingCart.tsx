@@ -5,6 +5,7 @@ import ProductInCart from "./ProductInCart";
 import ProductsInOrderContext from "../../context/ProductsInOrderContext";
 import Image from "next/image";
 import ReactInputMask from "react-input-mask";
+import closeImage from "@/images/close.png";
 
 function ShoppingCart(props: {
   isPopupOpen: boolean;
@@ -27,7 +28,7 @@ function ShoppingCart(props: {
             className="popup__close"
             onClick={() => props.onPopupClosing(false)}
           >
-            <Image src="/images/close.png" alt="" fill />
+            <Image src={closeImage} alt="" fill />
           </span>
           {!isLoading && data != null ? (
             data.length != 0 ? (
@@ -53,8 +54,8 @@ function Order() {
     <div className="order">
       <h2 className="order__title">Ваш заказ:</h2>
       <div className="order-products__row">
-        {orderedProductsContext
-          ? products.map((el) => (
+        {orderedProductsContext && products.data
+          ? products.data.map((el) => (
               <ProductInCart
                 key={el.id}
                 product={el}

@@ -6,6 +6,8 @@ import WishList from "../../WishList";
 import ShoppingCart from "@/components/ui/popups/ShoppingCart";
 import useGetLikedProductsCount from "@/hooks/useGetLikedProductsCount";
 import useGetProductsInCartCount from "@/hooks/useGetProductsInCartCount";
+import likeImage from "@/images/like.png";
+import basketImage from "@/images/basket.png";
 
 function HeaderLikedProductsIcon() {
   const [isWishListOpen, setIsWishListOpen] = useState<boolean>(false);
@@ -22,7 +24,7 @@ function HeaderLikedProductsIcon() {
       >
         <div className="header__addprod-image">
           <div>
-            <Image src="/images/like.png" alt="" width={21} height={21} />
+            <Image src={likeImage} alt="" width={21} height={21} />
           </div>
         </div>
         <span>{likedProductsCount}</span>
@@ -33,7 +35,7 @@ function HeaderLikedProductsIcon() {
       >
         <div className="header__addprod-image">
           <div>
-            <Image src="/images/basket.png" alt="" width={21} height={21} />
+            <Image src={basketImage} alt="" width={21} height={21} />
           </div>
         </div>
         <span>{productsInCartCount}</span>

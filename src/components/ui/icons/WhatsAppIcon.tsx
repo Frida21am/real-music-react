@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import whatsappIcon from "@/images/whatsappIcon.png";
 
 function WhatsAppIcon() {
   return (
@@ -10,7 +11,7 @@ function WhatsAppIcon() {
       rel="noopener noreferrer"
     >
       <div className="whatsapp-button">
-        <Image src="/images/whatsappIcon.png" alt="WhatsApp" fill />
+        <Image src={whatsappIcon} alt="WhatsApp" fill />
       </div>
     </a>
   );

@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import ReactInputMask from "react-input-mask";
+import closeImage from "@/images/close.png";
+import shieldImage from "@/images/shield.png";
 
 function MainFullScreenContent() {
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
@@ -51,7 +52,7 @@ function FeedbackFormPopup(props: {
               className="popup__close"
               onClick={() => props.onPopupClosing(false)}
             >
-              <Image src="/images/close.png" alt="" fill />
+              <Image src={closeImage} alt="" fill />
             </span>
             <div className="feedback-popup__title">
               Мы перезвоним вам в ближайшее время
@@ -84,7 +85,7 @@ function FeedbackFormPopup(props: {
             </button>
             <div className="feedback-popup-form-contacts__bottom">
               <div className="feedback-popup-form-contacts__icon">
-                <Image src="/images/shield.png" alt="" fill />
+                <Image src={shieldImage} alt="" fill />
               </div>
               <div className="feedback-popup-form-contacts__confidentiality">
                 Мы гарантируем конфиденциальность данных

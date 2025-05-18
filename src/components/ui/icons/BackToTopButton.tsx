@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import upArrowBtnImage from "@/images/up-arrow-btn.png";
 
 function BackToTopButton() {
   const [backToTopButton, setBackToTopButton] = useState(false);
@@ -27,7 +28,7 @@ function BackToTopButton() {
     <>
       {backToTopButton && (
         <button className="up-arrow-btn" onClick={scrollUp}>
-          <Image src="/images/up-arrow-btn.png" alt="" fill />
+          <Image src={upArrowBtnImage} alt="" fill />
         </button>
       )}
     </>

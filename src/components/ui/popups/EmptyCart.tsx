@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import basketImage from "@/images/basket/basket.png";
+import guitarImage from "@/images/basket/guitar.png";
+import logo12Image from "@/images/basket/logo12.png";
 
 function EmptyCart() {
   return (
@@ -16,13 +19,13 @@ function EmptyCart() {
       </div>
       <div className="empty-cart-content__bg">
         <div className="empty-cart-content__bg-img empty-cart-content__bg_logo">
-          <Image src="/images/basket/logo12.png" alt="" fill />
+          <Image src={logo12Image} alt="" fill />
         </div>
         <div className="empty-cart-content__bg-img empty-cart-content__bg_guitar">
-          <Image src="/images/basket/guitar.png" alt="" fill />
+          <Image src={guitarImage} alt="" fill />
         </div>
         <div className="empty-cart-content__bg-img empty-cart-content__bg_basket">
-          <Image src="/images/basket/basket.png" alt="" fill />
+          <Image src={basketImage} alt="" fill />
         </div>
       </div>
     </div>
