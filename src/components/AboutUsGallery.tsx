@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import Image from "next/image";
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -43,39 +43,19 @@ function AboutUsGallery() {
           <div className="about-gallery__slider">
             <Slider {...settings}>
               <div className="about-gallery__slider-image">
-                <StaticImage
-                  src="../images/aboutUsSlider/photo1.jpeg"
-                  alt="Фото"
-                  placeholder="none"
-                />
+                <Image src="../images/aboutUsSlider/photo1.jpeg" alt="Фото" />
               </div>
               <div className="about-gallery__slider-image">
-                <StaticImage
-                  src="../images/aboutUsSlider/photo2.jpeg"
-                  alt="Фото"
-                  placeholder="none"
-                />
+                <Image src="../images/aboutUsSlider/photo2.jpeg" alt="Фото" />
               </div>
               <div className="about-gallery__slider-image">
-                <StaticImage
-                  src="../images/aboutUsSlider/photo3.jpeg"
-                  alt="Фото"
-                  placeholder="none"
-                />
+                <Image src="../images/aboutUsSlider/photo3.jpeg" alt="Фото" />
               </div>
               <div className="about-gallery__slider-image">
-                <StaticImage
-                  src="../images/aboutUsSlider/photo4.jpeg"
-                  alt="Фото"
-                  placeholder="none"
-                />
+                <Image src="../images/aboutUsSlider/photo4.jpeg" alt="Фото" />
               </div>
               <div className="about-gallery__slider-image">
-                <StaticImage
-                  src="../images/aboutUsSlider/photo5.jpeg"
-                  alt="Фото"
-                  placeholder="none"
-                />
+                <Image src="../images/aboutUsSlider/photo5.jpeg" alt="Фото" />
               </div>
             </Slider>
           </div>
