@@ -1,6 +1,7 @@
 import * as React from "react";
 import { HeadFC, PageProps } from "gatsby";
 import "../styles/index.scss";
+import Link from "next/link";
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
@@ -17,11 +18,11 @@ const NotFoundPage: React.FC<PageProps> = () => {
       </div>
       <div className="notfound-links">
         <div className="notfound-link notfound-link__tocatalog">
-          <a href="/">
+          <Link href="/">
             <p className="notfound-link-caption notfound-link-caption__tocatalog">
               В каталог
             </p>
-          </a>
+          </Link>
         </div>
         <div className="notfound-link notfound-link__tofaq">
           <a href="/about-us/#about-faq">

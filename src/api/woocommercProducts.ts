@@ -27,7 +27,7 @@ export interface Product {
   total_sales: number;
   virtual: boolean;
   downloadable: boolean;
-  downloads: any[]; // TODO look at Downloads properties
+  downloads: unknown[]; // TODO look at Downloads properties
   download_limit: number;
   download_expiry: number;
   external_url: string;
@@ -56,10 +56,10 @@ export interface Product {
   parent_id: number;
   purchase_note: string;
   categories?: Category[];
-  tags: any[]; // TODO look at Tags properties
+  tags: unknown[]; // TODO look at Tags properties
   images: Image[];
   attributes: Attribute[];
-  default_attributes: any[]; // TODO look at default attributes properties
+  default_attributes: unknown[]; // TODO look at default attributes properties
   variations: number[];
   grouped_products: number[];
   menu_order: number;
@@ -107,7 +107,7 @@ interface LineItem {
   subtotal_tax: string;
   total: string;
   total_tax: string;
-  taxes: any[];
+  taxes: unknown[];
   meta_data: MetaData[];
   sku: string;
   price: number;
@@ -120,8 +120,8 @@ interface ShippingLine {
   instance_id: string;
   total: string;
   total_tax: string;
-  taxes: any[];
-  meta_data: any[];
+  taxes: unknown[];
+  meta_data: unknown[];
 }
 
 interface Meta_Data_Line_Item {
@@ -229,18 +229,18 @@ export interface Order {
   payment_method: string;
   payment_method_title: string;
   transaction_id: string;
-  date_paid?: any;
-  date_paid_gmt?: any;
-  date_completed?: any;
-  date_completed_gmt?: any;
+  date_paid?: unknown;
+  date_paid_gmt?: unknown;
+  date_completed?: unknown;
+  date_completed_gmt?: unknown;
   cart_hash: string;
-  meta_data: any[];
+  meta_data: unknown[];
   line_items: LineItem[];
-  tax_lines: any[];
+  tax_lines: unknown[];
   shipping_lines: ShippingLine[];
-  fee_lines: any[];
-  coupon_lines: any[];
-  refunds: any[];
+  fee_lines: unknown[];
+  coupon_lines: unknown[];
+  refunds: unknown[];
   _links: Links;
 }
 
@@ -289,22 +289,22 @@ export interface Variation {
   price: string;
   regular_price: string;
   sale_price: string;
-  date_on_sale_from?: any;
-  date_on_sale_from_gmt?: any;
-  date_on_sale_to?: any;
-  date_on_sale_to_gmt?: any;
+  date_on_sale_from?: unknown;
+  date_on_sale_from_gmt?: unknown;
+  date_on_sale_to?: unknown;
+  date_on_sale_to_gmt?: unknown;
   on_sale: boolean;
   visible: boolean;
   purchasable: boolean;
   virtual: boolean;
   downloadable: boolean;
-  downloads: any[];
+  downloads: unknown[];
   download_limit: number;
   download_expiry: number;
   tax_status: string;
   tax_class: string;
   manage_stock: boolean;
-  stock_quantity?: any;
+  stock_quantity?: unknown;
   in_stock: boolean;
   backorders: string;
   backorders_allowed: boolean;
