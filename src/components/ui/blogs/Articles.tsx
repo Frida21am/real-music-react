@@ -33,11 +33,14 @@ export interface IArticleDto {
 function Article(props: { item: IArticleDto }) {
   return (
     <Link href={`/articles/${props.item.slug}`} className="blog-articles__item">
-      <Image
-        src={props.item.image ?? ""}
-        className="blog-articles__item-image"
-        alt="guitar shapes"
-      />
+      {props.item.image && (
+        <Image
+          src={props.item.image}
+          className="blog-articles__item-image"
+          alt="guitar shapes"
+        />
+      )}
+
       <h3 className="blog-articles__item-title">{props.item.title}</h3>
       <p className="blog-articles__item-desc">
         {props.item.excerpt.replace(/<.*?>/g, "")}

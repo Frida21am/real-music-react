@@ -1,8 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import repairRental from "@/images/advantagesIcons/repair&rental.png";
-import serivces from "@/images/advantagesIcons/services.png";
+import { motion } from "framer-motion";
 
 const animationScale = {
   hidden: {
@@ -32,7 +30,10 @@ function AboutUsAdvantages() {
           className="about-advantages__item"
         >
           <div className="about-advantages__item-icon">
-            <Image src={repairRental} alt="repair&rental" />
+            <Image
+              src="../images/advantagesIcons/repair&rental.png"
+              alt="repair&rental"
+            />
           </div>
           <div className="about-advantages__item-text">
             <span>Ремонт и Аренда музыкальных инструментов</span>
@@ -44,7 +45,7 @@ function AboutUsAdvantages() {
           className="about-advantages__item"
         >
           <div className="about-advantages__item-icon">
-            <Image src={serivces} alt="service" />
+            <Image src="../images/advantagesIcons/service.png" alt="service" />
           </div>
           <div className="about-advantages__item-text">
             <span>Высокий уровень сервиса</span>
@@ -56,10 +57,9 @@ function AboutUsAdvantages() {
           className="about-advantages__item"
         >
           <div className="about-advantages__item-icon">
-            <StaticImage
+            <Image
               src="../images/advantagesIcons/gifts&discounts.png"
               alt="gifts&discounts"
-              placeholder="none"
             />
           </div>
           <div className="about-advantages__item-text">
@@ -72,10 +72,9 @@ function AboutUsAdvantages() {
           className="about-advantages__item"
         >
           <div className="about-advantages__item-icon">
-            <StaticImage
+            <Image
               src="../images/advantagesIcons/location.png"
               alt="location"
-              placeholder="none"
             />
           </div>
           <div className="about-advantages__item-text">
@@ -88,10 +87,9 @@ function AboutUsAdvantages() {
           className="about-advantages__item"
         >
           <div className="about-advantages__item-icon">
-            <StaticImage
+            <Image
               src="../images/advantagesIcons/delivery.png"
               alt="delivery"
-              placeholder="none"
             />
           </div>
           <div className="about-advantages__item-text">
@@ -104,10 +102,9 @@ function AboutUsAdvantages() {
           className="about-advantages__item"
         >
           <div className="about-advantages__item-icon">
-            <StaticImage
+            <Image
               src="../images/advantagesIcons/guarantee.png"
               alt="guarantee"
-              placeholder="none"
             />
           </div>
           <div className="about-advantages__item-text">

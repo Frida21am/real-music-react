@@ -36,7 +36,9 @@ function Product(props: { item: IItemDto }) {
           style={{ textDecoration: "none" }}
           className="products-item__image"
         >
-          <Image src={props.item.frontImg ?? ""} alt="" fill />
+          {props.item.frontImg && (
+            <Image src={props.item.frontImg ?? ""} alt="" fill />
+          )}
         </Link>
         <div
           className={
