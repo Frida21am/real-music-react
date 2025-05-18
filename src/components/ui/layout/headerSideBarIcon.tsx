@@ -5,6 +5,9 @@ import HeaderLikedProductsIcon from "./headerLikedProductsIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import avitoImage from "@/images/delivery/avito.png";
+import logoImage from "@/images/logo12.png";
+import phoneCallImage from "@/images/phone-call.png";
 
 function HeaderSideBarIcon() {
   const sideBarMenu = [
@@ -40,7 +43,7 @@ function HeaderSideBarIcon() {
         <Link href="/" className="header__logo_image">
           <Image
             className="header__logo_image"
-            src="/images/logo12.png"
+            src={logoImage}
             alt=""
             width={50}
             height={50}
@@ -50,13 +53,13 @@ function HeaderSideBarIcon() {
       <div className="header__phone">
         <div className="header__phone-item">
           <div>
-            <Image src="/images/phone-call.png" alt="" width={17} height={17} />
+            <Image src={phoneCallImage} alt="" width={17} height={17} />
           </div>
           <a href="tel:89943336688">8-994-333-66-88</a>
         </div>
         <div className="header__phone-item">
           <div>
-            <Image src="/images/phone-call.png" alt="" width={17} height={17} />
+            <Image src={phoneCallImage} alt="" width={17} height={17} />
           </div>
           <a href="tel:89680556655">8-968-055-66-55</a>
         </div>
@@ -93,12 +96,7 @@ function HeaderSideBarIcon() {
             </span>
           </li>
           <li key="avito">
-            <Image
-              src="/images/delivery/avito.png"
-              alt=""
-              width={32}
-              height={32}
-            />
+            <Image src={avitoImage} alt="" width={32} height={32} />
             <a
               href="https://www.avito.ru/brands/i224952978/all/muzykalnye_instrumenty?gdlkerfdnwq=101&page_from=from_item_header&iid=3183987440&sellerId=4a2d802f13e360fb2496b6d7bcccca0e"
               onClick={() => closeSideBar()}

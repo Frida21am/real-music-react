@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "../../../api/apiClient.dto";
+import closeImage from "@/images/close.png";
 
 function ProductInWishList(props: {
   product: Product;
@@ -40,7 +41,7 @@ function ProductInWishList(props: {
         }}
       >
         <div className="wishlist-products__item-delete_img">
-          <Image src="/images/close.png" alt="" fill />
+          <Image src={closeImage} alt="" fill />
         </div>
       </div>
     </div>

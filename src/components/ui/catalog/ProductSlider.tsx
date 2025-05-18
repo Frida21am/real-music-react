@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import sliderArrowImage from "@/images/sliderArrow.png";
 
 function ProductSlider(props: { productImages: string[] }) {
   const [selectedImg, setSelectedImg] = useState<number>(0);
@@ -29,7 +30,7 @@ function ProductSlider(props: { productImages: string[] }) {
           }
         >
           <div>
-            <Image src="/images/sliderArrow.png" alt="" fill />
+            <Image src={sliderArrowImage} alt="" fill />
           </div>
         </div>
         <Image
@@ -49,7 +50,7 @@ function ProductSlider(props: { productImages: string[] }) {
           }
         >
           <div>
-            <Image src="/images/sliderArrow.png" alt="" fill />
+            <Image src={sliderArrowImage} alt="" fill />
           </div>
         </div>
       </div>

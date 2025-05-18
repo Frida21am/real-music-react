@@ -9,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/api/apiClient.dto";
 import { SvgPriceUnderline } from "./SvgPriceUnderline";
+import giftboxImage from "@/images/giftbox.png";
 
 function ProductDetailsView(props: { product: Product }) {
   const productDetails = props.product;
@@ -22,7 +23,7 @@ function ProductDetailsView(props: { product: Product }) {
         <div className="container">
           <Link href="/gifts" target="_blank" className="detail-gift">
             <div className="detail-gift__image">
-              <Image src="/images/giftbox.png" alt="top" fill />
+              <Image src={giftboxImage} alt="top" fill />
             </div>
             <span>
               При заказе этого инструмента Вы получите аксессуар в подарок!

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "../../../api/apiClient.dto";
+import closeImage from "@/images/close.png";
 
 function ProductInCart(props: {
   product: Product;
@@ -28,7 +29,7 @@ function ProductInCart(props: {
         onClick={() => props.removeFromOrder(props.product.id)}
       >
         <div className="order-products__item-close_img">
-          <Image src="/images/close.png" alt="" fill />
+          <Image src={closeImage} alt="" fill />
         </div>
       </div>
     </div>

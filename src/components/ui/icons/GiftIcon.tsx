@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
+import musicalInstrumentsImage from "@/images/musical-instruments.png";
 
 function GiftIcon() {
   const [giftAnim, setGiftAnim] = useState(false);
@@ -20,7 +21,7 @@ function GiftIcon() {
       >
         <Image
           className="gift-icon__img"
-          src="/images/musical-instruments.png"
+          src={musicalInstrumentsImage}
           alt=""
           fill
         />

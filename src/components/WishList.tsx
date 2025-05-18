@@ -5,6 +5,7 @@ import ProductInWishList from "./ui/popups/ProductInWishList";
 import ProductsInWishlistContext from "./context/ProductsInWishlistContext";
 import ProductsInOrderContext from "./context/ProductsInOrderContext";
 import Link from "next/link";
+import closeImage from "@/images/close.png";
 
 function WishList(props: {
   isWishListOpen: boolean;
@@ -19,13 +20,13 @@ function WishList(props: {
         className="wishlist__close"
         onClick={() => props.onWishListClosing(false)}
       >
-        <Image src="/images/close.png" alt="" fill />
+        <Image src={closeImage} alt="" fill />
       </span>
       <h2 className="wishlist__title">Избранное</h2>
       <div className="wishlist-products">
         {likedProductsContext && orderedProductsContext ? (
-          likedProductsContext.liked.length != 0 ? (
-            products.map((el) => (
+          likedProductsContext.liked.length != 0 && products.data ? (
+            products.data.map((el) => (
               <ProductInWishList
                 key={el.id}
                 product={el}
