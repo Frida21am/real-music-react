@@ -6,12 +6,16 @@ import {
 } from "@/api/woocommercProducts";
 import { Category, Product } from "./apiClient.dto";
 
-type Response<T> = {
+type WooCommerceResponse<T> = {
   data: T;
-  headers: unknown;
+  headers: {
+    "x-wp-total"?: string;
+    "x-wp-totalpages"?: string;
+    [key: string]: unknown; // другие возможные заголовки
+  };
 };
 
-// initialise the WooCommerceRestApi //
+// initialise the WooCommerceRestApi
 const api = new WooCommerceRestApi({
   url: "https://wp.real-music.store/",
   consumerKey: "ck_639315c13cff5d75755ef27bc2bf25d57bdac329",
@@ -28,10 +32,13 @@ axios.interceptors.request.use(function (config) {
 });
 
 export async function getSubCategories(categoryId: number) {
-  const resp: Response<WooCategory[]> = await api.get("products/categories", {
-    parent: categoryId,
-    per_page: 30,
-  });
+  const resp: WooCommerceResponse<WooCategory[]> = await api.get(
+    "products/categories",
+    {
+      parent: categoryId,
+      per_page: 30,
+    }
+  );
 
   const subCategoriesResp = resp.data;
 
@@ -45,9 +52,12 @@ export async function getSubCategories(categoryId: number) {
 }
 
 export async function getAllCategory() {
-  const resp: Response<WooCategory[]> = await api.get("products/categories", {
-    parent: 0,
-  });
+  const resp: WooCommerceResponse<WooCategory[]> = await api.get(
+    "products/categories",
+    {
+      parent: 0,
+    }
+  );
 
   const allCategorieResp = resp.data;
 
@@ -68,7 +78,7 @@ export async function getAllCategory() {
 }
 
 export async function getAllCategories(allCategoryId: number) {
-  const respAllCategories: Response<WooCategory[]> = await api.get(
+  const respAllCategories: WooCommerceResponse<WooCategory[]> = await api.get(
     "products/categories",
     { parent: allCategoryId, per_page: 30 }
   );
@@ -122,19 +132,25 @@ function mapProduct(wooProduct: WooProduct): Product {
 }
 
 export async function getAllProducts(filter?: ProductsFilter) {
-  const resp: Response<WooProduct[]> = await api.get("products", filter);
+  const resp: WooCommerceResponse<WooProduct[]> = await api.get(
+    "products",
+    filter
+  );
 
   const products: Product[] = resp.data.map(mapProduct);
+  const totalPages = resp.headers["x-wp-totalpages"]
+    ? Number(resp.headers["x-wp-totalpages"])
+    : 0;
 
   return {
     products,
-    totalPages: Number.parseInt(resp.headers["x-wp-totalpages"] ?? "0"),
+    totalPages,
   };
 }
 
 export async function getProductsByIds(ids: number[]) {
   if (ids.length == 0) return [];
-  const resp: Response<WooProduct[]> = await api.get("products", {
+  const resp: WooCommerceResponse<WooProduct[]> = await api.get("products", {
     include: ids,
   });
 
@@ -144,7 +160,7 @@ export async function getProductsByIds(ids: number[]) {
 }
 
 export async function getProductById(id: number) {
-  const resp: Response<WooProduct> = await api.get(`products/${id}`);
+  const resp: WooCommerceResponse<WooProduct> = await api.get(`products/${id}`);
 
   const product: Product = mapProduct(resp.data);
 
