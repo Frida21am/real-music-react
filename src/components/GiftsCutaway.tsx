@@ -32,7 +32,7 @@ function GiftsCutaway() {
         observer.unobserve(containerRef.current);
       }
     };
-  }, [containerRef, options]);
+  }, [containerRef]);
   return (
     <div className="gifts-cutaway">
       <div className="container">

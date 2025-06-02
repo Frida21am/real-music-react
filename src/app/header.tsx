@@ -1,4 +1,3 @@
-import React from "react";
 import HeaderSideBarIcon from "@/components/ui/layout/headerSideBarIcon";
 
 function Header() {

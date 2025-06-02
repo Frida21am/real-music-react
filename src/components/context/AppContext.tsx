@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ReactNode } from "react";
 
 export const AppContext = React.createContext([{}, () => {}]);
 
-export const AppProvider = (props) => {
+interface AppProviderProps {
+  children: ReactNode;
+}
+
+export const AppProvider = ({ children }: AppProviderProps) => {
   const [cart, setCart] = useState(null);
 
   useEffect(() => {
@@ -15,7 +19,7 @@ export const AppProvider = (props) => {
 
   return (
     <AppContext.Provider value={[cart, setCart]}>
-      {props.children}
+      {children}
     </AppContext.Provider>
   );
 };

@@ -1,9 +1,7 @@
-import * as React from "react";
-import { HeadFC, PageProps } from "gatsby";
-import "../styles/index.scss";
 import Link from "next/link";
+import "../styles/index.scss";
 
-const NotFoundPage: React.FC<PageProps> = () => {
+function NotFoundPage() {
   return (
     <div className="notfound">
       <div className="notfound-banner">
@@ -34,8 +32,6 @@ const NotFoundPage: React.FC<PageProps> = () => {
       </div>
     </div>
   );
-};
+}
 
 export default NotFoundPage;
-
-export const Head: HeadFC = () => <title>Not found</title>;

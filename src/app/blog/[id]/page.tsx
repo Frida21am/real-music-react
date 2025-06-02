@@ -1,15 +1,10 @@
 import React from "react";
 import Layout from "../../layout";
-import { PageProps } from "gatsby";
-import ArticleDetailsView from "../../ArticleDetailsView";
 import useGetArticleDetails from "../../../hooks/useGetArticleDetails";
+import ArticleDetailsView from "@/components/ui/blogs/ArticleDetailsView";
 
-type ArticleDetailsContext = {
-  id: string;
-};
-
-function PageArticleDetails(props: PageProps<any, ArticleDetailsContext>) {
-  const details = useGetArticleDetails(props.pageContext.id);
+function PageArticleDetails({ params }: { params: { id: string } }) {
+  const details = useGetArticleDetails(params.id);
   return (
     <Layout>
       <div>

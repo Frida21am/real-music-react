@@ -1,4 +1,3 @@
-import React from "react";
 import { Article } from "../../../hooks/useGetArticles";
 
 function ArticleDetailsView(props: { article: Article }) {
