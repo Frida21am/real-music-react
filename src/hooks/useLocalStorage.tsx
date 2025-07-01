@@ -2,21 +2,25 @@
 
 import { useState, useEffect } from "react";
 
-function useLocalStorage(initialValue: string[], key: string) {
-  const getValue = () => {
-    if (typeof window == "undefined") {
-      return [];
-    } else {
-      const storage = localStorage.getItem(key);
-      if (storage) {
-        return JSON.parse(storage);
+function useLocalStorage(
+  initialValue: string[],
+  key: string
+): [string[], (val: string[]) => void] {
+  const [value, setValue] = useState<string[]>(initialValue);
+
+  // Загружаем значение из localStorage только на клиенте
+  useEffect(() => {
+    const storage = localStorage.getItem(key);
+    if (storage) {
+      try {
+        setValue(JSON.parse(storage));
+      } catch (e) {
+        console.error("Ошибка при разборе localStorage:", e);
       }
-      return initialValue;
     }
-  };
+  }, [key]);
 
-  const [value, setValue] = useState(getValue);
-
+  // Сохраняем значение в localStorage при изменении
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(value));
   }, [value, key]);
