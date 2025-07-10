@@ -28,7 +28,7 @@ function ShoppingCart(props: {
             className="popup__close"
             onClick={() => props.onPopupClosing(false)}
           >
-            <Image src={closeImage} alt="" fill />
+            <Image src={closeImage} alt="" width={50} height={50} />
           </span>
           {!isLoading && data != null ? (
             data.length != 0 ? (

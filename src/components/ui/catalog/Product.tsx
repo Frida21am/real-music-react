@@ -37,7 +37,7 @@ function Product(props: { item: IItemDto }) {
           className="products-item__image"
         >
           {props.item.frontImg != null ? (
-            <Image src={props.item.frontImg} alt="" fill />
+            <Image src={props.item.frontImg} alt="" width={50} height={50} />
           ) : null}
         </Link>
         <div

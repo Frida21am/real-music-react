@@ -11,7 +11,7 @@ function ProductInCart(props: {
   return (
     <div className="order-products__item">
       <div className="order-products__item-image">
-        <Image src={props.product.frontImg} alt="" fill />
+        <Image src={props.product.frontImg} alt="" width={50} height={50} />
       </div>
       <div className="order-products__item-text">
         <Link
@@ -29,7 +29,7 @@ function ProductInCart(props: {
         onClick={() => props.removeFromOrder(props.product.id)}
       >
         <div className="order-products__item-close_img">
-          <Image src={closeImage} alt="" fill />
+          <Image src={closeImage} alt="" width={50} height={50} />
         </div>
       </div>
     </div>

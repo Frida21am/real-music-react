@@ -34,7 +34,7 @@ function DeliveryAdvantages() {
           className="delivery-advantages__item"
         >
           <div>
-            <Image src={checked2Image} alt="checked" fill />
+            <Image src={checked2Image} alt="checked" width={50} height={50} />
           </div>
           <p>
             После оформления заказа с менеджером доставка производится по
@@ -47,7 +47,7 @@ function DeliveryAdvantages() {
           className="delivery-advantages__item"
         >
           <div>
-            <Image src={checked2Image} alt="checked" fill />
+            <Image src={checked2Image} alt="checked" width={50} height={50} />
           </div>
           <p>Доставка осуществляется в интервале с 11:00 до 22:00 часов</p>
         </motion.div>
@@ -57,7 +57,7 @@ function DeliveryAdvantages() {
           className="delivery-advantages__item"
         >
           <div>
-            <Image src={checked2Image} alt="checked" fill />
+            <Image src={checked2Image} alt="checked" width={50} height={50} />
           </div>
           <p>
             Есть доставка ко времени, выбирайте удобный интервал не менее 1 часа
@@ -69,7 +69,7 @@ function DeliveryAdvantages() {
           className="delivery-advantages__item"
         >
           <div>
-            <Image src={checked2Image} alt="checked" fill />
+            <Image src={checked2Image} alt="checked" width={50} height={50} />
           </div>
           <p>
             Мы поможем поднять до дверей крупногабаритный товар. Услуги по

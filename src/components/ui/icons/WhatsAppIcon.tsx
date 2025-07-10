@@ -11,7 +11,7 @@ function WhatsAppIcon() {
       rel="noopener noreferrer"
     >
       <div className="whatsapp-button">
-        <Image src={whatsappIcon} alt="WhatsApp" fill />
+        <Image src={whatsappIcon} alt="WhatsApp" width={50} height={50} />
       </div>
     </a>
   );

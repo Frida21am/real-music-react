@@ -23,7 +23,7 @@ function ProductDetailsView(props: { product: Product }) {
         <div className="container">
           <Link href="/gifts" target="_blank" className="detail-gift">
             <div className="detail-gift__image">
-              <Image src={giftboxImage} alt="top" fill />
+              <Image src={giftboxImage} alt="top" width={50} height={50} />
             </div>
             <span>
               При заказе этого инструмента Вы получите аксессуар в подарок!

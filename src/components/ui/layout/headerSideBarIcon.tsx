@@ -41,13 +41,7 @@ function HeaderSideBarIcon() {
     <div className="header-row">
       <div className="header__logo">
         <Link href="/" className="header__logo_image">
-          <Image
-            className="header__logo_image"
-            src={logoImage}
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src={logoImage} alt="" width={50} height={50} />
         </Link>
       </div>
       <div className="header__phone">

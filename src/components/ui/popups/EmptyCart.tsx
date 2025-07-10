@@ -19,13 +19,13 @@ function EmptyCart() {
       </div>
       <div className="empty-cart-content__bg">
         <div className="empty-cart-content__bg-img empty-cart-content__bg_logo">
-          <Image src={logo12Image} alt="" fill />
+          <Image src={logo12Image} alt="" width={50} height={50} />
         </div>
         <div className="empty-cart-content__bg-img empty-cart-content__bg_guitar">
-          <Image src={guitarImage} alt="" fill />
+          <Image src={guitarImage} alt="" width={50} height={50} />
         </div>
         <div className="empty-cart-content__bg-img empty-cart-content__bg_basket">
-          <Image src={basketImage} alt="" fill />
+          <Image src={basketImage} alt="" width={50} height={50} />
         </div>
       </div>
     </div>

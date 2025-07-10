@@ -20,7 +20,7 @@ function VideoFrame(props: { frameUrl?: string }) {
         >
           <span>Оценить звучание</span>
           <p className="detail-card__video-button__img">
-            <Image src={playImage} alt="" fill />
+            <Image src={playImage} alt="" width={50} height={50} />
           </p>
         </div>
       </div>
@@ -54,7 +54,7 @@ function VideoFramePopup(props: {
           className="popup__close"
           onClick={() => props.onPopupClosing(false)}
         >
-          <Image src={closeImage} alt="" fill />
+          <Image src={closeImage} alt="" width={50} height={50} />
         </span>
         <ReactPlayer
           className="detail-card__video-popup__frame"

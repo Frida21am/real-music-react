@@ -52,7 +52,7 @@ function FeedbackFormPopup(props: {
               className="popup__close"
               onClick={() => props.onPopupClosing(false)}
             >
-              <Image src={closeImage} alt="" fill />
+              <Image src={closeImage} alt="" width={50} height={50} />
             </span>
             <div className="feedback-popup__title">
               Мы перезвоним вам в ближайшее время
@@ -85,7 +85,7 @@ function FeedbackFormPopup(props: {
             </button>
             <div className="feedback-popup-form-contacts__bottom">
               <div className="feedback-popup-form-contacts__icon">
-                <Image src={shieldImage} alt="" fill />
+                <Image src={shieldImage} alt="" width={50} height={50} />
               </div>
               <div className="feedback-popup-form-contacts__confidentiality">
                 Мы гарантируем конфиденциальность данных

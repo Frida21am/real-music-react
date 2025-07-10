@@ -41,7 +41,7 @@ function ProductInWishList(props: {
         }}
       >
         <div className="wishlist-products__item-delete_img">
-          <Image src={closeImage} alt="" fill />
+          <Image src={closeImage} alt="" width={50} height={50} />
         </div>
       </div>
     </div>

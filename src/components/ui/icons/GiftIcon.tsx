@@ -23,7 +23,8 @@ function GiftIcon() {
           className="gift-icon__img"
           src={musicalInstrumentsImage}
           alt=""
-          fill
+          width={100}
+          height={50}
         />
         <div className="gift-icon__box-lid">
           <div className="gift-icon__box-bowtie"></div>

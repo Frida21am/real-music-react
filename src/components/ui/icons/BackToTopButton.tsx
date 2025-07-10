@@ -28,7 +28,7 @@ function BackToTopButton() {
     <>
       {backToTopButton && (
         <button className="up-arrow-btn" onClick={scrollUp}>
-          <Image src={upArrowBtnImage} alt="" fill />
+          <Image src={upArrowBtnImage} alt="" width={50} height={50} />
         </button>
       )}
     </>

@@ -30,7 +30,7 @@ function ProductSlider(props: { productImages: string[] }) {
           }
         >
           <div>
-            <Image src={sliderArrowImage} alt="" fill />
+            <Image src={sliderArrowImage} alt="" width={50} height={50} />
           </div>
         </div>
         <Image
@@ -50,7 +50,7 @@ function ProductSlider(props: { productImages: string[] }) {
           }
         >
           <div>
-            <Image src={sliderArrowImage} alt="" fill />
+            <Image src={sliderArrowImage} alt="" width={50} height={50} />
           </div>
         </div>
       </div>

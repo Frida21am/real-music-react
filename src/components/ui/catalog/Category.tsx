@@ -23,7 +23,13 @@ function Category(props: {
     >
       <div className="categories-item__image">
         {props.item.img && (
-          <Image src={props.item.img ?? ""} alt="" draggable="false" fill />
+          <Image
+            src={props.item.img ?? ""}
+            alt=""
+            draggable="false"
+            width={50}
+            height={85}
+          />
         )}
       </div>
       <div className="categories-item__caption">
