@@ -1,29 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-function useLocalStorage(
-  initialValue: string[],
-  key: string
-): [string[], (val: string[]) => void] {
-  const [value, setValue] = useState<string[]>(initialValue);
+function useLocalStorage<T>(initialValue: T, key: string): [T, Dispatch<SetStateAction<T>>] {
+  const [value, setValue] = useState<T>(initialValue);
+  const [loaded, setLoaded] = useState(false);
 
-  // Загружаем значение из localStorage только на клиенте
   useEffect(() => {
-    const storage = localStorage.getItem(key);
-    if (storage) {
+    const stored = localStorage.getItem(key);
+    if (stored) {
       try {
-        setValue(JSON.parse(storage));
-      } catch (e) {
-        console.error("Ошибка при разборе localStorage:", e);
+        setValue(JSON.parse(stored) as T);
+      } catch {
+        localStorage.removeItem(key);
       }
     }
+    setLoaded(true);
   }, [key]);
 
-  // Сохраняем значение в localStorage при изменении
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [value, key]);
+    if (loaded) localStorage.setItem(key, JSON.stringify(value));
+  }, [value, key, loaded]);
 
   return [value, setValue];
 }

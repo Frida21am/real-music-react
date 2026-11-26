@@ -1,10 +1,10 @@
 import React from "react";
-import useGetArticles from "../../../hooks/useGetArticles";
+import { getArticles } from "@/api/articles";
 import Image from "next/image";
 import Link from "next/link";
 
-function Articles() {
-  const articlesList = useGetArticles();
+async function Articles() {
+  const articlesList = await getArticles();
 
   if (articlesList == null) {
     return <span>Нет статей</span>;
@@ -32,12 +32,14 @@ export interface IArticleDto {
 
 function Article(props: { item: IArticleDto }) {
   return (
-    <Link href={`/articles/${props.item.slug}`} className="blog-articles__item">
+    <Link href={`/blog/${props.item.slug}`} className="blog-articles__item">
       {props.item.image && (
         <Image
           src={props.item.image}
           className="blog-articles__item-image"
-          alt="guitar shapes"
+          alt="Изображение статьи"
+          width={360}
+          height={240}
         />
       )}
 

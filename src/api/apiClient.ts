@@ -1,139 +1,80 @@
-import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
-import axios from "axios";
-import {
-  Category as WooCategory,
-  Product as WooProduct,
-} from "@/api/woocommercProducts";
 import { Product } from "./apiClient.dto";
 
-// Удалим User-Agent заголовок, если он есть
-axios.interceptors.request.use((config) => {
-  if (config.headers && "User-Agent" in config.headers) {
-    delete config.headers["User-Agent"];
-  }
-  return config;
-});
-
-const api = new WooCommerceRestApi({
-  url: "https://wp.real-music.store/",
-  consumerKey: "REMOVED_CREDENTIAL",
-  consumerSecret: "REMOVED_CREDENTIAL",
-  version: "wc/v3",
-});
-
-type WooCommerceResponse<T> = {
-  data: T;
-  headers: {
-    "x-wp-total"?: string;
-    "x-wp-totalpages"?: string;
-    [key: string]: unknown;
-  };
+type StoreCategory = { id: number; name: string; parent: number; image?: { src: string } };
+type StoreProduct = {
+  id: number; name: string; slug: string; description: string; short_description: string;
+  images: { src: string }[]; categories: { id: number }[];
+  attributes: { name: string; terms: { name: string }[] }[];
+  prices: { price: string; currency_symbol: string; currency_minor_unit: number };
+  is_in_stock: boolean;
 };
 
-export async function getSubCategories(categoryId: number) {
-  const resp: WooCommerceResponse<WooCategory[]> = await api.get(
-    "products/categories",
-    {
-      parent: categoryId,
-      per_page: 30,
-    }
-  );
+async function catalog<T>(resource: string, params: Record<string, string | number | undefined> = {}) {
+  const query = new URLSearchParams({ resource });
+  for (const [key, value] of Object.entries(params)) if (value !== undefined) query.set(key, String(value));
+  const response = await fetch(`/api/catalog?${query}`);
+  if (!response.ok) throw new Error(`Catalog request failed: ${response.status}`);
+  return { data: (await response.json()) as T, totalPages: Number(response.headers.get("x-wp-totalpages") ?? 0) };
+}
 
-  return resp.data.map((subCategoryQl) => ({
-    id: subCategoryQl.id,
-    title: decodeURI(subCategoryQl.name),
-    parentId: categoryId,
-  }));
+async function categories() {
+  return (await catalog<StoreCategory[]>("products/categories", { per_page: 100 })).data;
+}
+
+export async function getSubCategories(categoryId: number) {
+  return (await categories()).filter((item) => item.parent === categoryId)
+    .map((item) => ({ id: item.id, title: item.name, parentId: categoryId }));
 }
 
 export async function getAllCategory() {
-  const resp: WooCommerceResponse<WooCategory[]> = await api.get(
-    "products/categories",
-    { parent: 0 }
-  );
-
-  const allCategory = resp.data.find((category) => category.parent === 0);
-  if (!allCategory) throw new Error("Category All not found!");
-
-  return {
-    id: allCategory.id,
-    title: decodeURI(allCategory.name),
-    img: allCategory.image?.src,
-  };
+  const items = await categories();
+  const root = items.find((item) => item.parent === 0 && item.name === "Все")
+    ?? items.find((item) => item.parent === 0);
+  if (!root) throw new Error("Root category not found");
+  return { id: root.id, title: root.name, img: root.image?.src };
 }
 
-export async function getAllCategories(allCategoryId: number) {
-  const resp: WooCommerceResponse<WooCategory[]> = await api.get(
-    "products/categories",
-    { parent: allCategoryId, per_page: 30 }
-  );
-
-  return resp.data.map((categoryQl) => ({
-    id: categoryQl.id,
-    title: decodeURI(categoryQl.name),
-    img: categoryQl.image?.src,
-  }));
+export async function getAllCategories(rootId: number) {
+  return (await categories()).filter((item) => item.parent === rootId)
+    .map((item) => ({ id: item.id, title: item.name, img: item.image?.src }));
 }
 
 export type ProductsFilter = {
-  page: number;
-  per_page: number;
-  search?: string;
-  min_price?: number;
-  max_price?: number;
-  category?: number;
+  page: number; per_page: number; search?: string; min_price?: number;
+  max_price?: number; category?: number; order?: string; orderBy?: string;
 };
 
-function mapProduct(wooProduct: WooProduct): Product {
+function mapProduct(item: StoreProduct): Product {
+  const priceRaw = Number(item.prices.price) / 10 ** item.prices.currency_minor_unit;
   return {
-    id: wooProduct.id,
-    title: wooProduct.name,
-    frontImg: wooProduct.images[0]?.src,
-    backImg: wooProduct.images[1]?.src,
-    price: decodeURI(wooProduct.price),
-    description: wooProduct.description,
-    descriptionShort: wooProduct.short_description,
-    bestseller: false,
-    slug: wooProduct.slug,
-    priceRaw: parseFloat(wooProduct.price),
-    listingTime: new Date(wooProduct.date_modified),
-    categoryIds: wooProduct.categories?.map((c) => c.id) ?? [],
-    characteristics:
-      wooProduct.attributes.map((attr) => ({
-        name: attr.name,
-        value: attr.option?.[0],
-      })) ?? [],
-    images: wooProduct.images.map((img) => img.src),
-    isInStock: wooProduct.stock_status === "instock",
-    videoSrc: wooProduct.meta_data?.find((el) => el.key === "video_frame")
-      ?.value,
+    id: item.id, title: item.name, slug: item.slug,
+    frontImg: item.images[0]?.src ?? "", backImg: item.images[1]?.src ?? item.images[0]?.src ?? "",
+    images: item.images.map((image) => image.src),
+    description: item.description, descriptionShort: item.short_description,
+    price: `${priceRaw.toLocaleString("ru-RU")} ${item.prices.currency_symbol}`, priceRaw,
+    listingTime: new Date(0), bestseller: false,
+    categoryIds: item.categories.map((category) => category.id),
+    characteristics: item.attributes.map((attribute) => ({
+      name: attribute.name, value: attribute.terms.map((term) => term.name).join(", "),
+    })),
+    isInStock: item.is_in_stock,
   };
 }
 
 export async function getAllProducts(filter?: ProductsFilter) {
-  const resp: WooCommerceResponse<WooProduct[]> = await api.get(
-    "products",
-    filter
-  );
-
-  return {
-    products: resp.data.map(mapProduct),
-    totalPages: Number(resp.headers["x-wp-totalpages"] || 0),
-  };
+  const { data, totalPages } = await catalog<StoreProduct[]>("products", {
+    page: filter?.page, per_page: filter?.per_page, search: filter?.search,
+    min_price: filter?.min_price, max_price: filter?.max_price,
+    category: filter?.category, order: filter?.order, orderby: filter?.orderBy,
+  });
+  return { products: data.map(mapProduct), totalPages };
 }
 
 export async function getProductsByIds(ids: number[]) {
   if (ids.length === 0) return [];
-  const resp: WooCommerceResponse<WooProduct[]> = await api.get("products", {
-    include: ids,
-  });
-
-  return resp.data.map(mapProduct);
+  return (await catalog<StoreProduct[]>("products", { include: ids.join(","), per_page: 100 })).data.map(mapProduct);
 }
 
 export async function getProductById(id: number) {
-  const resp: WooCommerceResponse<WooProduct> = await api.get(`products/${id}`);
-  return mapProduct(resp.data);
+  return mapProduct((await catalog<StoreProduct>(`products/${id}`)).data);
 }
-
-export default api;

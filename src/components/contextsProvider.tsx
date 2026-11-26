@@ -13,7 +13,7 @@ function ContextProviders({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [liked, setLike] = useLocalStorage([], "like");
+  const [liked, setLike] = useLocalStorage<number[]>([], "like");
   const addToLiked = (id: number) => {
     if (!liked.includes(id)) {
       setLike((oldLiked: number[]) => [...oldLiked, id]);
@@ -23,7 +23,7 @@ function ContextProviders({
     setLike((oldLiked: number[]) => oldLiked.filter((item) => item !== id));
   };
 
-  const [order, setOrder] = useLocalStorage([], "order");
+  const [order, setOrder] = useLocalStorage<number[]>([], "order");
   const addToOrder = (id: number) => {
     if (!order.includes(id)) {
       setOrder((oldOrder: number[]) => [...oldOrder, id]);

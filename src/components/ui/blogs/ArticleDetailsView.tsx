@@ -1,4 +1,4 @@
-import { Article } from "../../../hooks/useGetArticles";
+import { Article } from "@/api/articles";
 
 function ArticleDetailsView(props: { article: Article }) {
   return (

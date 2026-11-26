@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -60,7 +61,7 @@ function GiftsCutaway() {
             ref={containerRef}
           >
             <Image
-              src="../images/bussines-card-test.png"
+              src="/images/bussines-card-test.png"
               alt=""
               className={`gifts-cutaway-card ${
                 isInView ? "gifts-cutaway-card_active" : ""

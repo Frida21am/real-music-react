@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Collapse, CollapseProps, ConfigProvider } from "antd";
 import { motion } from "framer-motion";

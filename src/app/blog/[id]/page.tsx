@@ -1,16 +1,16 @@
 import React from "react";
-import Layout from "../../layout";
-import useGetArticleDetails from "../../../hooks/useGetArticleDetails";
+import { getArticleDetails } from "@/api/articles";
+import { notFound } from "next/navigation";
 import ArticleDetailsView from "@/components/ui/blogs/ArticleDetailsView";
 
-function PageArticleDetails({ params }: { params: { id: string } }) {
-  const details = useGetArticleDetails(params.id);
+async function PageArticleDetails({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const details = await getArticleDetails(id);
+  if (!details) notFound();
   return (
-    <Layout>
-      <div>
-        <ArticleDetailsView article={details} />
-      </div>
-    </Layout>
+    <div>
+      <ArticleDetailsView article={details} />
+    </div>
   );
 }
 
